@@ -1,0 +1,3 @@
+{
+  "app": "npx ts-node cdk/aws-sdk-js-todo-app.ts"
+}
