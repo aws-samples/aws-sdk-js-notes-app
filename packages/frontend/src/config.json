@@ -1,0 +1,6 @@
+{
+  "GATEWAY_URL": "<copy-output-GatewayUrl-from-cdk-deploy>",
+  "IDENTITY_POOL_ID": "<copy-output-IdentityPoolId-from-cdk-deploy>",
+  "FILES_BUCKET": "<copy-output-FilesBucket-from-cdk-deploy>",
+  "MAX_FILE_SIZE": 2000000
+}
