@@ -2,19 +2,8 @@
   "compilerOptions": {
     "target": "ES2018",
     "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictPropertyInitialization": true,
-    "rootDir": "src",
-    "outDir": "dist"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
-  "exclude": ["cdk", "bin", "cdk.out"]
+  "exclude": ["cdk.out"]
 }
