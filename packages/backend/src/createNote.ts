@@ -14,15 +14,9 @@ export const handler = async (event: APIGatewayEvent) => {
       noteId: crypto.randomBytes(20).toString("hex"),
       content: data.content,
       createdAt: Date.now().toString(),
+      ...(data.attachment && { attachment: data.attachment }),
     }),
   };
-
-  if (data.attachment) {
-    // @ts-ignore: Property 'attachment' does not exist on type
-    params.Item.attachment = {
-      S: data.attachment,
-    };
-  }
 
   try {
     const client = new DynamoDBClient({});
