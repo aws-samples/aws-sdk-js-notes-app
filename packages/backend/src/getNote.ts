@@ -1,5 +1,5 @@
 import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
-import { marshall } from "@aws-sdk/util-dynamodb";
+import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { success, failure } from "./libs/response";
 
 // eslint-disable-next-line no-unused-vars
@@ -18,7 +18,7 @@ export const handler = async (event: APIGatewayEvent) => {
     const result = await client.send(new GetItemCommand(params));
     if (result.Item) {
       // Return the retrieved item
-      return success(result.Item);
+      return success(unmarshall(result.Item));
     } else {
       return failure({ status: false, error: "Item not found." });
     }

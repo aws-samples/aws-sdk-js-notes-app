@@ -23,17 +23,7 @@ const ListNotes = (props: RouteComponentProps) => {
       try {
         const response = await fetch(fetchURL);
         const data = await response.json();
-        setNotes(
-          data.reduce((notes: Note[], note: any) => {
-            notes.push({
-              noteId: note.noteId.S as string,
-              createdAt: note.createdAt.S as string,
-              content: note.content.S as string,
-              attachment: note.attachment ? true : false,
-            });
-            return notes;
-          }, [])
-        );
+        setNotes(data);
       } catch (error) {
         setErrorMsg(`${error.toString()} - ${fetchURL}`);
       } finally {
