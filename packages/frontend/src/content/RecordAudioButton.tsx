@@ -61,7 +61,7 @@ const RecordAudioButton = (props: {
           // fix encoding for accented characters.
           const decodedTranscript = decodeURIComponent(escape(Transcript));
           // update noteContent with the latest result.
-          setNoteContent(noteContent + decodedTranscript + "\n");
+          setNoteContent((noteContent: any) => noteContent + decodedTranscript);
         }
       }
     };
