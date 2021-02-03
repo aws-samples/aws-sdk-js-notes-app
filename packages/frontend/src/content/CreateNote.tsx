@@ -56,6 +56,7 @@ const CreateNote = (props: RouteComponentProps) => {
                 setNoteContent(content);
               }
             }}
+            disabled={isRecording}
           />
         </Form.Group>
         <RecordAudioButton
