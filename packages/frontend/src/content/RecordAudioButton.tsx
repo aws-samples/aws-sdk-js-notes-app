@@ -27,18 +27,19 @@ const RecordAudioButton = (props: {
       }
     } else {
       setIsRecording(true);
+      let mic: any;
       try {
         const audio = await navigator.mediaDevices.getUserMedia({
           audio: true,
           video: false,
         });
-        const mic = new MicrophoneStream();
+        mic = new MicrophoneStream();
         mic.setStream(audio);
         setMicStream(mic);
         await streamAudioToWebSocket(mic);
       } catch (error) {
-        if (micStream) {
-          micStream.stop();
+        if (mic) {
+          mic.stop();
           setMicStream(null);
         }
         console.log(error);
