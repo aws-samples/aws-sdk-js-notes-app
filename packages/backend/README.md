@@ -22,9 +22,9 @@ Ensure that you've followed pre-requisites from main [README](../../README.md).
 ### Test backend API
 
 - Open the GatewayUrl link from CDK output from the console.
-  - It'll be like: https://randomstring.execute-api.us-west-2.amazonaws.com/prod/
+  - It'll be like: https://randomstring.execute-api.region.amazonaws.com/prod/
 - Append `notes` in the URL.
-  - It'll be like: https://randomstring.execute-api.us-west-2.amazonaws.com/prod/notes
+  - It'll be like: https://randomstring.execute-api.region.amazonaws.com/prod/notes
 - The contents of the notes DynamoDB table would be returned as JSON.
 - If you don't see anything, that's because your table is likely empty! Add data manually or wait until you run the frontend.
 
