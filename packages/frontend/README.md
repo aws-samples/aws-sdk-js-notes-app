@@ -30,7 +30,7 @@ Ensure that you've followed pre-requisites from main [README](../../README.md), 
     - Example GatewayURL: `https://randomstring.execute-api.region.amazonaws.com/prod/`
   - Add `aws-js-sdk-notes-app.IdentityPoolId` from CDK output for `IDENTITY_POOL_ID`.
     - Example IdentityPoolId: `region:random-strc-4ce1-84ee-9a429f9b557e`
-  - Add `aws-js-sdk-notes-app.region` from CDK output for `REGION`.
+  - Add `aws-js-sdk-notes-app.Region` from CDK output for `REGION`.
 - `yarn start:frontend` to run the server.
   - This will open the website in the browser, and enable HMR.
   - Just edit and save the files in `packages/frontend/src`, and the browser page will auto-refresh!
