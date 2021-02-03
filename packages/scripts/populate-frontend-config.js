@@ -31,9 +31,9 @@ const { readFileSync, writeFileSync, unlinkSync } = require("fs");
     const cdkOutput = JSON.parse(readFileSync(cdkOutputsFile))[
       "aws-sdk-js-notes-app"
     ];
+    configContents.FILES_BUCKET = cdkOutput.FilesBucket;
     configContents.GATEWAY_URL = cdkOutput.GatewayUrl;
     configContents.IDENTITY_POOL_ID = cdkOutput.IdentityPoolId;
-    configContents.FILES_BUCKET = cdkOutput.FilesBucket;
     configContents.REGION = cdkOutput.Region;
     writeFileSync(configFile, JSON.stringify(configContents, null, 2));
   } catch (error) {
