@@ -41,6 +41,10 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
+  const noteContentAdditionalProps = isRecording
+    ? { disabled: true, value: noteContent }
+    : {};
+
   return (
     <PageContainer header={<HomeButton />}>
       <form onSubmit={handleSubmit}>
@@ -56,7 +60,7 @@ const CreateNote = (props: RouteComponentProps) => {
                 setNoteContent(content);
               }
             }}
-            disabled={isRecording}
+            {...noteContentAdditionalProps}
           />
         </Form.Group>
         <RecordAudioButton
