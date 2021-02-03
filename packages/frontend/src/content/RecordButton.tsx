@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Alert } from "react-bootstrap";
+import { Button, Alert, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { MicFill, MicMute } from "react-bootstrap-icons";
 
 const RecordAudioButton = () => {
@@ -17,13 +17,19 @@ const RecordAudioButton = () => {
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-      <Button
-        variant={isRecording ? "primary" : "outline-secondary"}
-        size="sm"
-        onClick={toggleAudio}
+      <OverlayTrigger
+        placement="top"
+        delay={250}
+        overlay={<Tooltip id="button-tooltip">Transcribe by voice</Tooltip>}
       >
-        {isRecording ? <MicFill /> : <MicMute />}
-      </Button>
+        <Button
+          variant={isRecording ? "primary" : "outline-secondary"}
+          size="sm"
+          onClick={toggleAudio}
+        >
+          {isRecording ? <MicFill /> : <MicMute />}
+        </Button>
+      </OverlayTrigger>
     </>
   );
 };
