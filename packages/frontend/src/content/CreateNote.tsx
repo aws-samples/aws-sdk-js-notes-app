@@ -4,14 +4,13 @@ import { navigate, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
+import { RecordAudioButton } from "./RecordButton";
 
 const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
   const [file, setFile] = useState();
-
-  const [isRecording, setIsRecording] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,14 +40,6 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
-  const toggleAudio = () => {
-    if (isRecording) {
-      setIsRecording(false);
-    } else {
-      setIsRecording(true);
-    }
-  };
-
   return (
     <PageContainer header={<HomeButton />}>
       <form onSubmit={handleSubmit}>
@@ -66,13 +57,7 @@ const CreateNote = (props: RouteComponentProps) => {
             }}
           />
         </Form.Group>
-        <Button
-          variant={isRecording ? "secondary" : "outline-secondary"}
-          size="sm"
-          onClick={toggleAudio}
-        >
-          🎙️
-        </Button>
+        <RecordAudioButton />
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
           <Form.Control
