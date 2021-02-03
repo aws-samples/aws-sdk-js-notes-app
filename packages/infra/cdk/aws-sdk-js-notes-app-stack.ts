@@ -113,6 +113,7 @@ export class AwsSdkJsNotesAppStack extends cdk.Stack {
       },
     });
 
+    new cdk.CfnOutput(this, "Region", { value: this.region });
     new cdk.CfnOutput(this, "GatewayUrl", { value: api.url });
     new cdk.CfnOutput(this, "IdentityPoolId", { value: identityPool.ref });
     new cdk.CfnOutput(this, "FilesBucket", { value: filesBucket.bucketName });
