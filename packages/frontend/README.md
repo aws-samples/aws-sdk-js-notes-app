@@ -25,11 +25,11 @@ Ensure that you've followed pre-requisites from main [README](../../README.md), 
 
 - `yarn prepare:frontend` to populate Cloudformation resources in frontend config.
 - The resources can also be manually added in [`src/config.json`](./src/config.json).
-  - Add `aws-js-sdk-todo-app.GatewayUrl` from CDK output for `GATEWAY_URL`.
+  - Add `aws-js-sdk-notes-app.GatewayUrl` from CDK output for `GATEWAY_URL`.
     - Example GatewayURL: `https://randomstring.execute-api.us-west-2.amazonaws.com/prod/`
-  - Add `aws-js-sdk-todo-app.IdentityPoolId` from CDK output for `IDENTITY_POOL_ID`.
+  - Add `aws-js-sdk-notes-app.IdentityPoolId` from CDK output for `IDENTITY_POOL_ID`.
     - Example IdentityPoolId: `us-west-2:random-strc-4ce1-84ee-9a429f9b557e`
-  - Add `aws-js-sdk-todo-app.FilesBucket` from CDK output for `FILES_BUCKET`.
+  - Add `aws-js-sdk-notes-app.FilesBucket` from CDK output for `FILES_BUCKET`.
 - `yarn start:frontend` to run the server.
   - This will open the website in the browser, and enable HMR.
   - Just edit and save the files in `packages/frontend/src`, and the browser page will auto-refresh!

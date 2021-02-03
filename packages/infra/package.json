@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk-todo-app/infra",
+  "name": "@aws-sdk-notes-app/infra",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
