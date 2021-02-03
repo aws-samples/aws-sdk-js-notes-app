@@ -10,7 +10,7 @@ export const handler = async (event: APIGatewayEvent) => {
     TableName: process.env.NOTES_TABLE_NAME || "",
     // 'Key' defines the partition key and sort key of the item to be removed
     // - 'noteId': path parameter
-    Key: marshall({ noteId: event?.pathParameters?.id }),
+    Key: marshall({ noteId: event.pathParameters?.id }),
   };
 
   try {
