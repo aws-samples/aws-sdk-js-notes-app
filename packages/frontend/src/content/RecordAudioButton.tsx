@@ -38,12 +38,13 @@ const RecordAudioButton = (props: {
         setMicStream(mic);
         await streamAudioToWebSocket(mic);
       } catch (error) {
+        console.log(error);
+        setErrorMsg(`${error.toString()}`);
+      } finally {
         if (mic) {
           mic.stop();
           setMicStream(null);
         }
-        console.log(error);
-        setErrorMsg(`${error.toString()}`);
         setIsRecording(false);
       }
     }
