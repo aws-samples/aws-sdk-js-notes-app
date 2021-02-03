@@ -56,6 +56,9 @@ const CreateNote = (props: RouteComponentProps) => {
             }}
           />
         </Form.Group>
+        <Button variant="outline-secondary" size="sm" disabled>
+          🎙️
+        </Button>
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
           <Form.Control
