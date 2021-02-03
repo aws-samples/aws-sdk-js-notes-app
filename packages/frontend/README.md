@@ -6,11 +6,11 @@
 - This is a create-react-app which creates minimized bundle on running `build`, and debugs it on running `start`.
 
   <details><summary>Click to view screen recording</summary>
-  <p>
 
-  [![Screen recording](https://img.youtube.com/vi/qBltinDalzU/0.jpg)](https://www.youtube.com/watch?v=qBltinDalzU)
+  https://user-images.githubusercontent.com/16024985/106799506-32a53900-6614-11eb-8582-0720d5a0bb78.mp4
 
-  </p>
+  https://user-images.githubusercontent.com/16024985/106799524-3638c000-6614-11eb-82dd-1c9095e23244.mov
+
   </details>
 
 ## Table of Contents
