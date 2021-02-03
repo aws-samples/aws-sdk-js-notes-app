@@ -6,7 +6,7 @@ import * as cognito from "@aws-cdk/aws-cognito";
 import * as iam from "@aws-cdk/aws-iam";
 import { NotesApi } from "./notes-api";
 
-export class AwsSdkJsTodoAppStack extends cdk.Stack {
+export class AwsSdkJsNotesAppStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
