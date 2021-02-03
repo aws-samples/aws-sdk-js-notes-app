@@ -27,7 +27,7 @@ const ListNotes = (props: RouteComponentProps) => {
           data.reduce((notes: Note[], note: any) => {
             notes.push({
               noteId: note.noteId.S as string,
-              createdAt: note.createdAt.N as string,
+              createdAt: note.createdAt.S as string,
               content: note.content.S as string,
               attachment: note.attachment ? true : false,
             });
