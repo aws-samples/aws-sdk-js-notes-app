@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { MicFill, MicMute } from "react-bootstrap-icons";
 
-const RecordAudioButton = () => {
+const RecordAudioButton = (props: {
+  isRecording: boolean;
+  setIsRecording: Function;
+}) => {
+  const { isRecording, setIsRecording } = props;
   const [errorMsg, setErrorMsg] = useState("");
-  const [isRecording, setIsRecording] = useState(false);
 
   const toggleAudio = () => {
     if (isRecording) {

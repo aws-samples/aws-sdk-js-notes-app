@@ -10,6 +10,7 @@ const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
+  const [isRecording, setIsRecording] = useState(false);
   const [file, setFile] = useState();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -48,7 +49,7 @@ const CreateNote = (props: RouteComponentProps) => {
           <Form.Label>Note Content</Form.Label>
           <Form.Control
             as="textarea"
-            placeholder="Enter Note content"
+            placeholder={isRecording ? "Speak Now" : "Enter Note content"}
             onChange={(e) => {
               const content = e.currentTarget.value;
               if (content) {
@@ -57,7 +58,10 @@ const CreateNote = (props: RouteComponentProps) => {
             }}
           />
         </Form.Group>
-        <RecordAudioButton />
+        <RecordAudioButton
+          isRecording={isRecording}
+          setIsRecording={setIsRecording}
+        />
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
           <Form.Control
