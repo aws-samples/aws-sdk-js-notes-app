@@ -66,6 +66,8 @@ const CreateNote = (props: RouteComponentProps) => {
         <RecordAudioButton
           isRecording={isRecording}
           setIsRecording={setIsRecording}
+          noteContent={noteContent}
+          setNoteContent={setNoteContent}
         />
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
