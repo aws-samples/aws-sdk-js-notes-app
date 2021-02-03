@@ -34,6 +34,7 @@ const { readFileSync, writeFileSync, unlinkSync } = require("fs");
     configContents.GATEWAY_URL = cdkOutput.GatewayUrl;
     configContents.IDENTITY_POOL_ID = cdkOutput.IdentityPoolId;
     configContents.FILES_BUCKET = cdkOutput.FilesBucket;
+    configContents.REGION = cdkOutput.Region;
     writeFileSync(configFile, JSON.stringify(configContents, null, 2));
   } catch (error) {
     console.log(`Error while updating config.json: ${error}`);
