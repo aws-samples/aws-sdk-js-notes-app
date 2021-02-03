@@ -4,11 +4,13 @@ import { navigate, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
+import { RecordAudioButton } from "./RecordAudioButton";
 
 const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
+  const [isRecording, setIsRecording] = useState(false);
   const [file, setFile] = useState();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -39,6 +41,10 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
+  const noteContentAdditionalProps = isRecording
+    ? { disabled: true, value: noteContent }
+    : {};
+
   return (
     <PageContainer header={<HomeButton />}>
       <form onSubmit={handleSubmit}>
@@ -47,15 +53,22 @@ const CreateNote = (props: RouteComponentProps) => {
           <Form.Label>Note Content</Form.Label>
           <Form.Control
             as="textarea"
-            placeholder="Enter Note content"
+            placeholder={isRecording ? "Speak Now" : "Enter Note content"}
             onChange={(e) => {
               const content = e.currentTarget.value;
               if (content) {
                 setNoteContent(content);
               }
             }}
+            {...noteContentAdditionalProps}
           />
         </Form.Group>
+        <RecordAudioButton
+          isRecording={isRecording}
+          setIsRecording={setIsRecording}
+          noteContent={noteContent}
+          setNoteContent={setNoteContent}
+        />
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
           <Form.Control

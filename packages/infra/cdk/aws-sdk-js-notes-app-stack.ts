@@ -106,6 +106,14 @@ export class AwsSdkJsNotesAppStack extends cdk.Stack {
     filesBucket.grantPut(unauthenticated);
     filesBucket.grantDelete(unauthenticated);
 
+    // Add policy to start Transcribe stream transcription
+    unauthenticated.addToPolicy(
+      new iam.PolicyStatement({
+        resources: ["*"],
+        actions: ["transcribe:StartStreamTranscriptionWebSocket"],
+      })
+    );
+
     new cognito.CfnIdentityPoolRoleAttachment(this, "role-attachment", {
       identityPoolId: identityPool.ref,
       roles: {

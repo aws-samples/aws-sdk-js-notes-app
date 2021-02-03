@@ -1,12 +1,16 @@
-# S3 browser client
+# @aws-sdk-notes-app/frontend
 
-- This package contains frontend code which does put, get, delete operations using S3 browser client.
+- This package contains frontend code which performs:
+  - Put, Get, Delete operations on S3 client.
+  - StartStreamTranscription operation on TranscribeStreaming client.
 - This is a create-react-app which creates minimized bundle on running `build`, and debugs it on running `start`.
 
   <details><summary>Click to view screen recording</summary>
   <p>
 
   [![Screen recording](https://img.youtube.com/vi/qBltinDalzU/0.jpg)](https://www.youtube.com/watch?v=qBltinDalzU)
+
+  [![Screen recording](https://img.youtube.com/vi/fF9zd0YJn6A/0.jpg)](https://www.youtube.com/watch?v=fF9zd0YJn6A)
 
   </p>
   </details>
