@@ -4,7 +4,7 @@ import { navigate, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
-import { RecordAudioButton } from "./RecordButton";
+import { RecordAudioButton } from "./RecordAudioButton";
 
 const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
