@@ -1,4 +1,5 @@
 import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
+import { marshall } from "@aws-sdk/util-dynamodb";
 import { success, failure } from "./libs/response";
 
 // eslint-disable-next-line no-unused-vars
@@ -9,9 +10,7 @@ export const handler = async (event: APIGatewayEvent) => {
     TableName: process.env.NOTES_TABLE_NAME || "",
     // 'Key' defines the partition key and sort key of the item to be retrieved
     // - 'noteId': path parameter
-    Key: {
-      noteId: { S: event?.pathParameters?.id },
-    },
+    Key: marshall({ noteId: event?.pathParameters?.id }),
   };
 
   try {
