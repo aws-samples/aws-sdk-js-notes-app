@@ -734,6 +734,7 @@ __metadata:
   resolution: "@aws-sdk-notes-app/backend@workspace:packages/backend"
   dependencies:
     "@aws-sdk/client-dynamodb": 3.4.1
+    "@aws-sdk/util-dynamodb": 3.4.1
     "@types/aws-lambda": ^8.10.64
     "@types/node": ^14.14.2
     "@typescript-eslint/eslint-plugin": 4.8.2
@@ -1554,6 +1555,15 @@ __metadata:
     "@aws-sdk/types": 3.4.1
     tslib: ^1.8.0
   checksum: 5b38a7d6843b43e765289a9bde9892c76428a77a91b18d14445439217544b89135d9603f5d15dd2a3c501faaa32760e9ee1afb8236f9f213f5661f294ed25cea
+  languageName: node
+  linkType: hard
+
+"@aws-sdk/util-dynamodb@npm:3.4.1":
+  version: 3.4.1
+  resolution: "@aws-sdk/util-dynamodb@npm:3.4.1"
+  dependencies:
+    tslib: ^1.8.0
+  checksum: 63a781302516ae6c0328a5596909421ff717f565c7e651c1d274e6e7c46e82e99f82e954e07b2ecfd0a649724489d35c7deb5b66cb72288346ad468dd831bca5
   languageName: node
   linkType: hard
 

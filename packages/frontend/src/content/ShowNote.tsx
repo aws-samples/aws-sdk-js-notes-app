@@ -21,10 +21,10 @@ const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
       try {
         const response = await fetch(fetchURL);
         const data = await response.json();
-        setNoteContent(data.content.S as string);
+        setNoteContent(data.content);
         if (data.attachment) {
-          setAttachment(data.attachment.S);
-          setAttachmentURL(await getObjectUrl(data.attachment.S));
+          setAttachment(data.attachment);
+          setAttachmentURL(await getObjectUrl(data.attachment));
         }
       } catch (error) {
         // Navigate to 404 page, as noteId probably not present
