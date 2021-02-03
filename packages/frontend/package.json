@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk-todo-app/frontend",
+  "name": "@aws-sdk-notes-app/frontend",
   "version": "0.1.0",
   "private": true,
   "description": "Frontend for todo app created using modular AWS SDK for JavaScript",

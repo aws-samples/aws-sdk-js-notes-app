@@ -1,4 +1,4 @@
-# aws-sdk-js-todo-app
+# aws-sdk-js-notes-app
 
 In this app, you are going to build a simple todo application using
 [modular AWS SDK for JavaScript][modular-aws-sdk-js-blog-post]

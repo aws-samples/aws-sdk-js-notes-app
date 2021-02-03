@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk-todo-app/backend",
+  "name": "@aws-sdk-notes-app/backend",
   "version": "1.0.0",
   "private": true,
   "description": "Backend for todo app created using modular AWS SDK for JavaScript",
