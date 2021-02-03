@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { MicFill, MicMute } from "react-bootstrap-icons";
+
+// @ts-ignore
 import * as MicrophoneStream from "microphone-stream";
+
 import { pcmEncode } from "../libs/audioUtils";
 import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionResponse";
 
