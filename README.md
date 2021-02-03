@@ -1,6 +1,6 @@
 # aws-sdk-js-notes-app
 
-In this app, you are going to build a simple todo application using
+In this app, you are going to build a simple note taking application using
 [modular AWS SDK for JavaScript][modular-aws-sdk-js-blog-post]
 
 ## Table of Contents
@@ -18,7 +18,7 @@ In this app, you are going to build a simple todo application using
 
 ## Prerequisites
 
-To set up this todo app, complete the following tasks:
+To set up this notes app, complete the following tasks:
 
 - Install **Node.js** by following these steps:
   1. Install [nvm](https://github.com/nvm-sh/nvm#installation-and-update).

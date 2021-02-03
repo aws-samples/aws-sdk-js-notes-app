@@ -2,7 +2,7 @@
   "name": "@aws-sdk-notes-app/backend",
   "version": "1.0.0",
   "private": true,
-  "description": "Backend for todo app created using modular AWS SDK for JavaScript",
+  "description": "Backend for notes app created using modular AWS SDK for JavaScript",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "3.4.1"
   },
