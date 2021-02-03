@@ -768,6 +768,7 @@ __metadata:
     local-web-server: ^4.2.1
     react: 17.0.1
     react-bootstrap: 1.4.0
+    react-bootstrap-icons: 1.3.0
     react-dom: 17.0.1
     react-scripts: 4.0.1
     typescript: ~4.1.2
@@ -18055,6 +18056,17 @@ fsevents@^1.2.7:
     regenerator-runtime: ^0.13.7
     whatwg-fetch: ^3.4.1
   checksum: 96b8bb3bdeb5279ebb73622744dcaba75a2f48861e8353052cb758e33db850845b11fa7da87c52663a4e4ee9ed356069f6a1e42151a74f01dc24bbfbbc5ad79a
+  languageName: node
+  linkType: hard
+
+"react-bootstrap-icons@npm:1.3.0":
+  version: 1.3.0
+  resolution: "react-bootstrap-icons@npm:1.3.0"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^16.8.6 || ^17
+  checksum: 4a6776a3b5e9350ccacf53098f5e72178a543425accd48dd8c8a28735ac612bd485ae567fa5e9e7f8ccc671827019ebaa4cfe5a9e2948e1558f82b69e222e264
   languageName: node
   linkType: hard
 

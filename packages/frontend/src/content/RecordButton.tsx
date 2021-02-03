@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
-import { ButtonSpinner } from "../components";
+import { MicFill, MicMute } from "react-bootstrap-icons";
 
 const RecordAudioButton = () => {
   const [errorMsg, setErrorMsg] = useState("");
@@ -22,8 +22,7 @@ const RecordAudioButton = () => {
         size="sm"
         onClick={toggleAudio}
       >
-        {isRecording ? <ButtonSpinner /> : ""}
-        {isRecording ? "Recording..." : "Record"}
+        {isRecording ? <MicFill /> : <MicMute />}
       </Button>
     </>
   );
