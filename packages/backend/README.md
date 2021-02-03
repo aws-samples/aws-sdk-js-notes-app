@@ -1,6 +1,6 @@
-# DynamodDB client
+# @aws-sdk-notes-app/backend
 
-- This package contains backend code which performs create, delete, get, list and update operations on DynamoDB.
+- This package contains backend code which performs Create, Delete, Get, Scan and Update operations on DynamoDB.
 - It uses webpack to build single minimized bundle for each operation, and AWS CDK to deploy those bundles.
 
 ## Table of Contents
