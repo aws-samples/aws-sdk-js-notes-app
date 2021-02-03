@@ -11,6 +11,8 @@ const CreateNote = (props: RouteComponentProps) => {
   const [noteContent, setNoteContent] = useState("");
   const [file, setFile] = useState();
 
+  const [isRecording, setIsRecording] = useState(false);
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -39,6 +41,14 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
+  const toggleAudio = () => {
+    if (isRecording) {
+      setIsRecording(false);
+    } else {
+      setIsRecording(true);
+    }
+  };
+
   return (
     <PageContainer header={<HomeButton />}>
       <form onSubmit={handleSubmit}>
@@ -56,7 +66,11 @@ const CreateNote = (props: RouteComponentProps) => {
             }}
           />
         </Form.Group>
-        <Button variant="outline-secondary" size="sm" disabled>
+        <Button
+          variant={isRecording ? "secondary" : "outline-secondary"}
+          size="sm"
+          onClick={toggleAudio}
+        >
           🎙️
         </Button>
         <Form.Group controlId="file">
