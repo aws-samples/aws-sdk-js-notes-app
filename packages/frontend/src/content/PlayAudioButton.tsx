@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { PlayCircle, StopFill } from "react-bootstrap-icons";
+import { getSynthesizedSpeechResponse } from "../libs/getSynthesizedSpeechResponse";
 
 const PlayAudioButton = (props: {
   isPlaying: boolean;
@@ -13,38 +14,24 @@ const PlayAudioButton = (props: {
   const togglePlay = async () => {
     if (isPlaying) {
       setIsPlaying(false);
-      // if (micStream) {
-      //   micStream.stop();
-      //   setMicStream(undefined);
-      // }
     } else {
       setIsPlaying(true);
-      // let mic;
-      // try {
-      //   const audio = await navigator.mediaDevices.getUserMedia({
-      //     audio: true,
-      //     video: false,
-      //   });
-      //   mic = new MicrophoneStream();
-      //   mic.setStream(audio);
-      //   setMicStream(mic);
-      //   await streamAudioToWebSocket(mic);
-      // } catch (error) {
-      //   console.log(error);
-      //   setErrorMsg(`${error.toString()}`);
-      // } finally {
-      //   if (mic) {
-      //     mic.stop();
-      //     setMicStream(undefined);
-      //   }
-      //   setIsRecording(false);
-      // }
+      try {
+        const { AudioStream } = await getSynthesizedSpeechResponse(noteContent);
+        console.log(AudioStream);
+      } catch (error) {
+        console.log(error);
+        setErrorMsg(`${error.toString()}`);
+      } finally {
+        setIsPlaying(false);
+      }
     }
   };
 
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
+      <audio id="player"></audio>
       <Button
         className="mx-2"
         variant={isPlaying ? "primary" : "outline-secondary"}
