@@ -21,6 +21,12 @@ const PlayAudioButton = (props: {
       setIsPlaying(true);
       try {
         const { AudioStream } = await getSynthesizedSpeechResponse(noteContent);
+        const stream = new MediaStream();
+        // @ts-ignore
+        stream.addTrack(AudioStream);
+        // @ts-ignore
+        audioPlayer.current?.srcObject = stream;
+        audioPlayer.current?.load();
         audioPlayer.current?.play();
       } catch (error) {
         console.log(error);
@@ -35,7 +41,7 @@ const PlayAudioButton = (props: {
       <audio
         // @ts-ignore
         ref={audioPlayer}
-        src="https://d1.awsstatic.com/product-marketing/Polly/voices/features_joanna_news.dfd96576dcc6e1f906111c9938748773f3431213.mp3"
+        // src="https://d1.awsstatic.com/product-marketing/Polly/voices/features_joanna_news.dfd96576dcc6e1f906111c9938748773f3431213.mp3"
         controls
       ></audio>
       <Button
