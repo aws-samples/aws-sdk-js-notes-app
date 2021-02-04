@@ -51,21 +51,6 @@ const RecordAudioButton = (props: {
   };
 
   const streamAudioToWebSocket = async (micStream: any) => {
-    const handleEventStreamMessage = (messageJson: any) => {
-      let results = messageJson.Transcript.Results;
-
-      if (results.length > 0) {
-        if (results[0].Alternatives.length > 0) {
-          const { Transcript } = results[0].Alternatives[0];
-
-          // fix encoding for accented characters.
-          const decodedTranscript = decodeURIComponent(escape(Transcript));
-          // update noteContent with the latest result.
-          setNoteContent(noteContent + decodedTranscript + "\n");
-        }
-      }
-    };
-
     const pcmEncodeChunk = (audioChunk: any) => {
       const raw = MicrophoneStream.toRaw(audioChunk);
       if (raw == null) return;
@@ -83,10 +68,33 @@ const RecordAudioButton = (props: {
     );
 
     if (TranscriptResultStream) {
+      let transcription = "";
       for await (const event of TranscriptResultStream) {
         if (event.TranscriptEvent) {
-          const message = event.TranscriptEvent;
-          handleEventStreamMessage(message);
+          const { Results: results } = event.TranscriptEvent.Transcript || {};
+
+          if (results && results.length > 0) {
+            if (
+              results[0]?.Alternatives &&
+              results[0]?.Alternatives?.length > 0
+            ) {
+              const { Transcript } = results[0].Alternatives[0];
+
+              const prevTranscription = transcription;
+              // fix encoding for accented characters.
+              transcription = decodeURIComponent(escape(Transcript || ""));
+
+              setNoteContent(
+                (noteContent: any) =>
+                  noteContent.replace(prevTranscription, "") + transcription
+              );
+
+              // if this transcript segment is final, reset transcription
+              if (!results[0].IsPartial) {
+                transcription = "";
+              }
+            }
+          }
         }
       }
     }
