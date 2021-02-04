@@ -9,21 +9,23 @@ const PlayAudioButton = (props: {
   noteContent: string;
 }) => {
   const { isPlaying, setIsPlaying, noteContent } = props;
+  const player = new Audio(
+    "https://d1.awsstatic.com/product-marketing/Polly/voices/joanna.84722a684fbb16e766944ea6e34dd0042195571c.mp3"
+  );
   const [errorMsg, setErrorMsg] = useState("");
 
   const togglePlay = async () => {
     if (isPlaying) {
       setIsPlaying(false);
+      player.pause();
     } else {
       setIsPlaying(true);
       try {
         const { AudioStream } = await getSynthesizedSpeechResponse(noteContent);
-        console.log(AudioStream);
+        player.play();
       } catch (error) {
         console.log(error);
         setErrorMsg(`${error.toString()}`);
-      } finally {
-        setIsPlaying(false);
       }
     }
   };
@@ -31,7 +33,6 @@ const PlayAudioButton = (props: {
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-      <audio id="player"></audio>
       <Button
         className="mx-2"
         variant={isPlaying ? "primary" : "outline-secondary"}
