@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { MicFill, MicMute } from "react-bootstrap-icons";
 
-// @ts-ignore https://github.com/saebekassebil/microphone-stream/issues/39
-import * as MicrophoneStream from "microphone-stream";
+import MicrophoneStream from "microphone-stream";
 
 import { pcmEncode } from "../libs/audioUtils";
 import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionResponse";
@@ -14,7 +13,7 @@ const RecordAudioButton = (props: {
   setNoteContent: Function;
 }) => {
   const { isRecording, setIsRecording, setNoteContent } = props;
-  const [micStream, setMicStream] = useState<any>();
+  const [micStream, setMicStream] = useState<MicrophoneStream | undefined>();
   const [errorMsg, setErrorMsg] = useState("");
 
   const toggleTrascription = async () => {
@@ -22,11 +21,11 @@ const RecordAudioButton = (props: {
       setIsRecording(false);
       if (micStream) {
         micStream.stop();
-        setMicStream(null);
+        setMicStream(undefined);
       }
     } else {
       setIsRecording(true);
-      let mic: any;
+      let mic;
       try {
         const audio = await navigator.mediaDevices.getUserMedia({
           audio: true,
@@ -42,21 +41,22 @@ const RecordAudioButton = (props: {
       } finally {
         if (mic) {
           mic.stop();
-          setMicStream(null);
+          setMicStream(undefined);
         }
         setIsRecording(false);
       }
     }
   };
 
-  const streamAudioToWebSocket = async (micStream: any) => {
-    const pcmEncodeChunk = (audioChunk: any) => {
+  const streamAudioToWebSocket = async (micStream: MicrophoneStream) => {
+    const pcmEncodeChunk = (audioChunk: Buffer) => {
       const raw = MicrophoneStream.toRaw(audioChunk);
       if (raw == null) return;
       return Buffer.from(pcmEncode(raw));
     };
 
     const transcribeInput = async function* () {
+      // @ts-ignore Type 'MicrophoneStream' is not an array type or a string type.
       for await (const chunk of micStream) {
         yield { AudioEvent: { AudioChunk: pcmEncodeChunk(chunk) } };
       }
@@ -81,7 +81,9 @@ const RecordAudioButton = (props: {
 
               const transcriptionToRemove = partialTranscription;
               // fix encoding for accented characters.
-              const transcription = decodeURIComponent(escape(Transcript || ""));
+              const transcription = decodeURIComponent(
+                escape(Transcript || "")
+              );
 
               setNoteContent(
                 (noteContent: any) =>
