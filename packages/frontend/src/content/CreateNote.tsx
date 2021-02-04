@@ -5,13 +5,16 @@ import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
 import { RecordAudioButton } from "./RecordAudioButton";
+import { PlayAudioButton } from "./PlayAudioButton";
 
 const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
-  const [isRecording, setIsRecording] = useState(false);
   const [file, setFile] = useState();
+
+  const [isRecording, setIsRecording] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -63,11 +66,18 @@ const CreateNote = (props: RouteComponentProps) => {
             {...noteContentAdditionalProps}
           />
         </Form.Group>
-        <RecordAudioButton
-          isRecording={isRecording}
-          setIsRecording={setIsRecording}
-          setNoteContent={setNoteContent}
-        />
+        <Form.Group>
+          <RecordAudioButton
+            isRecording={isRecording}
+            setIsRecording={setIsRecording}
+            setNoteContent={setNoteContent}
+          />
+          <PlayAudioButton
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            noteContent={noteContent}
+          />
+        </Form.Group>
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
           <Form.Control
