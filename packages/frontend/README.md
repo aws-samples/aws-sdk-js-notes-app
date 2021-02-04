@@ -3,14 +3,17 @@
 - This package contains frontend code which performs:
   - Put, Get, Delete operations on S3 client.
   - StartStreamTranscription operation on TranscribeStreaming client.
+  - SynthesizeSpeech operation on Polly client.
 - This is a create-react-app which creates minimized bundle on running `build`, and debugs it on running `start`.
 
-  <details><summary>Click to view screen recording</summary>
+  <details><summary>Click to view screen recordings</summary>
   <p>
 
   [![Screen recording](https://img.youtube.com/vi/qBltinDalzU/0.jpg)](https://www.youtube.com/watch?v=qBltinDalzU)
 
   [![Screen recording](https://img.youtube.com/vi/fF9zd0YJn6A/0.jpg)](https://www.youtube.com/watch?v=fF9zd0YJn6A)
+
+  [![Screen recording](https://img.youtube.com/vi/tNI05dyeyqY/0.jpg)](https://www.youtube.com/watch?v=tNI05dyeyqY)
 
   </p>
   </details>
