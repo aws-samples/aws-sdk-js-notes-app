@@ -114,6 +114,11 @@ export class AwsSdkJsNotesAppStack extends cdk.Stack {
       })
     );
 
+    // Add policy to enable Amazon Polly text-to-speech
+    unauthenticated.addManagedPolicy(
+      iam.ManagedPolicy.fromAwsManagedPolicyName("AmazonPollyFullAccess")
+    );
+
     new cognito.CfnIdentityPoolRoleAttachment(this, "role-attachment", {
       identityPoolId: identityPool.ref,
       roles: {
