@@ -11,10 +11,9 @@ import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionRe
 const RecordAudioButton = (props: {
   isRecording: boolean;
   setIsRecording: Function;
-  noteContent: string;
   setNoteContent: Function;
 }) => {
-  const { isRecording, setIsRecording, noteContent, setNoteContent } = props;
+  const { isRecording, setIsRecording, setNoteContent } = props;
   const [micStream, setMicStream] = useState<any>();
   const [errorMsg, setErrorMsg] = useState("");
 
