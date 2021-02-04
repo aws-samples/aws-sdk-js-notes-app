@@ -4,7 +4,7 @@ import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-id
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 import { IDENTITY_POOL_ID, REGION } from "../config.json";
 
-const getSynthesizedSpeechResponse = (textToSynthesize: string) => {
+const getSynthesizedSpeechUrl = (textToSynthesize: string) => {
   const client = new PollyClient({
     region: REGION,
     credentials: fromCognitoIdentityPool({
@@ -16,11 +16,11 @@ const getSynthesizedSpeechResponse = (textToSynthesize: string) => {
   return getSynthesizeSpeechUrl({
     client,
     params: {
-      OutputFormat: "pcm",
+      OutputFormat: "mp3",
       Text: textToSynthesize,
       VoiceId: "Aditi",
     },
   });
 };
 
-export { getSynthesizedSpeechResponse };
+export { getSynthesizedSpeechUrl };

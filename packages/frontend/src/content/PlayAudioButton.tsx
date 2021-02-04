@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { PlayCircle, StopFill } from "react-bootstrap-icons";
-import { getSynthesizedSpeechResponse } from "../libs/getSynthesizedSpeechResponse";
+import { getSynthesizedSpeechUrl } from "../libs/getSynthesizedSpeechUrl";
 
 const PlayAudioButton = (props: {
   isPlaying: boolean;
@@ -21,7 +21,7 @@ const PlayAudioButton = (props: {
     } else {
       setIsPlaying(true);
       try {
-        const audioUrl = await getSynthesizedSpeechResponse(noteContent);
+        const audioUrl = await getSynthesizedSpeechUrl(noteContent);
         setAudioUrl(audioUrl.toString());
         audioPlayer.current?.load();
         audioPlayer.current?.play();
@@ -39,7 +39,6 @@ const PlayAudioButton = (props: {
         // @ts-ignore
         ref={audioPlayer}
         src={audioUrl}
-        controls
       ></audio>
       <Button
         className="mx-2"
