@@ -25,6 +25,9 @@ const PlayAudioButton = (props: {
         setAudioUrl(audioUrl.toString());
         audioPlayer.current?.load();
         audioPlayer.current?.play();
+        audioPlayer.current?.addEventListener("ended", () => {
+          setIsPlaying(false);
+        });
       } catch (error) {
         console.log(error);
         setErrorMsg(`${error.toString()}`);
