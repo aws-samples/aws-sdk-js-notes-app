@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { PlayCircle, StopFill } from "react-bootstrap-icons";
 import { getSynthesizedSpeechResponse } from "../libs/getSynthesizedSpeechResponse";
@@ -9,20 +9,19 @@ const PlayAudioButton = (props: {
   noteContent: string;
 }) => {
   const { isPlaying, setIsPlaying, noteContent } = props;
-  const player = new Audio(
-    "https://d1.awsstatic.com/product-marketing/Polly/voices/joanna.84722a684fbb16e766944ea6e34dd0042195571c.mp3"
-  );
+  const audioPlayer = useRef<HTMLAudioElement>();
   const [errorMsg, setErrorMsg] = useState("");
 
   const togglePlay = async () => {
     if (isPlaying) {
       setIsPlaying(false);
-      player.pause();
+      audioPlayer.current?.pause();
+      audioPlayer.current?.load();
     } else {
       setIsPlaying(true);
       try {
         const { AudioStream } = await getSynthesizedSpeechResponse(noteContent);
-        player.play();
+        audioPlayer.current?.play();
       } catch (error) {
         console.log(error);
         setErrorMsg(`${error.toString()}`);
@@ -33,6 +32,12 @@ const PlayAudioButton = (props: {
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
+      <audio
+        // @ts-ignore
+        ref={audioPlayer}
+        src="https://d1.awsstatic.com/product-marketing/Polly/voices/features_joanna_news.dfd96576dcc6e1f906111c9938748773f3431213.mp3"
+        controls
+      ></audio>
       <Button
         className="mx-2"
         variant={isPlaying ? "primary" : "outline-secondary"}
