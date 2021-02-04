@@ -4,11 +4,12 @@ import { PlayCircle, StopFill } from "react-bootstrap-icons";
 import { getSynthesizedSpeechUrl } from "../libs/getSynthesizedSpeechUrl";
 
 const PlayAudioButton = (props: {
+  disabled: boolean;
   isPlaying: boolean;
   setIsPlaying: Function;
   noteContent: string;
 }) => {
-  const { isPlaying, setIsPlaying, noteContent } = props;
+  const { disabled, isPlaying, setIsPlaying, noteContent } = props;
   const audioPlayer = useRef<HTMLAudioElement>(null);
   const [audioUrl, setAudioUrl] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -44,6 +45,7 @@ const PlayAudioButton = (props: {
         variant={isPlaying ? "primary" : "outline-secondary"}
         size="sm"
         onClick={togglePlay}
+        disabled={disabled}
       >
         {isPlaying ? <StopFill /> : <PlayCircle />}
       </Button>

@@ -67,11 +67,13 @@ const CreateNote = (props: RouteComponentProps) => {
         </Form.Group>
         <Form.Group>
           <RecordAudioButton
+            disabled={isPlaying}
             isRecording={isRecording}
             setIsRecording={setIsRecording}
             setNoteContent={setNoteContent}
           />
           <PlayAudioButton
+            disabled={isRecording}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
             noteContent={noteContent}
