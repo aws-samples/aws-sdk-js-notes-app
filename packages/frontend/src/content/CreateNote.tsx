@@ -44,9 +44,8 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
-  const noteContentAdditionalProps = isRecording
-    ? { disabled: true, value: noteContent }
-    : {};
+  const noteContentAdditionalProps =
+    isRecording || isPlaying ? { disabled: true, value: noteContent } : {};
 
   return (
     <PageContainer header={<HomeButton />}>
