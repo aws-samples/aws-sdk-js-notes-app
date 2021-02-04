@@ -9,7 +9,7 @@ const PlayAudioButton = (props: {
   noteContent: string;
 }) => {
   const { isPlaying, setIsPlaying, noteContent } = props;
-  const audioPlayer = useRef<HTMLMediaElement>();
+  const audioPlayer = useRef<HTMLAudioElement>(null);
   const [audioUrl, setAudioUrl] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -35,11 +35,7 @@ const PlayAudioButton = (props: {
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-      <audio
-        // @ts-ignore
-        ref={audioPlayer}
-        src={audioUrl}
-      ></audio>
+      <audio ref={audioPlayer} src={audioUrl}></audio>
       <Button
         className="mx-2"
         variant={isPlaying ? "primary" : "outline-secondary"}
