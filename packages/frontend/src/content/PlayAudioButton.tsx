@@ -30,6 +30,9 @@ const PlayAudioButton = (props: {
           setIsPlaying(false);
         });
       } catch (error) {
+        setIsPlaying(false);
+        audioPlayer.current?.pause();
+        audioPlayer.current?.load();
         console.log(error);
         setErrorMsg(`${error.toString()}`);
       }
