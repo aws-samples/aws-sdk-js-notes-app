@@ -11,10 +11,9 @@ import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionRe
 const RecordAudioButton = (props: {
   isRecording: boolean;
   setIsRecording: Function;
-  noteContent: string;
   setNoteContent: Function;
 }) => {
-  const { isRecording, setIsRecording, noteContent, setNoteContent } = props;
+  const { isRecording, setIsRecording, setNoteContent } = props;
   const [micStream, setMicStream] = useState<any>();
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -68,7 +67,7 @@ const RecordAudioButton = (props: {
     );
 
     if (TranscriptResultStream) {
-      let transcription = "";
+      let partialTranscription = "";
       for await (const event of TranscriptResultStream) {
         if (event.TranscriptEvent) {
           const { Results: results } = event.TranscriptEvent.Transcript || {};
@@ -80,18 +79,20 @@ const RecordAudioButton = (props: {
             ) {
               const { Transcript } = results[0].Alternatives[0];
 
-              const prevTranscription = transcription;
+              const transcriptionToRemove = partialTranscription;
               // fix encoding for accented characters.
-              transcription = decodeURIComponent(escape(Transcript || ""));
+              const transcription = decodeURIComponent(escape(Transcript || ""));
 
               setNoteContent(
                 (noteContent: any) =>
-                  noteContent.replace(prevTranscription, "") + transcription
+                  noteContent.replace(transcriptionToRemove, "") + transcription
               );
 
               // if this transcript segment is final, reset transcription
               if (!results[0].IsPartial) {
-                transcription = "";
+                partialTranscription = "";
+              } else {
+                partialTranscription = transcription;
               }
             }
           }
