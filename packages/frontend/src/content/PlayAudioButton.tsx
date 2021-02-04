@@ -9,7 +9,8 @@ const PlayAudioButton = (props: {
   noteContent: string;
 }) => {
   const { isPlaying, setIsPlaying, noteContent } = props;
-  const audioPlayer = useRef<HTMLAudioElement>();
+  const audioPlayer = useRef<HTMLMediaElement>();
+  const [audioUrl, setAudioUrl] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
   const togglePlay = async () => {
@@ -20,12 +21,8 @@ const PlayAudioButton = (props: {
     } else {
       setIsPlaying(true);
       try {
-        const { AudioStream } = await getSynthesizedSpeechResponse(noteContent);
-        const stream = new MediaStream();
-        // @ts-ignore
-        stream.addTrack(AudioStream);
-        // @ts-ignore
-        audioPlayer.current?.srcObject = stream;
+        const audioUrl = await getSynthesizedSpeechResponse(noteContent);
+        setAudioUrl(audioUrl.toString());
         audioPlayer.current?.load();
         audioPlayer.current?.play();
       } catch (error) {
@@ -41,7 +38,7 @@ const PlayAudioButton = (props: {
       <audio
         // @ts-ignore
         ref={audioPlayer}
-        // src="https://d1.awsstatic.com/product-marketing/Polly/voices/features_joanna_news.dfd96576dcc6e1f906111c9938748773f3431213.mp3"
+        src={audioUrl}
         controls
       ></audio>
       <Button
