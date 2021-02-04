@@ -5,9 +5,11 @@
   "description": "Frontend for notes app created using modular AWS SDK for JavaScript",
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "3.4.1",
+    "@aws-sdk/client-polly": "3.4.1",
     "@aws-sdk/client-s3": "3.4.1",
     "@aws-sdk/client-transcribe-streaming": "3.4.1",
     "@aws-sdk/credential-provider-cognito-identity": "3.4.1",
+    "@aws-sdk/polly-request-presigner": "3.4.1",
     "@aws-sdk/s3-request-presigner": "3.4.1",
     "@aws-sdk/util-create-request": "3.4.1",
     "@aws-sdk/util-format-url": "3.4.1",
