@@ -8,11 +8,12 @@ import { pcmEncode } from "../libs/audioUtils";
 import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionResponse";
 
 const RecordAudioButton = (props: {
+  disabled: boolean;
   isRecording: boolean;
   setIsRecording: Function;
   setNoteContent: Function;
 }) => {
-  const { isRecording, setIsRecording, setNoteContent } = props;
+  const { disabled, isRecording, setIsRecording, setNoteContent } = props;
   const [micStream, setMicStream] = useState<MicrophoneStream | undefined>();
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -110,6 +111,7 @@ const RecordAudioButton = (props: {
         variant={isRecording ? "primary" : "outline-secondary"}
         size="sm"
         onClick={toggleTrascription}
+        disabled={disabled}
       >
         {isRecording ? <MicFill /> : <MicMute />}
       </Button>
