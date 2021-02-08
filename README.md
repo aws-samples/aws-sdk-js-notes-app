@@ -3,6 +3,9 @@
 In this app, you are going to build a simple note taking application using
 [modular AWS SDK for JavaScript][modular-aws-sdk-js-blog-post]
 
+The note taking application is the modified version from the original Open Source MIT licensed
+project shared in the tutorials on [serverless-stack](http://serverless-stack.com).
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
