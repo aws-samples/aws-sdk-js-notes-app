@@ -91,7 +91,7 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 ## License
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+This library is licensed under the MIT License. See the LICENSE file.
 
 [modular-aws-sdk-js-blog-post]: https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/
 [modular-aws-sdk-js]: https://github.com/aws/aws-sdk-js-v3/
