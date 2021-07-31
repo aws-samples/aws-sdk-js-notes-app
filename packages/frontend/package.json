@@ -21,9 +21,9 @@
   },
   "scripts": {
     "prepare:frontend": "cd .. && yarn prepare:frontend",
-    "build": "react-scripts build",
+    "build": "vite build",
     "build:frontend": "cd .. && yarn build:frontend",
-    "start": "react-scripts start",
+    "start": "vite",
     "start:frontend": "cd .. && yarn start:frontend",
     "serve": "ws -d build -o",
     "serve:frontend": "cd .. && yarn serve:frontend",
