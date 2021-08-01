@@ -14,18 +14,20 @@
     "@aws-sdk/util-create-request": "3.23.0",
     "@aws-sdk/util-format-url": "3.23.0",
     "@reach/router": "1.3.4",
+    "buffer": "6.0.3",
     "microphone-stream": "6.0.1",
+    "process": "0.11.10",
     "react": "17.0.1",
     "react-bootstrap": "1.4.0",
     "react-dom": "17.0.1"
   },
   "scripts": {
     "prepare:frontend": "cd .. && yarn prepare:frontend",
-    "build": "react-scripts build",
+    "build": "tsc && vite build",
     "build:frontend": "cd .. && yarn build:frontend",
-    "start": "react-scripts start",
+    "start": "vite",
     "start:frontend": "cd .. && yarn start:frontend",
-    "serve": "ws -d build -o",
+    "serve": "vite preview",
     "serve:frontend": "cd .. && yarn serve:frontend",
     "cdk": "cd .. && yarn cdk"
   },
@@ -59,9 +61,9 @@
     "@types/reach__router": "1.3.6",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
-    "local-web-server": "^4.2.1",
+    "@vitejs/plugin-react-refresh": "1.3.6",
     "react-bootstrap-icons": "1.3.0",
-    "react-scripts": "4.0.1",
-    "typescript": "~4.1.2"
+    "typescript": "~4.1.2",
+    "vite": "2.4.4"
   }
 }
