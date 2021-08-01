@@ -5322,6 +5322,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dom-mediacapture-record@npm:1.0.10":
+  version: 1.0.10
+  resolution: "@types/dom-mediacapture-record@npm:1.0.10"
+  checksum: 0c83eb9145ff50f840ebc6309e8f5176287feacedab7bf1151d745b434f320c996a73e7e5b7dca7cfcb6fb35c5f8733b6fcf1edb6daa0a2b31141afbb061b697
+  languageName: node
+  linkType: hard
+
 "@types/eslint-scope@npm:^3.7.0":
   version: 3.7.0
   resolution: "@types/eslint-scope@npm:3.7.0"
@@ -19519,6 +19526,7 @@ resolve@1.18.1:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@types/dom-mediacapture-record": 1.0.10
     husky: ^4.2.3
     lerna: ^3.20.2
     lint-staged: ^10.1.2

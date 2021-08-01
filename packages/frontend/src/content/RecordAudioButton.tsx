@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { MicFill, MicMute } from "react-bootstrap-icons";
 
-import MicrophoneStream from "microphone-stream";
-
 import { pcmEncode } from "../libs/audioUtils";
 import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionResponse";
 
@@ -13,52 +11,49 @@ const RecordAudioButton = (props: {
   setIsRecording: Function;
   setNoteContent: Function;
 }) => {
+  let mediaRecorder: MediaRecorder;
   const { disabled, isRecording, setIsRecording, setNoteContent } = props;
-  const [micStream, setMicStream] = useState<MicrophoneStream | undefined>();
   const [errorMsg, setErrorMsg] = useState("");
 
   const toggleTrascription = async () => {
     if (isRecording) {
       setIsRecording(false);
-      if (micStream) {
-        micStream.stop();
-        setMicStream(undefined);
+      if (mediaRecorder) {
+        mediaRecorder.stop();
       }
     } else {
       setIsRecording(true);
-      let mic;
       try {
-        const audio = await navigator.mediaDevices.getUserMedia({
+        const audioStream = await navigator.mediaDevices.getUserMedia({
           audio: true,
-          video: false,
         });
-        mic = new MicrophoneStream();
-        mic.setStream(audio);
-        setMicStream(mic);
-        await streamAudioToWebSocket(mic);
+        mediaRecorder = new MediaRecorder(audioStream);
+        await streamAudioToWebSocket(mediaRecorder);
       } catch (error) {
         console.log(error);
         setErrorMsg(`${error.toString()}`);
       } finally {
-        if (mic) {
-          mic.stop();
-          setMicStream(undefined);
+        if (mediaRecorder) {
+          mediaRecorder.stop();
         }
         setIsRecording(false);
       }
     }
   };
 
-  const streamAudioToWebSocket = async (micStream: MicrophoneStream) => {
-    const pcmEncodeChunk = (audioChunk: Buffer) => {
-      const raw = MicrophoneStream.toRaw(audioChunk);
-      if (raw == null) return;
-      return Buffer.from(pcmEncode(raw));
-    };
+  const streamAudioToWebSocket = async (mediaRecorder: MediaRecorder) => {
+    const pcmEncodeChunk = (audioChunk: Blob) =>
+      Buffer.from(pcmEncode(audioChunk));
 
     const transcribeInput = async function* () {
-      // @ts-ignore Type 'MicrophoneStream' is not an array type or a string type.
-      for await (const chunk of micStream) {
+      while (true) {
+        const chunk: Blob = await new Promise((resolve) => {
+          const handler = (event: BlobEvent) => {
+            mediaRecorder.removeEventListener("dataavailable", handler);
+            resolve(event.data);
+          };
+          mediaRecorder.addEventListener("dataavailable", handler);
+        });
         yield { AudioEvent: { AudioChunk: pcmEncodeChunk(chunk) } };
       }
     };
