@@ -42,18 +42,21 @@ const RecordAudioButton = (props: {
   };
 
   const streamAudioToWebSocket = async (mediaRecorder: MediaRecorder) => {
-    const pcmEncodeChunk = (audioChunk: Blob) =>
+    mediaRecorder.start(100);
+
+    const pcmEncodeChunk = (audioChunk: ArrayBuffer) =>
       Buffer.from(pcmEncode(audioChunk));
 
     const transcribeInput = async function* () {
       while (true) {
-        const chunk: Blob = await new Promise((resolve) => {
+        const blob: Blob = await new Promise((resolve) => {
           const handler = (event: BlobEvent) => {
             mediaRecorder.removeEventListener("dataavailable", handler);
             resolve(event.data);
           };
           mediaRecorder.addEventListener("dataavailable", handler);
         });
+        const chunk = await blob.arrayBuffer();
         yield { AudioEvent: { AudioChunk: pcmEncodeChunk(chunk) } };
       }
     };
