@@ -793,6 +793,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 4.8.2
     "@typescript-eslint/parser": 4.8.2
     clean-webpack-plugin: 3.0.0
+    esbuild: 0.12.17
     eslint: 7.14.0
     eslint-config-prettier: 6.15.0
     eslint-webpack-plugin: 2.4.0
@@ -6220,7 +6221,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.12.8":
+"esbuild@npm:0.12.17, esbuild@npm:^0.12.8":
   version: 0.12.17
   resolution: "esbuild@npm:0.12.17"
   bin:
