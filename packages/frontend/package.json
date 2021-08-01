@@ -21,11 +21,11 @@
   },
   "scripts": {
     "prepare:frontend": "cd .. && yarn prepare:frontend",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "build:frontend": "cd .. && yarn build:frontend",
     "start": "vite",
     "start:frontend": "cd .. && yarn start:frontend",
-    "serve": "ws -d build -o",
+    "serve": "vite preview",
     "serve:frontend": "cd .. && yarn serve:frontend",
     "cdk": "cd .. && yarn cdk"
   },
