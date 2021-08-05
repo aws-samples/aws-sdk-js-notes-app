@@ -12,7 +12,6 @@ export class AwsSdkJsNotesAppStack extends cdk.Stack {
 
     const table = new dynamodb.Table(this, "notes", {
       partitionKey: { name: "noteId", type: dynamodb.AttributeType.STRING },
-      removalPolicy: cdk.RemovalPolicy.DESTROY, // NOT recommended for production code
     });
 
     const api = new apigw.RestApi(this, "endpoint");
@@ -69,9 +68,7 @@ export class AwsSdkJsNotesAppStack extends cdk.Stack {
       )
     );
 
-    const filesBucket = new s3.Bucket(this, "files-bucket", {
-      removalPolicy: cdk.RemovalPolicy.DESTROY, // NOT recommended for production code
-    });
+    const filesBucket = new s3.Bucket(this, "files-bucket");
     filesBucket.addCorsRule({
       allowedOrigins: apigw.Cors.ALL_ORIGINS, // NOT recommended for production code
       allowedMethods: [
