@@ -8,7 +8,7 @@
     "@aws-sdk/util-dynamodb": "3.23.0"
   },
   "scripts": {
-    "build": "tsc --noEmit && esbuild src/*.ts --bundle --outdir=dist --minify --platform=node --target=node14",
+    "build": "tsc --noEmit && node build.js",
     "build:backend": "cd .. && yarn build:backend",
     "cdk": "cd .. && yarn cdk"
   },
