@@ -3,7 +3,9 @@
     "target": "ES2018",
     "module": "commonjs",
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "rootDir": "cdk",
+    "outDir": "dist"
   },
   "exclude": ["cdk.out"]
 }

@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "cdk": "cdk"
+    "build": "tsc",
+    "cdk": "tsc && cdk"
   },
   "devDependencies": {
     "@aws-cdk/aws-apigateway": "1.115.0",
