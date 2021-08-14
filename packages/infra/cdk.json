@@ -1,3 +1,3 @@
 {
-  "app": "yarn dlx ts-node cdk/aws-sdk-js-notes-app.ts"
+  "app": "ts-node cdk/aws-sdk-js-notes-app.ts"
 }
