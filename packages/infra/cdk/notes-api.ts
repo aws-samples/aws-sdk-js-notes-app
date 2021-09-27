@@ -1,5 +1,5 @@
 import * as cdk from "@aws-cdk/core";
-import * as lambda from "@aws-cdk/aws-lambda";
+import * as lambda from "@aws-cdk/aws-lambda-nodejs";
 import { Table } from "@aws-cdk/aws-dynamodb";
 
 export interface NotesApiProps {
@@ -11,18 +11,16 @@ export interface NotesApiProps {
 
 export class NotesApi extends cdk.Construct {
   /** allows accessing the counter function */
-  public readonly handler: lambda.Function;
+  public readonly handler: lambda.NodejsFunction;
 
   constructor(scope: cdk.Construct, id: string, props: NotesApiProps) {
     super(scope, id);
 
     const { table, grantActions } = props;
 
-    this.handler = new lambda.Function(this, "handler", {
-      runtime: lambda.Runtime.NODEJS_14_X,
-      handler: "app.handler",
+    this.handler = new lambda.NodejsFunction(this, "handler", {
       // ToDo: find a better way to pass lambda code
-      code: lambda.Code.fromAsset(`../backend/dist/${id}`),
+      entry: `../backend/dist/${id}/app.js`,
       environment: {
         NOTES_TABLE_NAME: table.tableName,
       },
