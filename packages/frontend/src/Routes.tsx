@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Routes } from "react-router-dom";
+import { Routes as ReactRouterRoutes } from "react-router-dom";
 
 const ListNotes = lazy(() => import("./content/ListNotes"));
 const CreateNote = lazy(() => import("./content/CreateNote"));
@@ -9,12 +9,12 @@ const NotFound = lazy(() => import("./content/NotFound"));
 const Routes = () => (
   <div className="mt-md-4 d-flex flex-column justify-content-center">
     <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
+      <ReactRouterRoutes>
         <ListNotes path="/" />
         <CreateNote path="/note/new" />
         <ShowNote path="/notes/:noteId" />
         <NotFound default />
-      </Routes>
+      </ReactRouterRoutes>
     </Suspense>
   </div>
 );
