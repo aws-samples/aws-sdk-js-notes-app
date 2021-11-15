@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { RouteComponentProps, navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { Form, Card } from "react-bootstrap";
 import { GATEWAY_URL } from "../config.json";
 import { DeleteNoteButton, SaveNoteButton } from "./";
 import { getObjectUrl } from "../libs";
 import { HomeButton, Loading, PageContainer } from "../components";
 
-const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
+const ShowNote = (props: any) => {
   const { noteId } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [noteContent, setNoteContent] = useState("");
@@ -28,7 +28,7 @@ const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
         }
       } catch (error) {
         // Navigate to 404 page, as noteId probably not present
-        navigate("/404");
+        useNavigate()("/404");
       } finally {
         setIsLoading(false);
       }

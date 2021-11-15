@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL } from "../config.json";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { ButtonSpinner } from "../components";
 
 const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
@@ -20,7 +20,7 @@ const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
         method: "PUT",
         body: JSON.stringify({ content: noteContent }),
       });
-      navigate("/");
+      useNavigate()("/");
     } catch (error) {
       console.log(error);
       setErrorMsg(`${error.toString()} - ${updateNoteURL} - ${noteContent}`);

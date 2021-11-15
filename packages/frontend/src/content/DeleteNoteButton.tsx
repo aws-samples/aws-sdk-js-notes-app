@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL } from "../config.json";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { deleteObject } from "../libs";
 import { ButtonSpinner } from "../components";
 
@@ -23,7 +23,7 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
       await fetch(deleteNoteURL, {
         method: "DELETE",
       });
-      navigate("/");
+      useNavigate()("/");
     } catch (error) {
       setErrorMsg(`${error.toString()} - ${deleteNoteURL} - ${noteId}`);
     } finally {

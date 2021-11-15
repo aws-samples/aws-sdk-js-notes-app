@@ -1,13 +1,13 @@
 import React, { useState, FormEvent } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { navigate, RouteComponentProps } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
 import { RecordAudioButton } from "./RecordAudioButton";
 import { PlayAudioButton } from "./PlayAudioButton";
 
-const CreateNote = (props: RouteComponentProps) => {
+const CreateNote = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
@@ -36,7 +36,7 @@ const CreateNote = (props: RouteComponentProps) => {
         method: "POST",
         body: JSON.stringify({ attachment, content: noteContent }),
       });
-      navigate("/");
+      useNavigate()("/");
     } catch (error) {
       setErrorMsg(`${error.toString()} - ${createNoteURL} - ${noteContent}`);
     } finally {
