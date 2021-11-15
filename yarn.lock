@@ -829,7 +829,7 @@ __metadata:
     esbuild: 0.12.17
     eslint: 7.14.0
     eslint-config-prettier: 6.15.0
-    typescript: ~4.1.2
+    typescript: ~4.4.4
   languageName: unknown
   linkType: soft
 
@@ -859,7 +859,7 @@ __metadata:
     react-bootstrap: 1.4.0
     react-bootstrap-icons: 1.3.0
     react-dom: 17.0.1
-    typescript: ~4.1.2
+    typescript: ~4.4.4
     vite: 2.4.4
   languageName: unknown
   linkType: soft
@@ -877,7 +877,7 @@ __metadata:
     "@aws-cdk/core": 1.132.0
     "@types/node": ^14.14.2
     aws-cdk: 1.132.0
-    typescript: ~4.1.2
+    typescript: ~4.4.4
   languageName: unknown
   linkType: soft
 
@@ -6698,23 +6698,23 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.1.2#~builtin<compat/typescript>":
-  version: 4.1.3
-  resolution: "typescript@patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=d8b4e7"
+"typescript@patch:typescript@~4.4.4#~builtin<compat/typescript>":
+  version: 4.4.4
+  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=d8b4e7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f7de4f06a6407a8dfaf97eaa19bc457df860a522e9a9b75a95be23bd8fa09af3104c05e5fe2a9b7fa5c74d1f7790cf7dd61c8f7a78dfcf70000ff85a27dc3541
+  checksum: 4a639b6886be13616582ab82abdb4ffbbf5b0458069d13c10cd5d44fc1cafa33eab005e8ac8691ad8fae249fee85844bb7d523263c4568fe9a2ca31cd3c91c3d
   languageName: node
   linkType: hard
 
-typescript@~4.1.2:
-  version: 4.1.3
-  resolution: "typescript@npm:4.1.3"
+typescript@~4.4.4:
+  version: 4.4.4
+  resolution: "typescript@npm:4.4.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 0a25f7d7cebbc5ad23f41cb30918643460477be265bd3bcd400ffedb77d16e97d46f2b0c31393b2f990c5cf5b9f7a829ad6aff8636988b8f30abf81c656237c0
+  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
   languageName: node
   linkType: hard
 
