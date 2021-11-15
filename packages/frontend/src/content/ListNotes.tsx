@@ -55,7 +55,7 @@ const ListNotes = (props: any) => {
     ));
 
   const createNewNote = () => (
-    <Link key="new" to="note/new">
+    <Link key="new" to="notes/new">
       <Button variant="primary" block>
         Create a new note
       </Button>
