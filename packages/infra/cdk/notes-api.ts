@@ -1,19 +1,18 @@
-import * as cdk from "@aws-cdk/core";
-import * as lambda from "@aws-cdk/aws-lambda";
-import { Table } from "@aws-cdk/aws-dynamodb";
+import { aws_dynamodb as dynamodb, aws_lambda as lambda } from "aws-cdk-lib";
+import { Construct } from "constructs";
 
 export interface NotesApiProps {
   /** the dynamodb table to be passed to lambda function **/
-  table: Table;
+  table: dynamodb.Table;
   /** the actions which should be granted on the table */
   grantActions: string[];
 }
 
-export class NotesApi extends cdk.Construct {
+export class NotesApi extends Construct {
   /** allows accessing the counter function */
   public readonly handler: lambda.Function;
 
-  constructor(scope: cdk.Construct, id: string, props: NotesApiProps) {
+  constructor(scope: Construct, id: string, props: NotesApiProps) {
     super(scope, id);
 
     const { table, grantActions } = props;
