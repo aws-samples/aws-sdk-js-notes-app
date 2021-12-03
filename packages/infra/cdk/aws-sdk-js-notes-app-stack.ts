@@ -1,13 +1,18 @@
-import * as cdk from "@aws-cdk/core";
-import * as dynamodb from "@aws-cdk/aws-dynamodb";
-import * as apigw from "@aws-cdk/aws-apigateway";
-import * as s3 from "@aws-cdk/aws-s3";
-import * as cognito from "@aws-cdk/aws-cognito";
-import * as iam from "@aws-cdk/aws-iam";
+import {
+  Stack,
+  StackProps,
+  CfnOutput,
+  aws_apigateway as apigw,
+  aws_cognito as cognito,
+  aws_dynamodb as dynamodb,
+  aws_iam as iam,
+  aws_s3 as s3,
+} from "aws-cdk-lib";
+import { Construct } from "constructs";
 import { NotesApi } from "./notes-api";
 
-export class AwsSdkJsNotesAppStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+export class AwsSdkJsNotesAppStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     const table = new dynamodb.Table(this, "notes", {
@@ -123,9 +128,9 @@ export class AwsSdkJsNotesAppStack extends cdk.Stack {
       },
     });
 
-    new cdk.CfnOutput(this, "FilesBucket", { value: filesBucket.bucketName });
-    new cdk.CfnOutput(this, "GatewayUrl", { value: api.url });
-    new cdk.CfnOutput(this, "IdentityPoolId", { value: identityPool.ref });
-    new cdk.CfnOutput(this, "Region", { value: this.region });
+    new CfnOutput(this, "FilesBucket", { value: filesBucket.bucketName });
+    new CfnOutput(this, "GatewayUrl", { value: api.url });
+    new CfnOutput(this, "IdentityPoolId", { value: identityPool.ref });
+    new CfnOutput(this, "Region", { value: this.region });
   }
 }
