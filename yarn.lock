@@ -125,6 +125,7 @@ __metadata:
   dependencies:
     "@types/node": ^14.14.2
     aws-cdk-lib: 2.0.0
+    constructs: 3.3.161
     typescript: ~4.4.4
   languageName: unknown
   linkType: soft
@@ -2450,6 +2451,13 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 8755d76787f94e6cf79ce4666f0c5519906d7f5b02d4b884cf41e11dcd759ed69c57da0670afd9236d229a46e0f9cf519db0cd829c6dca820bb5a5c3def584ed
+  languageName: node
+  linkType: hard
+
+"constructs@npm:3.3.161":
+  version: 3.3.161
+  resolution: "constructs@npm:3.3.161"
+  checksum: 9457dd22b64daccd337c385bee0457d3cd0f9a275f43fae7f4e2785b7231a9dc468ef5fd5d0fed4393e118259c89a4329bc18edf34ede26a60a9d192a9045d47
   languageName: node
   linkType: hard
 
