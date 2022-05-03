@@ -1,4 +1,4 @@
-import crypto from "crypto";
+//import crypto from "crypto";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall } from "@aws-sdk/util-dynamodb";
 import { success, failure } from "./libs/response";
@@ -7,6 +7,7 @@ import { success, failure } from "./libs/response";
 import { APIGatewayEvent } from "aws-lambda";
 
 export const handler = async (event: APIGatewayEvent) => {
+  const crypto = require("crypto");
   const data = JSON.parse(event.body || "{}");
   const params = {
     TableName: process.env.NOTES_TABLE_NAME || "",
@@ -19,7 +20,17 @@ export const handler = async (event: APIGatewayEvent) => {
   };
 
   try {
-    const client = new DynamoDBClient({});
+    let client;
+    if (process.env.AWS_SAM_LOCAL == "false") {
+      client = new DynamoDBClient({});
+      console.log("here_001");
+    } else {
+      client = new DynamoDBClient({
+        endpoint: `http://${process.env.LOCAL_IP}:8000`,
+      });
+      console.log("process.env.LOCAL_IP", process.env.LOCAL_IP);
+      console.log("here_002");
+    }
     await client.send(new PutItemCommand(params));
     return success(params.Item);
   } catch (e) {

@@ -17,13 +17,14 @@ export class NotesApi extends Construct {
 
     const { table, grantActions } = props;
 
-    this.handler = new lambda.Function(this, "handler", {
+    this.handler = new lambda.Function(this, `${id}Handler`, {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: "app.handler",
       // ToDo: find a better way to pass lambda code
       code: lambda.Code.fromAsset(`../backend/dist/${id}`),
       environment: {
         NOTES_TABLE_NAME: table.tableName,
+        LOCAL_IP: "10.0.0.4",
       },
     });
 

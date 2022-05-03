@@ -1,7 +1,7 @@
 {
-  "FILES_BUCKET": "<copy-output-FilesBucket-from-cdk-deploy>",
-  "GATEWAY_URL": "<copy-output-GatewayUrl-from-cdk-deploy>",
-  "IDENTITY_POOL_ID": "<copy-output-IdentityPoolId-from-cdk-deploy>",
-  "REGION": "<copy-output-Region-from-cdk-deploy>",
+  "FILES_BUCKET": "aws-sdk-js-notes-app-filesbucket2b30d8e0-1tk20498ztepe",
+  "GATEWAY_URL": "https://ifyroaqvd4.execute-api.us-west-1.amazonaws.com/prod/",
+  "IDENTITY_POOL_ID": "us-west-1:96ea9b73-998a-4c6f-ac26-0f86da27ce49",
+  "REGION": "us-west-1",
   "MAX_FILE_SIZE": 2000000
 }

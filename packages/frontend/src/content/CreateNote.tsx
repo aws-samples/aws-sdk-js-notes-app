@@ -32,6 +32,7 @@ const CreateNote = (props: RouteComponentProps) => {
     try {
       // @ts-ignore Argument of type 'undefined' is not assignable to parameter of type 'File'
       const attachment = file ? await putObject(file) : undefined;
+      console.log("body",JSON.stringify({ attachment, content: noteContent }));
       await fetch(createNoteURL, {
         method: "POST",
         body: JSON.stringify({ attachment, content: noteContent }),

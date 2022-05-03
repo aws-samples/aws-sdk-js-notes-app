@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "backend:src/createNote.handler (nodejs14.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "${workspaceFolder}/packages/backend",
+                "lambdaHandler": "src/createNote.handler",
+            },
+            "lambda": {
+                "runtime": "nodejs14.x",
+                "payload": {
+                    "path": "packages/backend/events/createNoteHandler.test-001.json"
+                },
+                "environmentVariables": {
+                    "NOTES_TABLE_NAME": "aws-sdk-js-notes-app-notesAF81B09D-3CA95X2A2Z3E",
+                    "LOCAL_IP": "10.0.0.4"
+                }
+            }
+        }
+    ]
+}

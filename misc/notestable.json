@@ -1,0 +1,21 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "noteId",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "aws-sdk-js-notes-app-notesAF81B09D-3CA95X2A2Z3E",
+    "KeySchema": [
+        {
+            "AttributeName": "noteId",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PROVISIONED",
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+    },
+    "TableClass": "STANDARD"
+}

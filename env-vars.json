@@ -1,0 +1,6 @@
+{
+    "Parameters": {
+        "LOCAL_IP": "10.0.0.4",
+        "NOTES_TABLE_NAME": "aws-sdk-js-notes-app-notesAF81B09D-3CA95X2A2Z3E"
+    }
+}
