@@ -2,12 +2,14 @@
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall } from "@aws-sdk/util-dynamodb";
 import { success, failure } from "./libs/response";
+//import { errorResponse } from "/opt/nodejs/lambda-utils";
 
 // eslint-disable-next-line no-unused-vars
 import { APIGatewayEvent } from "aws-lambda";
 
 export const handler = async (event: APIGatewayEvent) => {
   const crypto = require("crypto");
+  //  const resp = errorResponse("a","b");
   const data = JSON.parse(event.body || "{}");
   const params = {
     TableName: process.env.NOTES_TABLE_NAME || "",

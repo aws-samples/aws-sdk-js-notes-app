@@ -10,6 +10,7 @@ import {
 } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { NotesApi } from "./notes-api";
+import { LayerVersion, Runtime, Code } from "aws-cdk-lib/aws-lambda";
 
 export class AwsSdkJsNotesAppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -17,6 +18,13 @@ export class AwsSdkJsNotesAppStack extends Stack {
 
     const table = new dynamodb.Table(this, "notes", {
       partitionKey: { name: "noteId", type: dynamodb.AttributeType.STRING },
+    });
+
+    //lambda layer for external libs
+    const resuaLayer = new LayerVersion(this, `co-author-resua-layer`, {
+      compatibleRuntimes: [Runtime.NODEJS_14_X],
+      code: Code.fromAsset("../backend/layers/resua"),
+      description: "Reusable custom code",
     });
 
     const api = new apigw.RestApi(this, "endpoint");
