@@ -95,8 +95,3 @@ This library is licensed under the MIT License. See the LICENSE file.
 
 [modular-aws-sdk-js-blog-post]: https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/
 [modular-aws-sdk-js]: https://github.com/aws/aws-sdk-js-v3/
-
-$PowerShellObject=Get-Content -Path "D:\aws-sdk-js-notes-app\packages\infra\cdk.out\aws-sdk-js-notes-app.template.json" | ConvertFrom-Json
-aws dynamodb create-table --endpoint-url 'http://localhost:8000' --cli-input-json $PowerShellObject.Resources.notesAF81B09D | Out-null
-
-aws dynamodb get-item --table-name "aws-sdk-js-notes-app-notesAF81B09D-3CA95X2A2Z3E" --key '{""noteId"": {""S"": ""2fbca06fd8ed66bdd4a1388e572a11d98075e9ed""}' --endpoint-url http://localhost:8000 > output/getitem.json

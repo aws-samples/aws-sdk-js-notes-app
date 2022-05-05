@@ -25,5 +25,8 @@
   },
   "lint-staged": {
     "*.{ts,js,md}": "prettier --write"
+  },
+  "dependencies": {
+    "yarn": "^1.22.18"
   }
 }
