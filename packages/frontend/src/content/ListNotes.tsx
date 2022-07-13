@@ -3,6 +3,7 @@ import { Link, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL } from "../config.json";
 import { Card, Alert, CardGroup, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";
+
 interface Note {
   noteId: string;
   createdAt: string;
@@ -35,23 +36,24 @@ const ListNotes = (props: RouteComponentProps) => {
 
   const renderNotes = (notes: Note[]) =>
     notes.map((note) => (
-      <Link key={note.noteId} to={`/notes/${note.noteId}`}>
-        <Card>
-          <Card.Body>
-            <Card.Title>
-              {note.attachment && (
-                <span role="img" aria-label="attachment" className="mr-1">
-                  📎
-                </span>
-              )}
-              {note.content}
-            </Card.Title>
-            <Card.Subtitle className="text-muted">
-              Created: {new Date(parseInt(note.createdAt)).toLocaleString()}
-            </Card.Subtitle>
-          </Card.Body>
-        </Card>
-      </Link>
+      <Card>
+        <Card.Body>
+          <Card.Title>
+            {note.attachment && (
+              <span role="img" aria-label="attachment" className="mr-1">
+                📎
+              </span>
+            )}
+            {note.content}
+          </Card.Title>
+          <Card.Subtitle className="text-muted">
+            Created: {new Date(parseInt(note.createdAt)).toLocaleString()}
+          </Card.Subtitle>
+          <Card.Link key={note.noteId} href={`/notes/${note.noteId}`}>
+            edit
+          </Card.Link>
+        </Card.Body>
+      </Card>
     ));
 
   const createNewNote = () => (
