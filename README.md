@@ -25,8 +25,8 @@ To set up this notes app, complete the following tasks:
 
 - Install **Node.js** by following these steps:
   1. Install [nvm](https://github.com/nvm-sh/nvm#installation-and-update).
-  1. Use node v14.x.x by running `nvm use` or `nvm use 14` in a terminal window.
-  1. Verify that node is installed by running `node -v` in a terminal window and confirm that it shows the latest version of `v14`, such as `v14.17.3`).
+  1. Use node v16.x.x by running `nvm use` or `nvm use 16` in a terminal window.
+  1. Verify that node is installed by running `node -v` in a terminal window and confirm that it shows the latest version of `v16`, such as `v16.16.0`).
 - Install [yarn](https://yarnpkg.com/en/docs/install).
   - We recommend using **yarn** for its simplicity, speed and yarn workspaces.
 - Install dependencies by running `yarn`.
