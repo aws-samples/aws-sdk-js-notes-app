@@ -10,7 +10,7 @@ buildSync({
   minify: true,
   outdir: "dist",
   platform: "node",
-  target: "node14",
+  target: "node16",
   mainFields: ["module", "main"],
   logLevel: "info",
 });
