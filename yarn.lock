@@ -79,7 +79,7 @@ __metadata:
     "@aws-sdk/client-dynamodb": 3.41.0
     "@aws-sdk/util-dynamodb": 3.41.0
     "@types/aws-lambda": ^8.10.64
-    "@types/node": ^14.14.2
+    "@types/node": 16.11.43
     "@typescript-eslint/eslint-plugin": 5.3.1
     "@typescript-eslint/parser": 5.3.1
     esbuild: 0.12.17
@@ -102,7 +102,7 @@ __metadata:
     "@aws-sdk/util-create-request": 3.41.0
     "@aws-sdk/util-format-url": 3.40.0
     "@reach/router": 1.3.4
-    "@types/node": ^14.14.2
+    "@types/node": 16.11.43
     "@types/reach__router": 1.3.6
     "@types/react": 17.0.0
     "@types/react-dom": 17.0.0
@@ -123,7 +123,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk-notes-app/infra@workspace:packages/infra"
   dependencies:
-    "@types/node": ^14.14.2
+    "@types/node": 16.11.43
     aws-cdk: 2.31.1
     aws-cdk-lib: 2.31.1
     constructs: 10.1.44
@@ -1813,10 +1813,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.2":
-  version: 14.14.22
-  resolution: "@types/node@npm:14.14.22"
-  checksum: e80682e29ceb7fe684deb0bcbc938e96a24dc5cf6a5fa371463bde8b672f303264ed7eaa381bcae0e2cabbe42298377a1713cb9516652a8ae39faf156fc599ec
+"@types/node@npm:16.11.43":
+  version: 16.11.43
+  resolution: "@types/node@npm:16.11.43"
+  checksum: 96d09e68347c49ebf84fe1443360edc3f98336f0794256abc8e4f29ef3070546357cae17083d6fd9767b631239367c4f245fe64accff4af057d17bd6694f0b2b
   languageName: node
   linkType: hard
 
