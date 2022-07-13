@@ -58,9 +58,9 @@ const ListNotes = (props: RouteComponentProps) => {
 
   const createNewNote = () => (
     <Link key="new" to="note/new">
-      <Button variant="primary" block>
-        Create a new note
-      </Button>
+      <div className="d-grid">
+        <Button variant="primary">Create New Note</Button>
+      </div>
     </Link>
   );
 
