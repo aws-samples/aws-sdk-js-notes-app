@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL } from "../config.json";
-import { Card, Alert, CardColumns, Button } from "react-bootstrap";
+import { Card, Alert, CardGroup, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";
 interface Note {
   noteId: string;
@@ -69,7 +69,7 @@ const ListNotes = (props: RouteComponentProps) => {
         <Loading />
       ) : (
         <div>
-          <CardColumns>{renderNotes(notes)}</CardColumns>
+          <CardGroup>{renderNotes(notes)}</CardGroup>
           {createNewNote()}
         </div>
       )}
