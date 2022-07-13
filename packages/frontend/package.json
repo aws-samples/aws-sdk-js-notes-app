@@ -17,9 +17,9 @@
     "buffer": "6.0.3",
     "microphone-stream": "6.0.1",
     "process": "0.11.10",
-    "react": "17.0.1",
+    "react": "18.2.0",
     "react-bootstrap": "1.4.0",
-    "react-dom": "17.0.1"
+    "react-dom": "18.2.0"
   },
   "scripts": {
     "prepare:frontend": "cd .. && yarn prepare:frontend",
@@ -59,8 +59,8 @@
   "devDependencies": {
     "@types/node": "16.11.43",
     "@types/reach__router": "1.3.6",
-    "@types/react": "17.0.0",
-    "@types/react-dom": "17.0.0",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
     "@vitejs/plugin-react-refresh": "1.3.6",
     "react-bootstrap-icons": "1.3.0",
     "typescript": "~4.4.4",
