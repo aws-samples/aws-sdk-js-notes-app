@@ -7,7 +7,7 @@ import { HomeButton, ButtonSpinner, PageContainer } from "../components";
 import { RecordAudioButton } from "./RecordAudioButton";
 import { PlayAudioButton } from "./PlayAudioButton";
 
-const CreateNote = (props: any) => {
+export const CreateNote = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
@@ -97,5 +97,3 @@ const CreateNote = (props: any) => {
     </PageContainer>
   );
 };
-
-export default CreateNote;

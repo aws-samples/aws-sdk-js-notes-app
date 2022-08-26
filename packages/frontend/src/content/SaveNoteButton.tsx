@@ -4,7 +4,10 @@ import { GATEWAY_URL } from "../config.json";
 import { useNavigate } from "react-router-dom";
 import { ButtonSpinner } from "../components";
 
-const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
+export const SaveNoteButton = (props: {
+  noteId: string;
+  noteContent: string;
+}) => {
   const [isSaving, setIsSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -39,5 +42,3 @@ const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
     </>
   );
 };
-
-export { SaveNoteButton };

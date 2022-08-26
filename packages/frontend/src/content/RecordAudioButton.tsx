@@ -7,7 +7,7 @@ import MicrophoneStream from "microphone-stream";
 import { pcmEncode } from "../libs/audioUtils";
 import { getStreamTranscriptionResponse } from "../libs/getStreamTranscriptionResponse";
 
-const RecordAudioButton = (props: {
+export const RecordAudioButton = (props: {
   disabled: boolean;
   isRecording: boolean;
   setIsRecording: Function;
@@ -118,5 +118,3 @@ const RecordAudioButton = (props: {
     </>
   );
 };
-
-export { RecordAudioButton };

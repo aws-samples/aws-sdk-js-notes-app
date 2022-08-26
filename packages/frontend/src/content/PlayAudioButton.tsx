@@ -3,7 +3,7 @@ import { Button, Alert } from "react-bootstrap";
 import { PlayCircle, StopFill } from "react-bootstrap-icons";
 import { getSynthesizedSpeechUrl } from "../libs/getSynthesizedSpeechUrl";
 
-const PlayAudioButton = (props: {
+export const PlayAudioButton = (props: {
   disabled: boolean;
   isPlaying: boolean;
   setIsPlaying: Function;
@@ -55,5 +55,3 @@ const PlayAudioButton = (props: {
     </>
   );
 };
-
-export { PlayAudioButton };

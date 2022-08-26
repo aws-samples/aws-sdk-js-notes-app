@@ -10,7 +10,7 @@ interface Note {
   attachment: boolean;
 }
 
-const ListNotes = (props: any) => {
+export const ListNotes = (props: any) => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [notes, setNotes] = useState([]);
@@ -76,5 +76,3 @@ const ListNotes = (props: any) => {
     </PageContainer>
   );
 };
-
-export default ListNotes;

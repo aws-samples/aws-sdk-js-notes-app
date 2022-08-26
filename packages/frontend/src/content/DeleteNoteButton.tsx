@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { deleteObject } from "../libs";
 import { ButtonSpinner } from "../components";
 
-const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
+export const DeleteNoteButton = (props: {
+  noteId: string;
+  attachment?: string;
+}) => {
   const { noteId, attachment } = props;
   const [isDeleting, setIsDeleting] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -46,5 +49,3 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
     </>
   );
 };
-
-export { DeleteNoteButton };

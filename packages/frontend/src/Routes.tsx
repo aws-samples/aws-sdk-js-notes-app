@@ -1,21 +1,17 @@
 import React, { lazy, Suspense } from "react";
 import { Routes as ReactRouterRoutes, Route } from "react-router-dom";
-
-const ListNotes = lazy(() => import("./content/ListNotes"));
-const CreateNote = lazy(() => import("./content/CreateNote"));
-const ShowNote = lazy(() => import("./content/ShowNote"));
-const NotFound = lazy(() => import("./content/NotFound"));
+import { CreateNote, ListNotes, ShowNote, NotFound } from "./content";
 
 const Routes = () => (
   <div className="mt-md-4 d-flex flex-column justify-content-center">
-    <Suspense fallback={<div>Loading...</div>}>
-      <ReactRouterRoutes>
-        <Route path="/" element={<ListNotes />} />
-        <Route path="/note/new" element={<CreateNote />} />
-        <Route path="/notes/:noteId" element={<ShowNote />} />
-        <Route path="*" element={<NotFound />} />
-      </ReactRouterRoutes>
-    </Suspense>
+    <ReactRouterRoutes>
+      <Route path="/" element={<ListNotes />} />
+      <Route path="notes">
+        <Route path="new" element={<CreateNote />} />
+        <Route path=":noteId" element={<ShowNote />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </ReactRouterRoutes>
   </div>
 );
 

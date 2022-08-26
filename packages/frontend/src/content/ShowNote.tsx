@@ -6,7 +6,8 @@ import { DeleteNoteButton, SaveNoteButton } from "./";
 import { getObjectUrl } from "../libs";
 import { HomeButton, Loading, PageContainer } from "../components";
 
-const ShowNote = (props: any) => {
+export const ShowNote = (props: any) => {
+  console.log({ props });
   const { noteId } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [noteContent, setNoteContent] = useState("");
@@ -75,5 +76,3 @@ const ShowNote = (props: any) => {
     </PageContainer>
   );
 };
-
-export default ShowNote;
