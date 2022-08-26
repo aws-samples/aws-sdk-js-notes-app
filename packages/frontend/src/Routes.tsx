@@ -10,14 +10,10 @@ const Routes = () => (
   <div className="mt-md-4 d-flex flex-column justify-content-center">
     <Suspense fallback={<div>Loading...</div>}>
       <ReactRouterRoutes>
-        <Route path="/" element={<ListNotes />}>
-          <Route index element={<ListNotes />} />
-          <Route path="notes" element={<ListNotes />}>
-            <Route path="new" element={<CreateNote />} />
-            <Route path=":noteId" element={<ShowNote />} />
-          </Route>
-          <Route element={<NotFound />} />
-        </Route>
+        <Route path="/" element={<ListNotes />} />
+        <Route path="/note/new" element={<CreateNote />} />
+        <Route path="/notes/:noteId" element={<ShowNote />} />
+        <Route path="*" element={<NotFound />} />
       </ReactRouterRoutes>
     </Suspense>
   </div>
