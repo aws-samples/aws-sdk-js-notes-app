@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, RouteComponentProps } from "@reach/router";
+import { Link } from "react-router-dom";
 import { GATEWAY_URL } from "../config.json";
 import { Card, Alert, CardColumns, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";
@@ -10,7 +10,7 @@ interface Note {
   attachment: boolean;
 }
 
-const ListNotes = (props: RouteComponentProps) => {
+export const ListNotes = (props: any) => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [notes, setNotes] = useState([]);
@@ -55,7 +55,7 @@ const ListNotes = (props: RouteComponentProps) => {
     ));
 
   const createNewNote = () => (
-    <Link key="new" to="note/new">
+    <Link key="new" to="notes/new">
       <Button variant="primary" block>
         Create a new note
       </Button>
@@ -76,5 +76,3 @@ const ListNotes = (props: RouteComponentProps) => {
     </PageContainer>
   );
 };
-
-export default ListNotes;
