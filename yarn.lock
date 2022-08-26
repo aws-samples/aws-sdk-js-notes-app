@@ -137,8 +137,8 @@ __metadata:
     react-bootstrap: 1.4.0
     react-bootstrap-icons: 1.3.0
     react-dom: 18.2.0
-    react-router: 6.0.2
-    react-router-dom: 6.0.2
+    react-router: 6.3.0
+    react-router-dom: 6.3.0
     typescript: ~4.4.4
     vite: 2.4.4
   languageName: unknown
@@ -3302,12 +3302,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"history@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "history@npm:5.1.0"
+"history@npm:^5.2.0":
+  version: 5.3.0
+  resolution: "history@npm:5.3.0"
   dependencies:
     "@babel/runtime": ^7.7.6
-  checksum: c978710a188ee5ad5d2acf55721c77e27469578c891a66311e71e8920d1390d14476e39a6db07e0ab0f5f8d594f1f62eb55a1059c7549cde7795a36367df5869
+  checksum: d73c35df49d19ac172f9547d30a21a26793e83f16a78386d99583b5bf1429cc980799fcf1827eb215d31816a6600684fba9686ce78104e23bd89ec239e7c726f
   languageName: node
   linkType: hard
 
@@ -4455,27 +4455,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:6.0.2":
-  version: 6.0.2
-  resolution: "react-router-dom@npm:6.0.2"
+"react-router-dom@npm:6.3.0":
+  version: 6.3.0
+  resolution: "react-router-dom@npm:6.3.0"
   dependencies:
-    history: ^5.1.0
-    react-router: 6.0.2
+    history: ^5.2.0
+    react-router: 6.3.0
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: d3680939a4fac286f8df028c1fabe5626567ba065b2029b1cc4ad64fe9444aeba186d0e5e765563fc36ea868e7d17e02fb098f2ebc0b1c70212a8470a4b58ad6
+  checksum: 77603a654f8a8dc7f65535a2e5917a65f8d9ffcb06546d28dd297e52adcc4b8a84377e0115f48dca330b080af2da3e78f29d590c89307094d36927d2b1751ec3
   languageName: node
   linkType: hard
 
-"react-router@npm:6.0.2":
-  version: 6.0.2
-  resolution: "react-router@npm:6.0.2"
+"react-router@npm:6.3.0":
+  version: 6.3.0
+  resolution: "react-router@npm:6.3.0"
   dependencies:
-    history: ^5.1.0
+    history: ^5.2.0
   peerDependencies:
     react: ">=16.8"
-  checksum: 9d4f3a8002a90f38be022c6740e11e9bb481e60ad04c5a0ce2d6dbe685059c09b3037c45414d6e7e40eb97308842380413cfb93c5cdcb992e7ee0c50b4f7fcaa
+  checksum: 7be673f5e72104be01e6ab274516bdb932efd93305243170690f6560e3bd1035dd1df3d3c9ce1e0f452638a2529f43a1e77dcf0934fc8031c4783da657be13ca
   languageName: node
   linkType: hard
 
