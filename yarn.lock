@@ -129,8 +129,8 @@ __metadata:
     "@reach/router": 1.3.4
     "@types/node": 16.11.43
     "@types/reach__router": 1.3.6
-    "@types/react": 18.0.15
-    "@types/react-dom": 18.0.6
+    "@types/react": ^18.0.15
+    "@types/react-dom": ^18.0.6
     "@vitejs/plugin-react-refresh": 1.3.6
     buffer: 6.0.3
     microphone-stream: 6.0.1
@@ -1958,7 +1958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.6":
+"@types/react-dom@npm:^18.0.6":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
@@ -1986,17 +1986,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.15":
-  version: 18.0.15
-  resolution: "@types/react@npm:18.0.15"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: e22cc388d1c145aa184787e44dc28db4789976c704cd5db475c170bb76a560eb81def5f346cfe750949bb3d43ad88822b8cbb9f19b1286e3795892a8263e7715
-  languageName: node
-  linkType: hard
-
 "@types/react@npm:^16.9.35":
   version: 16.14.2
   resolution: "@types/react@npm:16.14.2"
@@ -2004,6 +1993,17 @@ __metadata:
     "@types/prop-types": "*"
     csstype: ^3.0.2
   checksum: 1be44c708f3e6e2597223806d83590dae68f296cef8e3ddc6696440c4f2f66775e62f9c46f5e210c29dd13729937923fc50d26aea60d3ed59e8585039cfa4c54
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.0.15":
+  version: 18.0.17
+  resolution: "@types/react@npm:18.0.17"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 18cae64f5bfd6bb58fbd8ee2ba52ec82de844f114254e26de7b513e4b86621f643f9b71d7066958cd571b0d78cb86cbceda449c5289f9349ca573df29ab69252
   languageName: node
   linkType: hard
 

@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import process from "process";
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Routes } from "./Routes";
 
 // Polyfills required for MicrophoneStream
@@ -15,9 +15,10 @@ if (typeof (window as any).process === "undefined") {
   (window as any).process = process;
 }
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
   <div className="container" style={{ height: "100vh" }}>
     <Routes />
-  </div>,
-  document.getElementById("root")
+  </div>
 );
