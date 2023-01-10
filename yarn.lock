@@ -15,6 +15,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-cdk/asset-awscli-v1@npm:^2.2.30":
+  version: 2.2.49
+  resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.49"
+  checksum: 641891578b031103ac3c700d84b089d4848615a1e995d3a8f9ba9e07cf3c61dd74e555421e9e78ca272755bb3a14fd17f33f89acd9efd306e463d28f9f00de29
+  languageName: node
+  linkType: hard
+
+"@aws-cdk/asset-kubectl-v20@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@aws-cdk/asset-kubectl-v20@npm:2.1.1"
+  checksum: f5883fae7b6d3d17e5125560a6efa5065d8b319c11ea6639caa68e315427c4fa266433db04b1a776cf12ccc8c8f8e9a3dfc0ac8cc3c0e73545f80b07808281e2
+  languageName: node
+  linkType: hard
+
+"@aws-cdk/asset-node-proxy-agent-v5@npm:^2.0.38":
+  version: 2.0.38
+  resolution: "@aws-cdk/asset-node-proxy-agent-v5@npm:2.0.38"
+  checksum: 05303f68aa9cd772cb93c2d9c6eef42da1b559ed3fd80d7257d07cda57290b1a2dca87eaf7b92e54e5ab7051cc84564f94e24c209ebb85100728c87b1827d88c
+  languageName: node
+  linkType: hard
+
 "@aws-crypto/crc32@npm:2.0.0":
   version: 2.0.0
   resolution: "@aws-crypto/crc32@npm:2.0.0"
@@ -172,9 +193,9 @@ __metadata:
   resolution: "@aws-sdk-notes-app/infra@workspace:packages/infra"
   dependencies:
     "@types/node": 16.11.43
-    aws-cdk: 2.31.1
-    aws-cdk-lib: 2.31.1
-    constructs: 10.1.44
+    aws-cdk: 2.59.0
+    aws-cdk-lib: 2.59.0
+    constructs: 10.1.215
     typescript: ~4.4.4
   languageName: unknown
   linkType: soft
@@ -2434,28 +2455,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:2.31.1":
-  version: 2.31.1
-  resolution: "aws-cdk-lib@npm:2.31.1"
+"aws-cdk-lib@npm:2.59.0":
+  version: 2.59.0
+  resolution: "aws-cdk-lib@npm:2.59.0"
   dependencies:
+    "@aws-cdk/asset-awscli-v1": ^2.2.30
+    "@aws-cdk/asset-kubectl-v20": ^2.1.1
+    "@aws-cdk/asset-node-proxy-agent-v5": ^2.0.38
     "@balena/dockerignore": ^1.0.2
     case: 1.6.3
     fs-extra: ^9.1.0
-    ignore: ^5.2.0
+    ignore: ^5.2.1
     jsonschema: ^1.4.1
     minimatch: ^3.1.2
     punycode: ^2.1.1
-    semver: ^7.3.7
+    semver: ^7.3.8
     yaml: 1.10.2
   peerDependencies:
     constructs: ^10.0.0
-  checksum: 25159a21f739d9cb31dde67bc49423f854083186435e3e7a468d7f7d040502a22a3f65a2b5b1ae78ab3ea862bb2779db932ca4c996b1ee4e4c5497fdfe0f8d5c
+  checksum: 0eba6a9237f1212d24928912650b1c2af8d225c2b639cdda41a3f4244b7f6fefd54e88059a1338135ad9487d2331cd1420f09051729fa971ef020a2e4d528a11
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:2.31.1":
-  version: 2.31.1
-  resolution: "aws-cdk@npm:2.31.1"
+"aws-cdk@npm:2.59.0":
+  version: 2.59.0
+  resolution: "aws-cdk@npm:2.59.0"
   dependencies:
     fsevents: 2.3.2
   dependenciesMeta:
@@ -2463,7 +2487,7 @@ __metadata:
       optional: true
   bin:
     cdk: bin/cdk
-  checksum: f0af4da4590929bcf9f20608fb09aab7cfb84014927b9876b80472bc77c9f58020ef6b075e6d2c9b368f6a890ce366329e8d3fe48e2fa19e93d4e645d9a3fd38
+  checksum: 2d405f43d7d1c857ab27e42b861953a3ea4712e57356f556d97382d7ce25749be60896b2a9982d69b60e825dc0a749fc31d31974637c09149a8dea0796d11171
   languageName: node
   linkType: hard
 
@@ -2748,10 +2772,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"constructs@npm:10.1.44":
-  version: 10.1.44
-  resolution: "constructs@npm:10.1.44"
-  checksum: 63d3e000bf6854dd61909b6472167f69db7af2387c41b8750f24c270d85fb2174e46835ed80384918574255ba7ee52bbbc3e636c0f0b2bac5c5e961bd835fb14
+"constructs@npm:10.1.215":
+  version: 10.1.215
+  resolution: "constructs@npm:10.1.215"
+  checksum: 5a87a88c36036eae6d725db8cbef77e953a31c369eed7a2d507ff7409422dd1b04151cd8a54e436d48ea1513d68c6f0787abde9c0216fd8408ee93e694811fa3
   languageName: node
   linkType: hard
 
@@ -3826,7 +3850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.8, ignore@npm:^5.2.0":
+"ignore@npm:^5.1.8, ignore@npm:^5.2.0, ignore@npm:^5.2.1":
   version: 5.2.4
   resolution: "ignore@npm:5.2.4"
   checksum: 3d4c309c6006e2621659311783eaea7ebcd41fe4ca1d78c91c473157ad6666a57a2df790fe0d07a12300d9aac2888204d7be8d59f9aaf665b1c7fcdb432517ef
@@ -5100,7 +5124,7 @@ resolve@^1.22.1:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.2.1, semver@npm:^7.3.5, semver@npm:^7.3.7":
+"semver@npm:^7.2.1, semver@npm:^7.3.5, semver@npm:^7.3.8":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
