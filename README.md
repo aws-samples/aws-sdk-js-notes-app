@@ -25,8 +25,8 @@ To set up this notes app, complete the following tasks:
 
 - Install **Node.js** by following these steps:
   1. Install [nvm](https://github.com/nvm-sh/nvm#installation-and-update).
-  1. Use node v16.x.x by running `nvm use` or `nvm use 16` in a terminal window.
-  1. Verify that node is installed by running `node -v` in a terminal window and confirm that it shows Node.js >=16.10, such as `v16.16.0`).
+  1. Use node v18.x.x by running `nvm use` or `nvm use 18` in a terminal window.
+  1. Verify that node is installed by running `node -v` in a terminal window and confirm that it shows Node.js >=18, such as `v18.13.0`).
   1. Enable corepack by running `corepack enable` in a terminal window.
 - Install dependencies by running `yarn`.
 - If you don't have an AWS account, [create one](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
