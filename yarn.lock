@@ -151,7 +151,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.48.1
     esbuild: 0.12.17
     eslint: ^8.31.0
-    typescript: ~4.4.4
+    typescript: ~4.9.4
   languageName: unknown
   linkType: soft
 
@@ -182,7 +182,7 @@ __metadata:
     react-bootstrap: 1.4.0
     react-bootstrap-icons: 1.3.0
     react-dom: 18.2.0
-    typescript: ~4.4.4
+    typescript: ~4.9.4
     util: ^0.12.5
     vite: 3.2.5
   languageName: unknown
@@ -196,7 +196,7 @@ __metadata:
     aws-cdk: 2.59.0
     aws-cdk-lib: 2.59.0
     constructs: 10.1.215
-    typescript: ~4.4.4
+    typescript: ~4.9.4
   languageName: unknown
   linkType: soft
 
@@ -5465,23 +5465,23 @@ resolve@^1.22.1:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.4.4":
-  version: 4.4.4
-  resolution: "typescript@npm:4.4.4"
+"typescript@npm:~4.9.4":
+  version: 4.9.4
+  resolution: "typescript@npm:4.9.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
+  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.4.4#~builtin<compat/typescript>":
-  version: 4.4.4
-  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=bbeadb"
+"typescript@patch:typescript@~4.9.4#~builtin<compat/typescript>":
+  version: 4.9.4
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3d1b04449662193544b81d055479d03b4c5dca95f1a82f8922596f089d894c9fefbe16639d1d9dfe26a7054419645530cef44001bc17aed1fe1eb3c237e9b3c7
+  checksum: 1caaea6cb7f813e64345190fddc4e6c924d0b698ab81189b503763c4a18f7f5501c69362979d36e19c042d89d936443e768a78b0675690b35eb663d19e0eae71
   languageName: node
   linkType: hard
 
