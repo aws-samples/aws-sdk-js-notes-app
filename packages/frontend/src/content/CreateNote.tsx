@@ -4,17 +4,12 @@ import { navigate, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
-import { RecordAudioButton } from "./RecordAudioButton";
-import { PlayAudioButton } from "./PlayAudioButton";
 
 const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
   const [file, setFile] = useState();
-
-  const [isRecording, setIsRecording] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,9 +39,6 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
-  const noteContentAdditionalProps =
-    isRecording || isPlaying ? { disabled: true, value: noteContent } : {};
-
   return (
     <PageContainer header={<HomeButton />}>
       <form onSubmit={handleSubmit}>
@@ -55,38 +47,13 @@ const CreateNote = (props: RouteComponentProps) => {
           <Form.Label>Note Content</Form.Label>
           <Form.Control
             as="textarea"
-            placeholder={isRecording ? "Speak Now" : "Enter Note content"}
+            placeholder={"Enter Note content"}
             onChange={(e) => {
               const content = e.currentTarget.value;
               if (content) {
                 setNoteContent(content);
               }
             }}
-            {...noteContentAdditionalProps}
-          />
-        </Form.Group>
-        <Form.Group>
-          <RecordAudioButton
-            disabled={isPlaying}
-            isRecording={isRecording}
-            setIsRecording={setIsRecording}
-            setNoteContent={setNoteContent}
-          />
-          <PlayAudioButton
-            disabled={isRecording}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            noteContent={noteContent}
-          />
-        </Form.Group>
-        <Form.Group controlId="file">
-          <Form.Label>Attachment</Form.Label>
-          <Form.Control
-            onChange={(e) => {
-              // @ts-ignore Property 'files' does not exist on type
-              setFile(e.target.files[0]);
-            }}
-            type="file"
           />
         </Form.Group>
         <Button type="submit" disabled={!noteContent || isLoading} block>

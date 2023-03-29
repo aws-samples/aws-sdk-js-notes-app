@@ -2,6 +2,8 @@ const { exec } = require("child_process");
 const { join } = require("path");
 const { readFileSync, writeFileSync, unlinkSync } = require("fs");
 
+const isLocal = process.argv.includes("--local");
+
 (async () => {
   const cdkOutputsFile = join(
     __dirname,
@@ -10,8 +12,9 @@ const { readFileSync, writeFileSync, unlinkSync } = require("fs");
   const configFile = join(__dirname, "..", "frontend", "src", "config.json");
 
   try {
+    const deployCommand = isLocal ? "yarn cdklocal deploy --outputs-file" : "yarn cdk deploy --outputs-file";
     const execProcess = exec(
-      `yarn cdk deploy --outputs-file ${cdkOutputsFile}`,
+      `${deployCommand} ${cdkOutputsFile}`,
       {
         cwd: join(__dirname, "..", "infra"),
       }
@@ -22,7 +25,7 @@ const { readFileSync, writeFileSync, unlinkSync } = require("fs");
       execProcess.on("exit", resolve);
     });
   } catch (error) {
-    console.log(`cdk command failed: ${error}`);
+    console.log(`Deploy failed: ${error}`);
   }
 
   // Populate frontend config with data from outputsFile

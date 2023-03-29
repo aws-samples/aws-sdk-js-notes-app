@@ -7,8 +7,10 @@
   ],
   "scripts": {
     "cdk": "cd packages/infra && yarn cdk",
+    "cdklocal": "cd packages/infra && yarn cdklocal",
     "build:backend": "cd packages/backend && yarn build",
     "prepare:frontend": "node packages/scripts/populate-frontend-config.js",
+    "prepare:frontend-local": "node packages/scripts/populate-frontend-config.js --local",
     "build:frontend": "cd packages/frontend && yarn build",
     "start:frontend": "cd packages/frontend && yarn start",
     "serve:frontend": "cd packages/frontend && yarn build && yarn serve"

@@ -1,0 +1,65 @@
+name: Deploy on LocalStack 
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: Setup infrastructure using CDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Start LocalStack
+        env:
+          LOCALSTACK_API_KEY: ${{ secrets.LOCALSTACK_API_KEY }}
+          DNS_ADDRESS: 0
+        run: |
+          pip install localstack awscli-local[ver1]
+          pip install terraform-local
+          docker pull localstack/localstack-pro:latest
+          # Start LocalStack in the background
+          DEBUG=1 localstack start -d
+          # Wait 30 seconds for the LocalStack container to become ready before timing out
+          echo "Waiting for LocalStack startup..."
+          localstack wait -t 15
+          echo "Startup complete"
+
+      - name: Install CDK
+        run: |
+          npm install -g aws-cdk-local aws-cdk
+          cdklocal --version
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Prepare Lambda functions
+        run: yarn build:backend
+
+      - name: Bootstrap the infrastructure
+        run: |
+          yarn cdklocal bootstrap
+          sleep 10
+
+      - name: Deploy the infrastructure
+        uses: nick-fields/retry@v2
+        with:
+          max_attempts: 3
+          retry_on: error
+          timeout_seconds: 120
+          retry_wait_seconds: 10
+          command: |
+            yarn cdklocal deploy

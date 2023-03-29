@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "cdk": "tsc && cdk"
+    "cdk": "tsc && cdk",
+    "cdklocal": "tsc && cdklocal --require-approval never"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
