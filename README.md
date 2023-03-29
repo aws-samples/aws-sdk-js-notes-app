@@ -17,7 +17,7 @@ The Note-Taking application built using AWS SDK for JavaScript (v3) demonstrates
 
 The following diagram shows the architecture that this sample application builds and deploys:
 
-TODO
+![aws-sdk-js-notes-app](aws-sdk-js-notes.png)
 
 We are using the following AWS services and their features to build our infrastructure:
 
