@@ -158,3 +158,9 @@ Users can adapt this example workflow to run in their own CI environment. LocalS
 ## Learn more
 
 The sample application is based on a public [AWS sample app](https://github.com/aws-samples/ecs-apigateway-sample) and a [SST tutorial](https://github.com/serverless-stack/demo-notes-app).
+
+## Contributing
+
+We appreciate your interest in contributing to our project and are always looking for new ways to improve the developer experience. We welcome feedback, bug reports, and even feature ideas from the community.
+Please refer to the [contributing file](CONTRIBUTING.md) for more details on how to get started. 
+
