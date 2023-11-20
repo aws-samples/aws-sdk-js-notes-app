@@ -22,24 +22,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/asset-awscli-v1@npm:^2.2.177":
+"@aws-cdk/asset-awscli-v1@npm:^2.2.201":
   version: 2.2.201
   resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.201"
   checksum: d77a7b90dee16da9c15c0a1cc2d531c100097c562f0802fc15838928a7921e417a3f4c5501ca40fdc768076f981f57f59dcb92029787be34a465e6eba9f40a2a
   languageName: node
   linkType: hard
 
-"@aws-cdk/asset-kubectl-v20@npm:^2.1.1":
+"@aws-cdk/asset-kubectl-v20@npm:^2.1.2":
   version: 2.1.2
   resolution: "@aws-cdk/asset-kubectl-v20@npm:2.1.2"
   checksum: 987bce26f54ba64596b7d15adf0c09603814ed56f06b498d17dc4b8859f4708662c9c48f88bba2810d8fac04cf84b8f3e51806c93cf65aeb6148ad76bc250f84
   languageName: node
   linkType: hard
 
-"@aws-cdk/asset-node-proxy-agent-v5@npm:^2.0.148":
-  version: 2.0.166
-  resolution: "@aws-cdk/asset-node-proxy-agent-v5@npm:2.0.166"
-  checksum: d286c3d9e30d5acf6e3eef820bba74a87d4ff8e052183166702f22a615c0eed19471408df798d92208b12c8b8ecbaaa6cbe2b8b2729ec10c6446b5ef2081af37
+"@aws-cdk/asset-node-proxy-agent-v6@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@aws-cdk/asset-node-proxy-agent-v6@npm:2.0.1"
+  checksum: 5d011a554e71212662e32ff5d9187a1733a07d5424bdedfef2f43e7a6075d4b5f316d696867cc5dcd9ed1a11731b0d6b3ae41872c454796c326983ab382e05d0
   languageName: node
   linkType: hard
 
@@ -190,9 +190,9 @@ __metadata:
   resolution: "@aws-sdk-notes-app/infra@workspace:packages/infra"
   dependencies:
     "@types/node": ^18.11.18
-    aws-cdk: 2.59.0
-    aws-cdk-lib: 2.80.0
-    constructs: 10.1.215
+    aws-cdk: 2.110.0
+    aws-cdk-lib: 2.110.0
+    constructs: 10.3.0
     typescript: ~4.9.4
   languageName: unknown
   linkType: soft
@@ -2547,32 +2547,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:2.80.0":
-  version: 2.80.0
-  resolution: "aws-cdk-lib@npm:2.80.0"
+"aws-cdk-lib@npm:2.110.0":
+  version: 2.110.0
+  resolution: "aws-cdk-lib@npm:2.110.0"
   dependencies:
-    "@aws-cdk/asset-awscli-v1": ^2.2.177
-    "@aws-cdk/asset-kubectl-v20": ^2.1.1
-    "@aws-cdk/asset-node-proxy-agent-v5": ^2.0.148
+    "@aws-cdk/asset-awscli-v1": ^2.2.201
+    "@aws-cdk/asset-kubectl-v20": ^2.1.2
+    "@aws-cdk/asset-node-proxy-agent-v6": ^2.0.1
     "@balena/dockerignore": ^1.0.2
     case: 1.6.3
     fs-extra: ^11.1.1
     ignore: ^5.2.4
     jsonschema: ^1.4.1
     minimatch: ^3.1.2
-    punycode: ^2.3.0
-    semver: ^7.5.1
+    punycode: ^2.3.1
+    semver: ^7.5.4
     table: ^6.8.1
     yaml: 1.10.2
   peerDependencies:
     constructs: ^10.0.0
-  checksum: 80a0c4883ef12cf2bcb826ff2f02a0be181d0ced654ad608d9c471f982053e7350b4778a4853568a0378d7403aae7a73082b89f6dfa27bd83f9f0fa816b68d5a
+  checksum: cde33f2058a55fec1bceddb1b389c2b6e14eb7e22e7e7de1f6a76e761a5ee49ffe51238aacb3b1094090ee9d7563dd1e4092d1f510782142a03c074e2e9eb0a8
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:2.59.0":
-  version: 2.59.0
-  resolution: "aws-cdk@npm:2.59.0"
+"aws-cdk@npm:2.110.0":
+  version: 2.110.0
+  resolution: "aws-cdk@npm:2.110.0"
   dependencies:
     fsevents: 2.3.2
   dependenciesMeta:
@@ -2580,7 +2580,7 @@ __metadata:
       optional: true
   bin:
     cdk: bin/cdk
-  checksum: 2d405f43d7d1c857ab27e42b861953a3ea4712e57356f556d97382d7ce25749be60896b2a9982d69b60e825dc0a749fc31d31974637c09149a8dea0796d11171
+  checksum: 69ea8ca2d764a00c7b52889f55ad611655298a49c00cbdd3f976e94fd375c9d48c0e646b24c243555af5ac9e68437f078a9a3c08d3ffa96908d90e2a76845eb6
   languageName: node
   linkType: hard
 
@@ -2844,10 +2844,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"constructs@npm:10.1.215":
-  version: 10.1.215
-  resolution: "constructs@npm:10.1.215"
-  checksum: 5a87a88c36036eae6d725db8cbef77e953a31c369eed7a2d507ff7409422dd1b04151cd8a54e436d48ea1513d68c6f0787abde9c0216fd8408ee93e694811fa3
+"constructs@npm:10.3.0":
+  version: 10.3.0
+  resolution: "constructs@npm:10.3.0"
+  checksum: d8d4ea4e4614914e119b1fd5fc6da0deac909a22b0dbe09423cefb3da54a2866cb9986b371649dadd90b09c56fe69ec22fe3eaab475f8914ac702ed8205e13ca
   languageName: node
   linkType: hard
 
@@ -4933,7 +4933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"punycode@npm:^2.1.0, punycode@npm:^2.3.0":
+"punycode@npm:^2.1.0, punycode@npm:^2.3.1":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
   checksum: bb0a0ceedca4c3c57a9b981b90601579058903c62be23c5e8e843d2c2d4148a3ecf029d5133486fb0e1822b098ba8bba09e89d6b21742d02fa26bda6441a6fb2
@@ -5251,7 +5251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.1":
+"semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
