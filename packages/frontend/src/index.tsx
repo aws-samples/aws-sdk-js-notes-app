@@ -16,6 +16,7 @@ if (typeof (window as any).process === "undefined") {
 }
 
 const container = document.getElementById("root");
+// @ts-ignore
 const root = createRoot(container);
 root.render(
   <div className="container" style={{ height: "100vh" }}>

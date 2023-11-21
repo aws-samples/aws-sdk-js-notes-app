@@ -21,7 +21,7 @@ const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
         body: JSON.stringify({ content: noteContent }),
       });
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       setErrorMsg(`${error.toString()} - ${updateNoteURL} - ${noteContent}`);
     } finally {
