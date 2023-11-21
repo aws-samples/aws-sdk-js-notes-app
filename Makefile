@@ -27,6 +27,19 @@ deploy:
 start:
 		localstack start -d
 
+## export configs for web app
+prepare-frontend:
+		yarn prepare:frontend-local
+
+build-frontend:
+		yarn build:frontend
+
+bootstrap-frontend:
+		yarn cdklocal bootstrap --app="node dist/aws-sdk-js-notes-app-frontend.js";
+
+deploy-frontend:
+		yarn cdklocal deploy --app="node dist/aws-sdk-js-notes-app-frontend.js";
+
 ## Stop the Running LocalStack container
 stop:
 		@echo
