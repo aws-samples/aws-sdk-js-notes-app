@@ -32,7 +32,7 @@ const CreateNote = (props: RouteComponentProps) => {
         body: JSON.stringify({ attachment, content: noteContent }),
       });
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       setErrorMsg(`${error.toString()} - ${createNoteURL} - ${noteContent}`);
     } finally {
       setIsLoading(false);

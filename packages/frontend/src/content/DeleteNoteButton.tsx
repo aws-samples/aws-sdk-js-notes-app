@@ -24,7 +24,7 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
         method: "DELETE",
       });
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       setErrorMsg(`${error.toString()} - ${deleteNoteURL} - ${noteId}`);
     } finally {
       setIsDeleting(false);

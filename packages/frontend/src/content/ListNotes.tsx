@@ -24,7 +24,7 @@ const ListNotes = (props: RouteComponentProps) => {
         const response = await fetch(fetchURL);
         const data = await response.json();
         setNotes(data);
-      } catch (error) {
+      } catch (error: any) {
         setErrorMsg(`${error.toString()} - ${fetchURL}`);
       } finally {
         setIsLoading(false);

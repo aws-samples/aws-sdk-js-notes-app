@@ -118,10 +118,20 @@ arn:aws:cloudformation:us-east-1:000000000000:stack/aws-sdk-js-notes-app/ebb3238
 To configure the frontend to use the deployed infrastructure, run the following command:
 
 ```shell
-yarn prepare:frontend-local
+make prepare-frontend-local
 ```
 
 It will update the `packages/frontend/src/config.json` file with the deployed infrastructure's output values.
+
+### Deploying the frontend
+
+```shell
+make build-frontend
+make bootstrap-frontend
+make deploy-frontend
+```
+
+Alternatively you can start the frontend locally with below steps:
 
 ### Starting the frontend
 
@@ -130,8 +140,6 @@ To start the frontend, run the following command:
 ```shell
 yarn start:frontend
 ```
-
-Alternatively, you can build the frontend and deploy it to S3 to access it from a browser.
 
 ### Testing the web application
 
@@ -162,5 +170,4 @@ The sample application is based on a public [AWS sample app](https://github.com/
 ## Contributing
 
 We appreciate your interest in contributing to our project and are always looking for new ways to improve the developer experience. We welcome feedback, bug reports, and even feature ideas from the community.
-Please refer to the [contributing file](CONTRIBUTING.md) for more details on how to get started. 
-
+Please refer to the [contributing file](CONTRIBUTING.md) for more details on how to get started.
