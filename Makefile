@@ -28,7 +28,7 @@ start:
 		localstack start -d
 
 ## export configs for web app
-prepare-frontend:
+prepare-frontend-local:
 		yarn prepare:frontend-local
 
 build-frontend:
