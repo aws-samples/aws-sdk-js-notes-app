@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { RouteComponentProps, navigate } from "@reach/router";
 import { Form, Card } from "react-bootstrap";
-import { GATEWAY_URL } from "../config.json";
+import { GATEWAY_URL } from "../config";
 import { DeleteNoteButton, SaveNoteButton } from "./";
 import { getObjectUrl } from "../libs";
 import { HomeButton, Loading, PageContainer } from "../components";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
-  const { noteId } = props;
+const ShowNote = () => {
+  const { noteId } = useParams<'noteId'>();
   const [isLoading, setIsLoading] = useState(true);
   const [noteContent, setNoteContent] = useState("");
   const [attachment, setAttachment] = useState("");
   const [attachmentURL, setAttachmentURL] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchNote = async (noteId: string) => {

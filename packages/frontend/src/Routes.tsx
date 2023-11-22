@@ -1,20 +1,24 @@
-import React, { lazy, Suspense } from "react";
-import { Router } from "@reach/router";
+import React from "react";
+import { Suspense } from "react";
+import { BrowserRouter, Route, Routes as RouterRoutes } from "react-router-dom";
+import ListNotes from "./content/ListNotes";
+import CreateNote from "./content/CreateNote";
+import ShowNote from "./content/ShowNote";
+import NotFound from "./content/NotFound";
 
-const ListNotes = lazy(() => import("./content/ListNotes"));
-const CreateNote = lazy(() => import("./content/CreateNote"));
-const ShowNote = lazy(() => import("./content/ShowNote"));
-const NotFound = lazy(() => import("./content/NotFound"));
+import { BASE_URL } from "./config";
 
-const Routes = () => (
+const   Routes = () => (
   <div className="mt-md-4 d-flex flex-column justify-content-center">
     <Suspense fallback={<div>Loading...</div>}>
-      <Router>
-        <ListNotes path="/" />
-        <CreateNote path="/note/new" />
-        <ShowNote path="/notes/:noteId" />
-        <NotFound default />
-      </Router>
+      <BrowserRouter basename={BASE_URL}>
+        <RouterRoutes>
+          <Route path="/" element={<ListNotes/>} />
+          <Route path="/note/new" element={<CreateNote/>} />
+          <Route path="/notes/:noteId" element={<ShowNote/>} />
+          <Route element={<NotFound/>} />
+        </RouterRoutes>
+      </BrowserRouter>
     </Suspense>
   </div>
 );

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, RouteComponentProps } from "@reach/router";
-import { GATEWAY_URL } from "../config.json";
+import { GATEWAY_URL } from "../config";
 import { Card, Alert, CardColumns, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";
+import { Link } from "react-router-dom";
 interface Note {
   noteId: string;
   createdAt: string;
@@ -10,7 +10,7 @@ interface Note {
   attachment: boolean;
 }
 
-const ListNotes = (props: RouteComponentProps) => {
+const ListNotes = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [notes, setNotes] = useState([]);

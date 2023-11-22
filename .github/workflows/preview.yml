@@ -1,0 +1,38 @@
+name: Create PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Preview
+        uses: LocalStack/setup-localstack/preview@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          localstack-api-key: ${{ secrets.LOCALSTACK_API_KEY }}
+          preview-cmd: |
+            npm install -g aws-cdk-local aws-cdk
+            pip install awscli-local[ver1]
+            make build
+            make bootstrap
+            make deploy
+            make prepare-frontend-local
+            make build-frontend
+            make bootstrap-frontend
+            make deploy-frontend
+            distributionId=$(awslocal cloudfront list-distributions | jq -r '.DistributionList.Items[0].Id')
+            echo "Open URL: $AWS_ENDPOINT_URL/cloudfront/$AWS_DEFAULT_REGION/$distributionId/"
+
+      - name: Finalize PR comment
+        uses: LocalStack/setup-localstack/finish@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          include-preview: true

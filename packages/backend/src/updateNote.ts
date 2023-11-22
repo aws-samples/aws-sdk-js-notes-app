@@ -4,6 +4,7 @@ import { success, failure } from "./libs/response";
 
 // eslint-disable-next-line no-unused-vars
 import { APIGatewayEvent } from "aws-lambda";
+import { endpoint } from "./libs/endpoint";
 
 export const handler = async (event: APIGatewayEvent) => {
   const data = JSON.parse(event.body || "{}");
@@ -23,7 +24,7 @@ export const handler = async (event: APIGatewayEvent) => {
   };
 
   try {
-    const client = new DynamoDBClient({});
+    const client = new DynamoDBClient({endpoint});
     await client.send(new UpdateItemCommand(params));
     return success({ status: true });
   } catch (e) {

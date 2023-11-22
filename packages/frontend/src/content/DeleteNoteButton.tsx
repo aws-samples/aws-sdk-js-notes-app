@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
-import { GATEWAY_URL } from "../config.json";
-import { navigate } from "@reach/router";
+import { GATEWAY_URL } from "../config";
 import { deleteObject } from "../libs";
 import { ButtonSpinner } from "../components";
+import { useNavigate } from "react-router-dom";
 
 const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
   const { noteId, attachment } = props;
   const [isDeleting, setIsDeleting] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const navigate = useNavigate();
 
   const handleDelete = async (event: any) => {
     event.preventDefault();

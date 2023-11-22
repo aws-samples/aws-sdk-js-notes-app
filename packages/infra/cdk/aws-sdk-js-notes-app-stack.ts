@@ -7,6 +7,8 @@ import {
   aws_dynamodb as dynamodb,
   aws_iam as iam,
   aws_s3 as s3,
+  aws_cloudfront as cloudfront,
+  aws_cloudfront_origins as origins,
 } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { NotesApi } from "./notes-api";
@@ -128,9 +130,34 @@ export class AwsSdkJsNotesAppStack extends Stack {
       },
     });
 
+    const websiteBucket = new s3.Bucket(this, "WebsiteBucket", {
+      bucketName: "notes-app-frontend",
+    });
+
+    const distribution = new cloudfront.Distribution(this, "WebsiteDistribution", {
+      defaultRootObject: "index.html",
+      defaultBehavior: {
+        origin: new origins.S3Origin(websiteBucket),
+      },
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 200,
+          responsePagePath: '/index.html',
+        },
+        {
+          httpStatus: 404,
+          responseHttpStatus: 200,
+          responsePagePath: '/index.html',
+        },
+      ],
+    });
+
     new CfnOutput(this, "FilesBucket", { value: filesBucket.bucketName });
-    new CfnOutput(this, "GatewayUrl", { value: api.url });
+    new CfnOutput(this, "GatewayId", { value: api.restApiId });
     new CfnOutput(this, "IdentityPoolId", { value: identityPool.ref });
     new CfnOutput(this, "Region", { value: this.region });
+    new CfnOutput(this, "FrontendDistributionId", { value: distribution.distributionId });
+
   }
 }

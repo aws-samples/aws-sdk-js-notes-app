@@ -1,15 +1,17 @@
 import React, { useState, FormEvent } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { navigate, RouteComponentProps } from "@reach/router";
-import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
+import { GATEWAY_URL, MAX_FILE_SIZE } from "../config";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
+import { useNavigate } from "react-router-dom";
 
-const CreateNote = (props: RouteComponentProps) => {
+const CreateNote = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");
   const [file, setFile] = useState();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

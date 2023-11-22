@@ -1,9 +1,9 @@
-# Note-Taking application using AWS SDK for JavaScript, Amazon DynamoDB, Lambda, Cognito, API Gateway, and S3
+# Note-Taking application using AWS SDK for JavaScript, Amazon DynamoDB, Lambda, Cognito, API Gateway, S3, Cloudfront
 
 | Key          | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Environment  | <img src="https://img.shields.io/badge/LocalStack-deploys-4D29B4.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKgAAACoABZrFArwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALbSURBVHic7ZpNaxNRFIafczNTGIq0G2M7pXWRlRv3Lusf8AMFEQT3guDWhX9BcC/uFAr1B4igLgSF4EYDtsuQ3M5GYrTaj3Tmui2SpMnM3PlK3m1uzjnPw8xw50MoaNrttl+r1e4CNRv1jTG/+v3+c8dG8TSilHoAPLZVX0RYWlraUbYaJI2IuLZ7KKUWCisgq8wF5D1A3rF+EQyCYPHo6Ghh3BrP8wb1en3f9izDYlVAp9O5EkXRB8dxxl7QBoNBpLW+7fv+a5vzDIvVU0BELhpjJrmaK2NMw+YsIxunUaTZbLrdbveZ1vpmGvWyTOJToNlsuqurq1vAdWPMeSDzwzhJEh0Bp+FTmifzxBZQBXiIKaAq8BBDQJXgYUoBVYOHKQRUER4mFFBVeJhAQJXh4QwBVYeHMQJmAR5GCJgVeBgiYJbg4T8BswYPp+4GW63WwvLy8hZwLcd5TudvBj3+OFBIeA4PD596nvc1iiIrD21qtdr+ysrKR8cY42itCwUP0Gg0+sC27T5qb2/vMunB/0ipTmZxfN//orW+BCwmrGV6vd63BP9P2j9WxGbxbrd7B3g14fLfwFsROUlzBmNM33XdR6Meuxfp5eg54IYxJvXCx8fHL4F3w36blTdDI4/0WREwMnMBeQ+Qd+YC8h4g78wF5D1A3rEqwBiT6q4ubpRSI+ewuhP0PO/NwcHBExHJZZ8PICI/e73ep7z6zzNPwWP1djhuOp3OfRG5kLROFEXv19fXP49bU6TbYQDa7XZDRF6kUUtEtoFb49YUbh/gOM7YbwqnyG4URQ/PWlQ4ASllNwzDzY2NDX3WwioKmBgeqidgKnioloCp4aE6AmLBQzUExIaH8gtIBA/lFrCTFB7KK2AnDMOrSeGhnAJSg4fyCUgVHsolIHV4KI8AK/BQDgHW4KH4AqzCQwEfiIRheKKUAvjuuu7m2tpakPdMmcYYI1rre0EQ1LPo9w82qyNziMdZ3AAAAABJRU5ErkJggg=="> <img src="https://img.shields.io/badge/AWS-deploys-F29100.svg?logo=amazon"> |
-| Services     | DynamoDB, Lambda, Cognito, API Gateway, S3, IAM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Services     | DynamoDB, Lambda, Cognito, API Gateway, S3, IAM, Cloudfront                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Integrations | CDK, AWS SDK for JavaScript                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Categories   | Serverless;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Level        | Beginner                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -11,13 +11,13 @@
 
 ## Introduction
 
-The Note-Taking application built using AWS SDK for JavaScript (v3) demonstrates how to build a serverless web application using DynamoDB, Lambda, Cognito, API Gateway, and S3. This sample application deploys five Lambda functions to create, list, update, delete, and get all the notes. A React-based frontend allows the user to interact with the Lambda functions exposed via an API Gateway URL. Users can deploy this application sample on LocalStack & AWS using AWS Cloud Development Kit with no changes. To test this application sample, we will demonstrate how you use LocalStack to deploy the infrastructure on your developer machine and your CI environment. Furthermore, we will showcase how you can interact with the web user interface to verify the application's functionality.
+The Note-Taking application built using AWS SDK for JavaScript (v3) demonstrates how to build a serverless web application using DynamoDB, Lambda, Cognito, API Gateway, S3 and Cloudfront. This sample application deploys five Lambda functions to create, list, update, delete, and get all the notes. A React-based frontend served via a Cloudfront distribution and an S3 bucket allows the user to interact with the Lambda functions exposed via an API Gateway URL. Users can deploy this application sample on LocalStack & AWS using AWS Cloud Development Kit with no changes. To test this application sample, we will demonstrate how you use LocalStack to deploy the infrastructure on your developer machine and your CI environment. Furthermore, we will showcase how you can interact with the web user interface to verify the application's functionality.
 
 ## Architecture diagram
 
 The following diagram shows the architecture that this sample application builds and deploys:
 
-![aws-sdk-js-notes-app](aws-sdk-js-notes.png)
+![aws-sdk-js-notes-app](images/aws-sdk-js-notes.png)
 
 We are using the following AWS services and their features to build our infrastructure:
 
@@ -27,6 +27,8 @@ We are using the following AWS services and their features to build our infrastr
 - [IAM](https://docs.localstack.cloud/user-guide/aws/iam/) to create policies to specify roles and permissions for various AWS services.
 - [API Gateway](https://docs.localstack.cloud/user-guide/aws/apigatewayv2/) to expose the Lambda functions to the user through HTTP APIs.
 - [Cognito User Pools](https://docs.localstack.cloud/user-guide/aws/cognito/) for creating an identity pool to generate signed url for S3.
+- [Cloudfront](https://docs.localstack.cloud/user-guide/aws/cloudfront/) to serve frontend content.
+- [S3] (https://docs.localstack.cloud/user-guide/aws/s3/) to store files for the frontend build.
 
 ## Prerequisites
 
@@ -35,10 +37,10 @@ We are using the following AWS services and their features to build our infrastr
 - [CDK](https://docs.localstack.cloud/user-guide/integrations/aws-cdk/) with the [`cdklocal`](https://www.npmjs.com/package/aws-cdk-local) wrapper.
 - [Node.js](https://nodejs.org/en/download/) with `yarn` package manager.
 
-Start LocalStack Pro with the `LOCALSTACK_API_KEY` pre-configured:
+Start LocalStack Pro with the `LOCALSTACK_AUTH_TOKEN` or `LOCALSTACK_API_KEY` pre-configured:
 
 ```shell
-export LOCALSTACK_API_KEY=<your-api-key>
+export LOCALSTACK_AUTH_TOKEN=<your-auth-token>
 EXTRA_CORS_ALLOWED_ORIGINS=* localstack start
 ```
 
@@ -61,7 +63,7 @@ yarn install
 To build the Lambda functions, run the following command:
 
 ```shell
-yarn build:backend
+make build
 ```
 
 You are expected to see the following output:
@@ -81,7 +83,7 @@ You are expected to see the following output:
 To bootstrap the CDK, run the following command:
 
 ```shell
-yarn cdklocal bootstrap
+make bootstrap
 ```
 
 ### Deploying the infrastructure
@@ -89,7 +91,7 @@ yarn cdklocal bootstrap
 To deploy the infrastructure, run the following command:
 
 ```shell
-yarn cdklocal deploy
+make deploy
 ```
 
 > If you see a `CREATE_FAILED (Deployment failed)` error, wait a few seconds and re-run the command.
@@ -121,7 +123,7 @@ To configure the frontend to use the deployed infrastructure, run the following 
 make prepare-frontend-local
 ```
 
-It will update the `packages/frontend/src/config.json` file with the deployed infrastructure's output values.
+It will update the `packages/frontend/.env` file with the deployed infrastructure's output values.
 
 ### Deploying the frontend
 
@@ -131,19 +133,23 @@ make bootstrap-frontend
 make deploy-frontend
 ```
 
-Alternatively you can start the frontend locally with below steps:
+### View the frontend
 
-### Starting the frontend
-
-To start the frontend, run the following command:
+Access the cloudfront distribution by fetching its id with the following command:
 
 ```shell
-yarn start:frontend
+awslocal cloudfront list-distributions
+```
+
+with the Id of the distribution, simply open the following URL:
+  
+```shell
+http://localhost:4566/cloudfront/<distribution-id>
 ```
 
 ### Testing the web application
 
-To test the web application, open the URL you see in the output of the `yarn start:frontend` command in your browser. You will see the following page:
+To test the web application, open the URL above. You will see the following page:
 
 ![The default page of the Note taking application](images/note-taking-application-default-page.png)
 
@@ -157,11 +163,25 @@ You can click on **Create** and see the note added to the list of notes:
 
 You can further edit, delete, and view the notes.
 
+### Starting the frontend locally
+
+To start the frontend locally, run the following command:
+
+```shell
+yarn start:frontend
+```
+
+You'll see the URL to access the frontend in the output of the `yarn start:frontend` command
+
 ### GitHub Action
 
 This application sample hosts an example GitHub Action workflow that starts up LocalStack, builds the Lambda functions, and deploys the infrastructure on the runner. You can find the workflow in the `.github/workflows/main.yml` file. To run the workflow, you can fork this repository and push a commit to the `main` branch.
 
 Users can adapt this example workflow to run in their own CI environment. LocalStack supports various CI environments, including GitHub Actions, CircleCI, Jenkins, Travis CI, and more. You can find more information about the CI integration in the [LocalStack documentation](https://docs.localstack.cloud/user-guide/ci/).
+
+### Preview environment
+
+This sample further shows off our preview environments feature. Preview environments allow you to deploy your application to a separate environment whenever you want with the right configuration. You can find the workflow in the `.github/workflows/preview.yml` file. You can find more information about preview environments in the [LocalStack documentation](https://docs.localstack.cloud/user-guide/cloud-sandbox/application-previews/).
 
 ## Learn more
 

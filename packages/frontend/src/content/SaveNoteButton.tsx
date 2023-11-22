@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
-import { GATEWAY_URL } from "../config.json";
-import { navigate } from "@reach/router";
+import { GATEWAY_URL } from "../config";
 import { ButtonSpinner } from "../components";
+import { useNavigate } from "react-router-dom";
 
 const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
   const [isSaving, setIsSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSave = async (event: any) => {
     event.preventDefault();
