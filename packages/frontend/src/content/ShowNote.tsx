@@ -69,8 +69,10 @@ const ShowNote = () => {
               </Form.Text>
             </Form.Group>
           )}
-          <SaveNoteButton noteId={noteId || ""} noteContent={noteContent} />
-          <DeleteNoteButton noteId={noteId || ""} attachment={attachment} />
+          <div className="mt-4 d-flex gap-2">
+            <SaveNoteButton noteId={noteId || ""} noteContent={noteContent}/>
+            <DeleteNoteButton noteId={noteId || ""} attachment={attachment} />
+          </div>
         </form>
       )}
     </PageContainer>

@@ -3,7 +3,6 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 
 // https://vitejs.dev/config/
 export default ({mode}) => {
-  console.log(process.env.VITE_BASE_URL)
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
   return defineConfig({
     plugins: [reactRefresh()],

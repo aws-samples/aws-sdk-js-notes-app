@@ -34,7 +34,7 @@ const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-      <Button disabled={isSaving} onClick={handleSave} block>
+      <Button disabled={isSaving} onClick={handleSave}>
         {isSaving ? <ButtonSpinner /> : ""}
         {isSaving ? "Saving..." : "Save"}
       </Button>

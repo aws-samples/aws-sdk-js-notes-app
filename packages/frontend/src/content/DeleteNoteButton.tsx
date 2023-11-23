@@ -40,7 +40,6 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
         variant="danger"
         disabled={isDeleting}
         onClick={handleDelete}
-        block
       >
         {isDeleting ? <ButtonSpinner /> : ""}
         {isDeleting ? "Deleting..." : "Delete"}

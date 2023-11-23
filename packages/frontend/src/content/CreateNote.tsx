@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import Form  from "react-bootstrap/Form";
+import {Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL, MAX_FILE_SIZE } from "../config";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
@@ -58,7 +59,7 @@ const CreateNote = (): JSX.Element => {
             }}
           />
         </Form.Group>
-        <Button type="submit" disabled={!noteContent || isLoading} block>
+        <Button type="submit" disabled={!noteContent || isLoading} className="mt-4">
           {isLoading ? <ButtonSpinner /> : ""}
           {isLoading ? "Creating..." : "Create"}
         </Button>
