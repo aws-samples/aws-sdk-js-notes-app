@@ -28,7 +28,7 @@ We are using the following AWS services and their features to build our infrastr
 - [API Gateway](https://docs.localstack.cloud/user-guide/aws/apigatewayv2/) to expose the Lambda functions to the user through HTTP APIs.
 - [Cognito User Pools](https://docs.localstack.cloud/user-guide/aws/cognito/) for creating an identity pool to generate signed url for S3.
 - [Cloudfront](https://docs.localstack.cloud/user-guide/aws/cloudfront/) to serve frontend content.
-- [S3] (https://docs.localstack.cloud/user-guide/aws/s3/) to store files for the frontend build.
+- [S3](https://docs.localstack.cloud/user-guide/aws/s3/) to store files for the frontend build.
 
 ## Prerequisites
 
