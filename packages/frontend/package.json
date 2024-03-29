@@ -27,7 +27,7 @@
     "prepare:frontend": "cd .. && yarn prepare:frontend",
     "build": "tsc && vite build",
     "build:frontend": "cd .. && yarn build:frontend",
-    "start": "vite",
+    "start": "vite --open",
     "start:frontend": "cd .. && yarn start:frontend",
     "serve": "vite preview",
     "serve:frontend": "cd .. && yarn serve:frontend",
