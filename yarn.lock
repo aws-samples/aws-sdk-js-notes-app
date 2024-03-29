@@ -22,7 +22,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-cdk/asset-awscli-v1@npm:^2.2.201":
+"@aws-cdk/asset-awscli-v1@npm:^2.2.202":
   version: 2.2.202
   resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.202"
   checksum: 10c0/3702ae0c6d57094a9f8f7fc86af2cf98d128c601ee2b8e14f72bf6b869e5b54df6448014f2d88c2fdff1258a182e28d735c9b0a807180e1eaa62367f93051bd4
@@ -190,8 +190,8 @@ __metadata:
   resolution: "@aws-sdk-notes-app/infra@workspace:packages/infra"
   dependencies:
     "@types/node": "npm:^18.11.18"
-    aws-cdk: "npm:2.110.0"
-    aws-cdk-lib: "npm:2.110.0"
+    aws-cdk: "npm:2.134.0"
+    aws-cdk-lib: "npm:2.134.0"
     constructs: "npm:10.3.0"
     typescript: "npm:~4.9.4"
   languageName: unknown
@@ -2549,32 +2549,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:2.110.0":
-  version: 2.110.0
-  resolution: "aws-cdk-lib@npm:2.110.0"
+"aws-cdk-lib@npm:2.134.0":
+  version: 2.134.0
+  resolution: "aws-cdk-lib@npm:2.134.0"
   dependencies:
-    "@aws-cdk/asset-awscli-v1": "npm:^2.2.201"
+    "@aws-cdk/asset-awscli-v1": "npm:^2.2.202"
     "@aws-cdk/asset-kubectl-v20": "npm:^2.1.2"
     "@aws-cdk/asset-node-proxy-agent-v6": "npm:^2.0.1"
     "@balena/dockerignore": "npm:^1.0.2"
     case: "npm:1.6.3"
-    fs-extra: "npm:^11.1.1"
-    ignore: "npm:^5.2.4"
+    fs-extra: "npm:^11.2.0"
+    ignore: "npm:^5.3.1"
     jsonschema: "npm:^1.4.1"
+    mime-types: "npm:^2.1.35"
     minimatch: "npm:^3.1.2"
     punycode: "npm:^2.3.1"
-    semver: "npm:^7.5.4"
+    semver: "npm:^7.6.0"
     table: "npm:^6.8.1"
     yaml: "npm:1.10.2"
   peerDependencies:
     constructs: ^10.0.0
-  checksum: 10c0/02b51bd11763abd7e50bcad7550867d6c176dcc1f0dd1cad8be9e8df99ec7c3e50ef32f63d5cc2cc9ee3101abc9717336c3c4f0deeadb01b5de01f98882bcdf6
+  checksum: 10c0/6c3a8c4d5ea8e8398172eb376a774c2e63eeaad22daa80b787f1c0b6a54f2612d382063a3371696f3f05beb8a15be6002ad2f52419cc3d827028ca5f8c4a822f
   languageName: node
   linkType: hard
 
-"aws-cdk@npm:2.110.0":
-  version: 2.110.0
-  resolution: "aws-cdk@npm:2.110.0"
+"aws-cdk@npm:2.134.0":
+  version: 2.134.0
+  resolution: "aws-cdk@npm:2.134.0"
   dependencies:
     fsevents: "npm:2.3.2"
   dependenciesMeta:
@@ -2582,7 +2583,7 @@ __metadata:
       optional: true
   bin:
     cdk: bin/cdk
-  checksum: 10c0/fc169fe1d55c64a70ad5ddfac2884be33a894cd09e8bf5bd0c58cb728b5ac032a0c8f218a3b43ee060465fb75a60c6c487af82c2618290ac585a7396bf674351
+  checksum: 10c0/6dcc0229b97da501091bbfc13272fb06c40d2594dfa1009d69413933facabe0e5a0d24382b61d5ecfcf85b02b67484bc9e91d9220e54b3b496cc81ede817638f
   languageName: node
   linkType: hard
 
@@ -3611,7 +3612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.1":
+"fs-extra@npm:^11.2.0":
   version: 11.2.0
   resolution: "fs-extra@npm:11.2.0"
   dependencies:
@@ -3961,7 +3962,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.2.0, ignore@npm:^5.2.4":
+"ignore@npm:^5.2.0, ignore@npm:^5.3.1":
   version: 5.3.1
   resolution: "ignore@npm:5.3.1"
   checksum: 10c0/703f7f45ffb2a27fb2c5a8db0c32e7dee66b33a225d28e8db4e1be6474795f606686a6e3bcc50e1aa12f2042db4c9d4a7d60af3250511de74620fbed052ea4cd
@@ -4479,6 +4480,22 @@ __metadata:
     buffer-from: "npm:^1.1.1"
     readable-stream: "npm:^3.6.0"
   checksum: 10c0/fc289a65e9e0d1604aa5ce03e71c857df42cd681a7daebbb2b00b5391a9ad1c2f2fe4c0657e83d3a8cedace7348aea35cc80a5af033665194f84c4f2e23a8f89
+  languageName: node
+  linkType: hard
+
+"mime-db@npm:1.52.0":
+  version: 1.52.0
+  resolution: "mime-db@npm:1.52.0"
+  checksum: 10c0/0557a01deebf45ac5f5777fe7740b2a5c309c6d62d40ceab4e23da9f821899ce7a900b7ac8157d4548ddbb7beffe9abc621250e6d182b0397ec7f10c7b91a5aa
+  languageName: node
+  linkType: hard
+
+"mime-types@npm:^2.1.35":
+  version: 2.1.35
+  resolution: "mime-types@npm:2.1.35"
+  dependencies:
+    mime-db: "npm:1.52.0"
+  checksum: 10c0/82fb07ec56d8ff1fc999a84f2f217aa46cb6ed1033fefaabd5785b9a974ed225c90dc72fff460259e66b95b73648596dbcc50d51ed69cdf464af2d237d3149b2
   languageName: node
   linkType: hard
 
@@ -5289,7 +5306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.4":
+"semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.6.0":
   version: 7.6.0
   resolution: "semver@npm:7.6.0"
   dependencies:
