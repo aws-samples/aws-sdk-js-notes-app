@@ -9,7 +9,7 @@ import {
   aws_s3 as s3,
 } from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { NotesApi } from "./notes-api";
+import { NotesApi } from "./backend/notes-api";
 
 export class AwsSdkJsNotesAppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -24,7 +24,7 @@ export class AwsSdkJsNotesAppStack extends Stack {
     notes.addMethod(
       "GET",
       new apigw.LambdaIntegration(
-        new NotesApi(this, "listNotes", {
+        new NotesApi(this, "list", {
           table,
           grantActions: ["dynamodb:Scan"],
         }).handler
@@ -33,7 +33,7 @@ export class AwsSdkJsNotesAppStack extends Stack {
     notes.addMethod(
       "POST",
       new apigw.LambdaIntegration(
-        new NotesApi(this, "createNote", {
+        new NotesApi(this, "create", {
           table,
           grantActions: ["dynamodb:PutItem"],
         }).handler
@@ -48,7 +48,7 @@ export class AwsSdkJsNotesAppStack extends Stack {
     note.addMethod(
       "GET",
       new apigw.LambdaIntegration(
-        new NotesApi(this, "getNote", {
+        new NotesApi(this, "get", {
           table,
           grantActions: ["dynamodb:GetItem"],
         }).handler
@@ -57,7 +57,7 @@ export class AwsSdkJsNotesAppStack extends Stack {
     note.addMethod(
       "PUT",
       new apigw.LambdaIntegration(
-        new NotesApi(this, "updateNote", {
+        new NotesApi(this, "update", {
           table,
           grantActions: ["dynamodb:UpdateItem"],
         }).handler
@@ -66,7 +66,7 @@ export class AwsSdkJsNotesAppStack extends Stack {
     note.addMethod(
       "DELETE",
       new apigw.LambdaIntegration(
-        new NotesApi(this, "deleteNote", {
+        new NotesApi(this, "delete", {
           table,
           grantActions: ["dynamodb:DeleteItem"],
         }).handler

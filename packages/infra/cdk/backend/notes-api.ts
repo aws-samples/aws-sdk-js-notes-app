@@ -20,9 +20,8 @@ export class NotesApi extends Construct {
 
     const { table, grantActions } = props;
 
-    this.handler = new lambda.NodejsFunction(this, "handler", {
+    this.handler = new lambda.NodejsFunction(this, id, {
       handler: "app.handler",
-      entry: `../backend/src/${id}.ts`,
       environment: {
         NOTES_TABLE_NAME: table.tableName,
       },
