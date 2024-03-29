@@ -146,7 +146,6 @@ __metadata:
     "@types/node": "npm:^18.11.18"
     "@typescript-eslint/eslint-plugin": "npm:^5.48.1"
     "@typescript-eslint/parser": "npm:^5.48.1"
-    esbuild: "npm:0.12.17"
     eslint: "npm:^8.31.0"
     typescript: "npm:~4.9.4"
   languageName: unknown
@@ -3211,15 +3210,6 @@ __metadata:
   version: 0.15.18
   resolution: "esbuild-windows-arm64@npm:0.15.18"
   conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"esbuild@npm:0.12.17":
-  version: 0.12.17
-  resolution: "esbuild@npm:0.12.17"
-  bin:
-    esbuild: bin/esbuild
-  checksum: 10c0/9826ac2158d6c7f7e26848ca596126e3eb712a65e768aa597ad121f8af5c5602cb1bd68c39f71234e8d02a69cc0a0d7ed366a08e628d15481dca7c40c4c60a8b
   languageName: node
   linkType: hard
 
