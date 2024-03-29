@@ -1,3 +1,6 @@
 {
-  "app": "node dist/aws-sdk-js-notes-app.js"
+  "app": "node dist/aws-sdk-js-notes-app.js",
+  "context": {
+    "@aws-cdk/aws-lambda-nodejs:useLatestRuntimeVersion": "true"
+  }
 }
