@@ -1,24 +1,25 @@
-import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
-import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, GetCommand } from "@aws-sdk/lib-dynamodb";
 import { success, failure } from "./libs/response";
 
 // eslint-disable-next-line no-unused-vars
 import { APIGatewayEvent } from "aws-lambda";
+
+const client = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 
 export const handler = async (event: APIGatewayEvent) => {
   const params = {
     TableName: process.env.NOTES_TABLE_NAME || "",
     // 'Key' defines the partition key and sort key of the item to be retrieved
     // - 'noteId': path parameter
-    Key: marshall({ noteId: event.pathParameters?.id }),
+    Key: { noteId: event.pathParameters?.id },
   };
 
   try {
-    const client = new DynamoDBClient({});
-    const result = await client.send(new GetItemCommand(params));
+    const result = await client.send(new GetCommand(params));
     if (result.Item) {
       // Return the retrieved item
-      return success(unmarshall(result.Item));
+      return success(result.Item);
     } else {
       return failure({ status: false, error: "Item not found." });
     }
