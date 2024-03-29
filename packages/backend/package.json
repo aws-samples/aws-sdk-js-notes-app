@@ -4,8 +4,8 @@
   "private": true,
   "description": "Backend for notes app created using modular AWS SDK for JavaScript",
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "3.348.0",
-    "@aws-sdk/util-dynamodb": "3.348.0"
+    "@aws-sdk/client-dynamodb": "3.540.0",
+    "@aws-sdk/util-dynamodb": "3.540.0"
   },
   "scripts": {
     "build": "tsc --noEmit && node build.js",
