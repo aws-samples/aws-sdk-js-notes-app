@@ -21,10 +21,7 @@ export class NotesApi extends Construct {
     const { table, grantActions } = props;
 
     this.handler = new lambda.NodejsFunction(this, id, {
-      handler: "app.handler",
-      environment: {
-        NOTES_TABLE_NAME: table.tableName,
-      },
+      environment: { NOTES_TABLE_NAME: table.tableName },
     });
 
     // grant the lambda role read/write permissions to notes table
