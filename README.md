@@ -10,9 +10,8 @@ project shared in the tutorials on [serverless-stack](http://serverless-stack.co
 
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
-  - [Create backend API](#create-backend-api)
   - [Deploy infrastructure](#deploy-infrastructure)
-  - [Prepare frontend API](#prepare-backend-api)
+  - [Prepare frontend API](#prepare-frontend-api)
   - [Debug frontend](#debug-frontend)
   - [Clean up](#clean-up)
 - [Contributing](#contributing)
@@ -52,11 +51,6 @@ This exercise code uses [modular AWS SDK for JavaScript][modular-aws-sdk-js] as 
 
 - backend performs create, delete, get, list and update operations on DynamoDB.
 - frontend does put, get, delete operations using an S3 browser client.
-
-### Create backend API
-
-- Run: `yarn build:backend`
-- This generates bundles to be deployed to lambda.
 
 ### Deploy infrastructure
 
