@@ -10,8 +10,7 @@
     "build:backend": "cd packages/backend && yarn build",
     "prepare:frontend": "node packages/scripts/populate-frontend-config.js",
     "build:frontend": "cd packages/frontend && yarn build",
-    "start:frontend": "cd packages/frontend && yarn start",
-    "serve:frontend": "cd packages/frontend && yarn build && yarn serve"
+    "start:frontend": "cd packages/frontend && yarn start"
   },
   "devDependencies": {
     "esbuild": "^0.20.2",

@@ -29,8 +29,6 @@
     "build:frontend": "cd .. && yarn build:frontend",
     "start": "vite --open",
     "start:frontend": "cd .. && yarn start:frontend",
-    "serve": "vite preview",
-    "serve:frontend": "cd .. && yarn serve:frontend",
     "cdk": "cd .. && yarn cdk"
   },
   "keywords": [
