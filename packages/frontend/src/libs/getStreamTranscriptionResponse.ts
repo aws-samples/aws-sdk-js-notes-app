@@ -14,7 +14,6 @@ const getStreamTranscriptionResponse = (AudioStream: AsyncIterable<AudioStream>)
       client: new CognitoIdentityClient({ region: REGION }),
       identityPoolId: IDENTITY_POOL_ID,
     }),
-    logger: console,
   });
 
   return client.send(
