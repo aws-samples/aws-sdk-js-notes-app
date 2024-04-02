@@ -22,34 +22,45 @@ const RecordAudioButton = (props: {
 
   let audioContext: AudioContext;
   let mediaRecorder: AudioWorkletNode;
+  let mediaStream: MediaStream;
+  let mediaStreamSource: MediaStreamAudioSourceNode;
+
   const [errorMsg, setErrorMsg] = useState("");
 
   const startRecording = async () => {
     setIsRecording(true);
     try {
-      if (!audioContext) audioContext = new window.AudioContext();
+      if (!audioContext) {
+        audioContext = new window.AudioContext();
+        await audioContext.audioWorklet.addModule("/worklets/recording-processor.js");
+      }
 
-      const constraints = { audio: true, video: false };
-      const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
-      const mediaStreamSource = audioContext.createMediaStreamSource(mediaStream);
+      if (!mediaStream) {
+        const constraints = { audio: true, video: false };
+        mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+      }
 
-      await audioContext.audioWorklet.addModule("/worklets/recording-processor.js");
-      mediaRecorder = new AudioWorkletNode(audioContext, "recording-processor", {
-        processorOptions: {
-          numberOfChannels: 1,
-          sampleRate: audioContext.sampleRate,
-          maxFrameCount: (audioContext.sampleRate * 1) / 10,
-        },
-      });
+      if (!mediaStreamSource) {
+        mediaStreamSource = audioContext.createMediaStreamSource(mediaStream);
+      }
+
+      if (!mediaRecorder) {
+        mediaRecorder = new AudioWorkletNode(audioContext, "recording-processor", {
+          processorOptions: {
+            numberOfChannels: 1,
+            sampleRate: audioContext.sampleRate,
+            maxFrameCount: (audioContext.sampleRate * 1) / 10,
+          },
+        });
+        mediaRecorder.port.onmessageerror = (error) => {
+          console.log(`Error receving message from worklet ${error}`);
+          setErrorMsg(`${error.toString()}`);
+        };
+      }
 
       const destination = audioContext.createMediaStreamDestination();
       mediaRecorder.port.postMessage({ message: "UPDATE_RECORDING_STATE", setRecording: true });
       mediaStreamSource.connect(mediaRecorder).connect(destination);
-
-      mediaRecorder.port.onmessageerror = (error) => {
-        console.log(`Error receving message from worklet ${error}`);
-        setErrorMsg(`${error.toString()}`);
-      };
 
       const audioDataIterator = pEventIterator<"message", MessageEvent<MessageDataType>>(mediaRecorder.port, "message");
       await streamAudioToWebSocket(audioDataIterator);
@@ -57,25 +68,27 @@ const RecordAudioButton = (props: {
       console.log(error);
       setErrorMsg(`${error.toString()}`);
     } finally {
-      // ToDo: clean up resources.
-      setIsRecording(false);
+      await stopRecording();
     }
   };
 
-  const stopRecording = () => {
+  const stopRecording = async () => {
     setIsRecording(false);
     if (mediaRecorder) {
       mediaRecorder.port.postMessage({ message: "UPDATE_RECORDING_STATE", setRecording: false });
       mediaRecorder.port.close();
       mediaRecorder.disconnect();
+      mediaStream.getTracks().forEach((track) => track.stop());
+      mediaStreamSource.disconnect();
+      await audioContext.close();
     }
   };
 
   const toggleTrascription = async () => {
     if (isRecording) {
-      stopRecording();
+      await stopRecording();
     } else {
-      startRecording();
+      await startRecording();
     }
   };
 
