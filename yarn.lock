@@ -150,6 +150,7 @@ __metadata:
     "@vitejs/plugin-react-refresh": "npm:1.3.6"
     buffer: "npm:6.0.3"
     microphone-stream: "npm:6.0.1"
+    p-event: "npm:^6.0.1"
     process: "npm:0.11.10"
     react: "npm:18.2.0"
     react-bootstrap: "npm:1.4.0"
@@ -4453,7 +4454,6 @@ __metadata:
     esbuild: "npm:^0.20.2"
     husky: "npm:^4.2.3"
     lint-staged: "npm:^10.1.2"
-    p-event: "npm:^6.0.1"
     prettier: "npm:2.4.1"
   languageName: unknown
   linkType: soft
