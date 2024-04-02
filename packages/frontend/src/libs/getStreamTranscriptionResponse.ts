@@ -7,9 +7,7 @@ import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-id
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 import { IDENTITY_POOL_ID, REGION } from "../config.json";
 
-const getStreamTranscriptionResponse = (
-  AudioStream: AsyncIterable<AudioStream>
-) => {
+const getStreamTranscriptionResponse = (AudioStream: AsyncIterable<AudioStream>) => {
   const client = new TranscribeStreamingClient({
     region: REGION,
     credentials: fromCognitoIdentityPool({
@@ -21,8 +19,8 @@ const getStreamTranscriptionResponse = (
   return client.send(
     new StartStreamTranscriptionCommand({
       LanguageCode: "en-US",
-      MediaSampleRateHertz: 44100,
       MediaEncoding: "pcm",
+      MediaSampleRateHertz: 48000,
       AudioStream,
     })
   );

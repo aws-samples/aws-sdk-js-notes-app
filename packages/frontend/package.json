@@ -14,9 +14,7 @@
     "@aws-sdk/util-create-request": "3.347.0",
     "@aws-sdk/util-format-url": "3.347.0",
     "@reach/router": "1.3.4",
-    "buffer": "6.0.3",
-    "microphone-stream": "6.0.1",
-    "process": "0.11.10",
+    "p-event": "^6.0.1",
     "react": "18.2.0",
     "react-bootstrap": "1.4.0",
     "react-dom": "18.2.0"
