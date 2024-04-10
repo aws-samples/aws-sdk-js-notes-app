@@ -1,9 +1,7 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, DeleteCommand } from "@aws-sdk/lib-dynamodb";
 import { success, failure } from "./libs/response";
-
-// eslint-disable-next-line no-unused-vars
-import { APIGatewayEvent } from "aws-lambda";
+import type { APIGatewayEvent } from "aws-lambda";
 
 const client = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 
