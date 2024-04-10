@@ -164,7 +164,6 @@ __metadata:
   dependencies:
     "@aws-sdk/client-dynamodb": "npm:3.348.0"
     "@aws-sdk/lib-dynamodb": "npm:3.348.0"
-    "@types/aws-lambda": "npm:^8.10.64"
     "@types/node": "npm:^18.11.18"
     aws-cdk: "npm:2.134.0"
     aws-cdk-lib: "npm:2.134.0"
@@ -2270,13 +2269,6 @@ __metadata:
   dependencies:
     tslib: "npm:^2.6.2"
   checksum: 10c0/3530ba5b4f4e52a4028679f73e133af928cf6ea22a16d29669b8c67ea540ed46ab15dc6d391598fbdfd476884cdc57881c480168e2dbe7c5bb007f5afad01531
-  languageName: node
-  linkType: hard
-
-"@types/aws-lambda@npm:^8.10.64":
-  version: 8.10.136
-  resolution: "@types/aws-lambda@npm:8.10.136"
-  checksum: 10c0/6618100b131d26ad2ae14dc70b8b958b1811dd26c80989ee02cb8ff21f495d858fd4cadf0f234659cb81097a4948ad6d34f14f9da4a97f73900c2cab5defa388
   languageName: node
   linkType: hard
 
