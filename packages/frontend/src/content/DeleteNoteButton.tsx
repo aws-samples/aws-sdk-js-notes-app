@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
+import { GATEWAY_URL } from "../config.json";
 import { navigate } from "@reach/router";
 import { deleteObject } from "../libs";
 import { ButtonSpinner } from "../components";
@@ -13,7 +14,7 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
     event.preventDefault();
     setIsDeleting(true);
 
-    const deleteNoteURL = `${import.meta.env.VITE_GATEWAY_URL}notes/${noteId}`;
+    const deleteNoteURL = `${GATEWAY_URL}notes/${noteId}`;
 
     try {
       if (attachment) {
@@ -33,7 +34,12 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
   return (
     <>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-      <Button variant="danger" disabled={isDeleting} onClick={handleDelete} block>
+      <Button
+        variant="danger"
+        disabled={isDeleting}
+        onClick={handleDelete}
+        block
+      >
         {isDeleting ? <ButtonSpinner /> : ""}
         {isDeleting ? "Deleting..." : "Delete"}
       </Button>

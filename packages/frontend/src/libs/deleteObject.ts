@@ -1,11 +1,12 @@
 import { s3Client } from "./s3Client";
+import { FILES_BUCKET } from "../config.json";
 import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 
 const deleteObject = async (fileName: string) =>
   s3Client.send(
     new DeleteObjectCommand({
       Key: fileName,
-      Bucket: import.meta.env.VITE_FILES_BUCKET,
+      Bucket: FILES_BUCKET,
     })
   );
 

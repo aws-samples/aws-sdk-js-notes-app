@@ -1,4 +1,5 @@
 import { s3Client } from "./s3Client";
+import { FILES_BUCKET } from "../config.json";
 
 import { createRequest } from "@aws-sdk/util-create-request";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
@@ -10,7 +11,7 @@ const getObjectUrl = async (fileName: string) => {
     s3Client,
     new GetObjectCommand({
       Key: fileName,
-      Bucket: import.meta.env.VITE_FILES_BUCKET,
+      Bucket: FILES_BUCKET,
     })
   );
 

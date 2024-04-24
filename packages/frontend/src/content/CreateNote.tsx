@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { navigate, RouteComponentProps } from "@reach/router";
+import { GATEWAY_URL } from "../config.json";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
 import { RecordAudioButton } from "./RecordAudioButton";
@@ -28,7 +29,7 @@ const CreateNote = (props: RouteComponentProps) => {
 
     setIsLoading(true);
 
-    const createNoteURL = `${import.meta.env.VITE_GATEWAY_URL}notes`;
+    const createNoteURL = `${GATEWAY_URL}notes`;
 
     try {
       // @ts-ignore Argument of type 'undefined' is not assignable to parameter of type 'File'
