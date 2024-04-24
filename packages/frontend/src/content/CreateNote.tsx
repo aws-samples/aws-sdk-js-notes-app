@@ -1,11 +1,13 @@
 import React, { useState, FormEvent } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { navigate, RouteComponentProps } from "@reach/router";
-import { GATEWAY_URL, MAX_FILE_SIZE } from "../config.json";
+import { GATEWAY_URL } from "../config";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
 import { RecordAudioButton } from "./RecordAudioButton";
 import { PlayAudioButton } from "./PlayAudioButton";
+
+const MAX_FILE_SIZE = 2000000;
 
 const CreateNote = (props: RouteComponentProps) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,8 +46,7 @@ const CreateNote = (props: RouteComponentProps) => {
     }
   };
 
-  const noteContentAdditionalProps =
-    isRecording || isPlaying ? { disabled: true, value: noteContent } : {};
+  const noteContentAdditionalProps = isRecording || isPlaying ? { disabled: true, value: noteContent } : {};
 
   return (
     <PageContainer header={<HomeButton />}>
