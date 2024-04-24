@@ -31,13 +31,13 @@ Ensure that you've followed pre-requisites from main [README](../../README.md), 
 ### Steps to run frontend locally
 
 - `yarn prepare:frontend` to populate Cloudformation resources in frontend config.
-- The resources can also be manually added in [`src/config.json`](./src/config.json).
-  - Add `aws-js-sdk-notes-app.FilesBucket` from CDK output for `FILES_BUCKET`.
-  - Add `aws-js-sdk-notes-app.GatewayUrl` from CDK output for `GATEWAY_URL`.
+- The resources can also be manually added in `.env`.
+  - Add `aws-js-sdk-notes-app.FilesBucket` from CDK output for `VITE_FILES_BUCKET`.
+  - Add `aws-js-sdk-notes-app.GatewayUrl` from CDK output for `VITE_GATEWAY_URL`.
     - Example GatewayURL: `https://randomstring.execute-api.region.amazonaws.com/prod/`
-  - Add `aws-js-sdk-notes-app.IdentityPoolId` from CDK output for `IDENTITY_POOL_ID`.
+  - Add `aws-js-sdk-notes-app.IdentityPoolId` from CDK output for `VITE_IDENTITY_POOL_ID`.
     - Example IdentityPoolId: `region:random-strc-4ce1-84ee-9a429f9b557e`
-  - Add `aws-js-sdk-notes-app.Region` from CDK output for `REGION`.
+  - Add `aws-js-sdk-notes-app.Region` from CDK output for `VITE_REGION`.
 - `yarn start:frontend` to run the server.
   - This will open the website in the browser, and enable HMR.
   - Just edit and save the files in `packages/frontend/src`, and the browser page will auto-refresh!
