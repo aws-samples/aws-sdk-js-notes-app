@@ -23,10 +23,10 @@ const { readFileSync, writeFileSync, unlinkSync } = require("fs");
   try {
     const cdkOutput = JSON.parse(readFileSync(cdkOutputsFile))["aws-sdk-js-notes-app"];
     const config = {
-      FILES_BUCKET: cdkOutput.FilesBucket,
-      GATEWAY_URL: cdkOutput.GatewayUrl,
-      IDENTITY_POOL_ID: cdkOutput.IdentityPoolId,
-      REGION: cdkOutput.Region,
+      VITE_FILES_BUCKET: cdkOutput.FilesBucket,
+      VITE_GATEWAY_URL: cdkOutput.GatewayUrl,
+      VITE_IDENTITY_POOL_ID: cdkOutput.IdentityPoolId,
+      VITE_REGION: cdkOutput.Region,
     };
     writeFileSync(
       configEnv,
