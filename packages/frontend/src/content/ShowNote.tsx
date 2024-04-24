@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RouteComponentProps, navigate } from "@reach/router";
 import { Form, Card } from "react-bootstrap";
-import { GATEWAY_URL } from "../config.json";
 import { DeleteNoteButton, SaveNoteButton } from "./";
 import { getObjectUrl } from "../libs";
 import { HomeButton, Loading, PageContainer } from "../components";
@@ -16,7 +15,7 @@ const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
   useEffect(() => {
     const fetchNote = async (noteId: string) => {
       setIsLoading(true);
-      const fetchURL = `${GATEWAY_URL}notes/${noteId}`;
+      const fetchURL = `${import.meta.env.VITE_GATEWAY_URL}notes/${noteId}`;
 
       try {
         const response = await fetch(fetchURL);

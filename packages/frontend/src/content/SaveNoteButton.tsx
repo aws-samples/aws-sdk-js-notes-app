@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
-import { GATEWAY_URL } from "../config.json";
 import { navigate } from "@reach/router";
 import { ButtonSpinner } from "../components";
 
@@ -13,7 +12,7 @@ const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
     setIsSaving(true);
 
     const { noteId, noteContent } = props;
-    const updateNoteURL = `${GATEWAY_URL}notes/${noteId}`;
+    const updateNoteURL = `${import.meta.env.VITE_GATEWAY_URL}notes/${noteId}`;
 
     try {
       await fetch(updateNoteURL, {

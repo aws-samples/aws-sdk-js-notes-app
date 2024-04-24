@@ -1,5 +1,4 @@
 import { s3Client } from "./s3Client";
-import { FILES_BUCKET } from "../config.json";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 
 const putObject = async (file: File) => {
@@ -8,7 +7,7 @@ const putObject = async (file: File) => {
     new PutObjectCommand({
       Key,
       Body: file,
-      Bucket: FILES_BUCKET,
+      Bucket: import.meta.env.VITE_FILES_BUCKET,
     })
   );
   return Key;
