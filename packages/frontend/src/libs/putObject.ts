@@ -1,5 +1,5 @@
 import { s3Client } from "./s3Client";
-import { FILES_BUCKET } from "../config.json";
+import { FILES_BUCKET } from "../config";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 
 const putObject = async (file: File) => {

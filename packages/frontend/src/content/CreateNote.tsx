@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { navigate, RouteComponentProps } from "@reach/router";
-import { GATEWAY_URL } from "../config.json";
+import { GATEWAY_URL } from "../config";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
 import { RecordAudioButton } from "./RecordAudioButton";
