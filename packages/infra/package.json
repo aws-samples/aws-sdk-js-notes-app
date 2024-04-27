@@ -8,6 +8,7 @@
     "cdk": "tsc && cdk"
   },
   "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
     "@types/aws-lambda": "^8.10.64",
     "@types/node": "^18.11.18",
     "aws-cdk": "2.134.0",
