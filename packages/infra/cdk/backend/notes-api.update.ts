@@ -1,4 +1,4 @@
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, ReturnValue } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { success, failure } from "./libs/response";
 import type { APIGatewayEvent } from "aws-lambda";
@@ -19,7 +19,7 @@ export const handler = async (event: APIGatewayEvent) => {
     // 'ReturnValues' specifies if and how to return the item's attributes,
     // where ALL_NEW returns all attributes of the item after the update; you
     // can inspect 'result' below to see how it works with different settings
-    ReturnValues: "ALL_NEW",
+    ReturnValues: ReturnValue.ALL_NEW,
   };
 
   try {
