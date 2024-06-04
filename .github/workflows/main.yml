@@ -28,19 +28,16 @@ jobs:
           node-version: 18
 
       - name: Start LocalStack
+        uses: LocalStack/setup-localstack@v0.2.0
         env:
           LOCALSTACK_API_KEY: ${{ secrets.LOCALSTACK_API_KEY }}
           DNS_ADDRESS: 0
-        run: |
-          pip install localstack awscli-local[ver1]
-          pip install terraform-local
-          docker pull localstack/localstack-pro:latest
-          # Start LocalStack in the background
-          DEBUG=1 localstack start -d
-          # Wait 30 seconds for the LocalStack container to become ready before timing out
-          echo "Waiting for LocalStack startup..."
-          localstack wait -t 15
-          echo "Startup complete"
+          DEBUG: 1
+        with:
+          use-pro: 'true'
+
+      - name: Install tflocal
+        run: pip install terraform-local
 
       - name: Install CDK
         run: |
