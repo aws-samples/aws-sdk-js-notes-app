@@ -37,3 +37,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           include-preview: true
           preview-url: ${{ env.PREVIEW_URL }}
+
