@@ -35,7 +35,7 @@ jobs:
             make bootstrap-frontend;
             make deploy-frontend;
             distributionId=$(awslocal cloudfront list-distributions | jq -r '.DistributionList.Items[0].Id');
-            echo "PREVIEW_URL=$AWS_ENDPOINT_URL/cloudfront/$distributionId/" >> $GITHUB_ENV;
+            echo \"PREVIEW_URL=$AWS_ENDPOINT_URL/cloudfront/$distributionId/\" >> $GITHUB_ENV;
 
 
       - name: Finalize PR comment
