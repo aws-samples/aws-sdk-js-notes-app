@@ -14,25 +14,32 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Preview
-        uses: LocalStack/setup-localstack/preview@main
+        uses: LocalStack/setup-localstack@v0.2.0
+        env:
+          LOCALSTACK_API_KEY: ${{ secrets.LOCALSTACK_API_KEY }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          localstack-api-key: ${{ secrets.LOCALSTACK_API_KEY }}
+          state-backend: ephemeral
+          state-action: start
+          include-preview: 'true'
+          install-awslocal: 'true'
+          # Multi line commands are folding for some reason, so we enforce new lines
+          # For more predictable usage, use script files
           preview-cmd: |
-            npm install -g aws-cdk-local aws-cdk
-            pip install awscli-local[ver1]
-            make build
-            make bootstrap
-            make deploy
-            make prepare-frontend-local
-            make build-frontend
-            make bootstrap-frontend
-            make deploy-frontend
-            distributionId=$(awslocal cloudfront list-distributions | jq -r '.DistributionList.Items[0].Id')
-            echo "PREVIEW_URL=$AWS_ENDPOINT_URL/cloudfront/$distributionId/" >> $GITHUB_ENV
+            npm install -g aws-cdk-local aws-cdk;
+            make build;
+            make bootstrap;
+            make deploy;
+            make prepare-frontend-local;
+            make build-frontend;
+            make bootstrap-frontend;
+            make deploy-frontend;
+            distributionId=$(awslocal cloudfront list-distributions | jq -r '.DistributionList.Items[0].Id');
+            echo \"PREVIEW_URL=$AWS_ENDPOINT_URL/cloudfront/$distributionId/\" >> $GITHUB_ENV;
+
 
       - name: Finalize PR comment
-        uses: LocalStack/setup-localstack/finish@pass-url-to-finish-step
+        uses: LocalStack/setup-localstack/finish@v0.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           include-preview: true
