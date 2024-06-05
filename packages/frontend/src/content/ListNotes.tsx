@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GATEWAY_URL } from "../config";
-import { Card, Alert, CardColumns, Button } from "react-bootstrap";
+import { Card, Alert, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";
 import { Link } from "react-router-dom";
 interface Note {
@@ -35,7 +35,7 @@ const ListNotes = (): JSX.Element => {
 
   const renderNotes = (notes: Note[]) =>
     notes.map((note) => (
-      <Link key={note.noteId} to={`/notes/${note.noteId}`}>
+      <Link key={note.noteId} to={`/notes/${note.noteId}`} className="col-md-4 col-12 text-decoration-none">
         <Card>
           <Card.Body>
             <Card.Title>
@@ -56,7 +56,7 @@ const ListNotes = (): JSX.Element => {
 
   const createNewNote = () => (
     <Link key="new" to="note/new">
-      <Button variant="primary" block>
+      <Button variant="primary" className="mt-4">
         Create a new note
       </Button>
     </Link>
@@ -68,8 +68,10 @@ const ListNotes = (): JSX.Element => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div>
-          <CardColumns>{renderNotes(notes)}</CardColumns>
+        <div className="container">
+          <div className="row row-cols-3 gx-3 gy-3">
+          {renderNotes(notes)}
+          </div>
           {createNewNote()}
         </div>
       )}

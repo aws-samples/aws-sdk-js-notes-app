@@ -8,7 +8,7 @@ const ButtonSpinner = () => (
     size="sm"
     role="status"
     aria-hidden="true"
-    className="mr-1"
+    className="mr-2"
   />
 );
 
