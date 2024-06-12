@@ -13,14 +13,14 @@ export const handler = async (event: APIGatewayEvent) => {
     TableName: process.env.NOTES_TABLE_NAME || "",
     Item: marshall({
       noteId: crypto.randomBytes(20).toString("hex"),
-      content: data.content,
+      content: "Hello: " + data.content,
       createdAt: Date.now().toString(),
       ...(data.attachment && { attachment: data.attachment }),
     }),
   };
 
   try {
-    const client = new DynamoDBClient({endpoint});
+    const client = new DynamoDBClient({ endpoint });
     await client.send(new PutItemCommand(params));
     return success(params.Item);
   } catch (e) {

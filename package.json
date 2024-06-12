@@ -28,5 +28,9 @@
   "lint-staged": {
     "*.{ts,js,md}": "prettier --write"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.3.1",
+  "dependencies": {
+    "aws-cdk": "^2.145.0",
+    "aws-cdk-local": "^2.18.0"
+  }
 }
