@@ -44,6 +44,7 @@ To set up this notes app, complete the following tasks:
     [default]
     region = us-west-2
     ```
+
 ## Setup
 
 This exercise code uses [modular AWS SDK for JavaScript][modular-aws-sdk-js] as follows:
