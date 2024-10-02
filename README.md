@@ -33,7 +33,7 @@ To set up this notes app, complete the following tasks:
 - Install the [AWS CLI](https://aws.amazon.com/cli/).
   - Verify that the AWS CLI is installed by running `aws` in a terminal window.
 - Set up [AWS Shared Credential File](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
-  - Your `~/.aws/credentials` (`%UserProfile%\.aws\credentials` on Windows) should look like the following:
+  - Your credentials (`~/.aws/credentials` on Mac/Linux,`%UserProfile%\.aws\credentials` on Windows) should look like the following:
     ```
     [default]
     aws_access_key_id = <ACCESS_KEY>
@@ -44,7 +44,7 @@ To set up this notes app, complete the following tasks:
     [default]
     region = us-west-2
     ```
-
+For more information on the location of the credential and configuration files, see the [AWS documentation on file locations](https://docs.aws.amazon.com/sdkref/latest/guide/file-location.html).
 ## Setup
 
 This exercise code uses [modular AWS SDK for JavaScript][modular-aws-sdk-js] as follows:
