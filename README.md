@@ -44,7 +44,6 @@ To set up this notes app, complete the following tasks:
     [default]
     region = us-west-2
     ```
-For more information on the location of the credential and configuration files, see the [AWS documentation on file locations](https://docs.aws.amazon.com/sdkref/latest/guide/file-location.html).
 ## Setup
 
 This exercise code uses [modular AWS SDK for JavaScript][modular-aws-sdk-js] as follows:
