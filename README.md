@@ -33,7 +33,7 @@ To set up this notes app, complete the following tasks:
 - Install the [AWS CLI](https://aws.amazon.com/cli/).
   - Verify that the AWS CLI is installed by running `aws` in a terminal window.
 - Set up [AWS Shared Credential File](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
-  - Your `~/.aws/credentials` (`%UserProfile%\.aws\credentials` on Windows) should look like the following:
+  - Your credentials file (`~/.aws/credentials` on Mac/Linux,`%UserProfile%\.aws\credentials` on Windows) should look like the following:
     ```
     [default]
     aws_access_key_id = <ACCESS_KEY>
