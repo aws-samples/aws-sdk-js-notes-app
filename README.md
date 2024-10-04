@@ -52,8 +52,9 @@ This exercise code uses [modular AWS SDK for JavaScript][modular-aws-sdk-js] as 
 - backend performs create, delete, get, list and update operations on DynamoDB.
 - frontend does put, get, delete operations using an S3 browser client.
 
-Use `cdk bootstrap aws://[aws-account-ID/[region]` 
-The bootstrap command creates a CloudFormation stack in the environment passed on the command line.
+- Run: `cdk bootstrap aws://[aws-account-ID/[region]` 
+- This command:
+  - Creates a CloudFormation stack in the environment.
 
 ### Deploy infrastructure
 
