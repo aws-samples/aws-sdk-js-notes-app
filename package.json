@@ -13,7 +13,6 @@
     "start:frontend": "cd packages/frontend && yarn start"
   },
   "devDependencies": {
-    "aws-cdk": "^2.173.2",
     "esbuild": "^0.20.2",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
@@ -27,13 +26,5 @@
   "lint-staged": {
     "*.{ts,js,md}": "prettier --write"
   },
-  "packageManager": "yarn@4.4.0",
-  "dependencies": {
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "bootstrap": "^5.3.3",
-    "react": "19.0.0",
-    "react-bootstrap": "^2.10.7",
-    "react-dom": "19.0.0"
-  }
+  "packageManager": "yarn@4.4.0"
 }
