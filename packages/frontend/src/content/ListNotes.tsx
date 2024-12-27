@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useTransition, useEffect } from "react";
 import { Link, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL } from "../config";
 import { Card, Alert, CardColumns, Button } from "react-bootstrap";
@@ -11,13 +11,13 @@ interface Note {
 }
 
 const ListNotes = (props: RouteComponentProps) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isPending, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState("");
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState<Note[]>([]);
 
   useEffect(() => {
-    const fetchNotes = async () => {
-      setIsLoading(true);
+    const fetchNotes = () => {
+      startTransition(async () => {
       const fetchURL = `${GATEWAY_URL}notes`;
 
       try {
@@ -26,9 +26,8 @@ const ListNotes = (props: RouteComponentProps) => {
         setNotes(data);
       } catch (error) {
         setErrorMsg(`${error.toString()} - ${fetchURL}`);
-      } finally {
-        setIsLoading(false);
-      }
+      } 
+      });
     };
     fetchNotes();
   }, []);
@@ -65,7 +64,7 @@ const ListNotes = (props: RouteComponentProps) => {
   return (
     <PageContainer header={<div>Your Notes</div>}>
       {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-      {isLoading ? (
+      {isPending ? (
         <Loading />
       ) : (
         <div>

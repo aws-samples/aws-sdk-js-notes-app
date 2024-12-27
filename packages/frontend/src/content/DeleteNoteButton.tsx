@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useTransition} from "react";
 import { Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
 import { navigate } from "@reach/router";
@@ -7,14 +7,13 @@ import { ButtonSpinner } from "../components";
 
 const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
   const { noteId, attachment } = props;
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleting, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleDelete = async (event: any) => {
+  const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setIsDeleting(true);
-
-    const deleteNoteURL = `${GATEWAY_URL}notes/${noteId}`;
+    startTransition(async () => {
+      const deleteNoteURL = `${GATEWAY_URL}notes/${noteId}`;
 
     try {
       if (attachment) {
@@ -26,9 +25,8 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
       navigate("/");
     } catch (error) {
       setErrorMsg(`${error.toString()} - ${deleteNoteURL} - ${noteId}`);
-    } finally {
-      setIsDeleting(false);
-    }
+    } 
+    });
   };
 
   return (

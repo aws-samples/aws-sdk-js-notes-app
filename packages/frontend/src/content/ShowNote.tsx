@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import { RouteComponentProps, navigate } from "@reach/router";
 import { Form, Card } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
@@ -8,14 +8,15 @@ import { HomeButton, Loading, PageContainer } from "../components";
 
 const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
   const { noteId } = props;
-  const [isLoading, setIsLoading] = useState(true);
   const [noteContent, setNoteContent] = useState("");
   const [attachment, setAttachment] = useState("");
   const [attachmentURL, setAttachmentURL] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
-    const fetchNote = async (noteId: string) => {
-      setIsLoading(true);
+    if (noteId) {
+      startTransition(async () => {
       const fetchURL = `${GATEWAY_URL}notes/${noteId}`;
 
       try {
@@ -27,21 +28,22 @@ const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
           setAttachmentURL(await getObjectUrl(data.attachment));
         }
       } catch (error) {
+        console.error(error);
+        setErrorMsg("Failed to load note. Redirecting...");
         // Navigate to 404 page, as noteId probably not present
         navigate("/404");
-      } finally {
-        setIsLoading(false);
       }
-    };
-    fetchNote(noteId || "");
+      });
+    }
   }, [noteId]);
 
   return (
     <PageContainer header={<HomeButton />}>
-      {isLoading ? (
+      {isPending ? (
         <Loading />
       ) : (
         <form>
+          {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
           <Form.Group controlId="content">
             <Form.Label>Note Content</Form.Label>
             <Form.Control
