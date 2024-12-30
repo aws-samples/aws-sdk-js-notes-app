@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, useTransition } from "react";;
+import React, { useState, FormEvent, useTransition } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { navigate, RouteComponentProps } from "@reach/router";
 import { GATEWAY_URL } from "../config";
@@ -26,20 +26,20 @@ const CreateNote = (props: RouteComponentProps) => {
       setErrorMsg(`File can't be bigger than ${MAX_FILE_SIZE / 1000000} MB`);
       return;
     }
-    startTransition(async() => {
-    const createNoteURL = `${GATEWAY_URL}notes`;
+    startTransition(async () => {
+      const createNoteURL = `${GATEWAY_URL}notes`;
 
-    try {
-      // @ts-ignore Argument of type 'undefined' is not assignable to parameter of type 'File'
-      const attachment = file ? await putObject(file) : undefined;
-      await fetch(createNoteURL, {
-        method: "POST",
-        body: JSON.stringify({ attachment, content: noteContent }),
-      });
-      navigate("/");
-    } catch (error) {
-      setErrorMsg(`${error.toString()} - ${createNoteURL} - ${noteContent}`);
-    } 
+      try {
+        // @ts-ignore Argument of type 'undefined' is not assignable to parameter of type 'File'
+        const attachment = file ? await putObject(file) : undefined;
+        await fetch(createNoteURL, {
+          method: "POST",
+          body: JSON.stringify({ attachment, content: noteContent }),
+        });
+        navigate("/");
+      } catch (error) {
+        setErrorMsg(`${error.toString()} - ${createNoteURL} - ${noteContent}`);
+      }
     });
   };
 
