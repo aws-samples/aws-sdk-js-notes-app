@@ -17,22 +17,20 @@ const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
   useEffect(() => {
     if (noteId) {
       startTransition(async () => {
-      const fetchURL = `${GATEWAY_URL}notes/${noteId}`;
+        const fetchURL = `${GATEWAY_URL}notes/${noteId}`;
 
-      try {
-        const response = await fetch(fetchURL);
-        const data = await response.json();
-        setNoteContent(data.content);
-        if (data.attachment) {
-          setAttachment(data.attachment);
-          setAttachmentURL(await getObjectUrl(data.attachment));
+        try {
+          const response = await fetch(fetchURL);
+          const data = await response.json();
+          setNoteContent(data.content);
+          if (data.attachment) {
+            setAttachment(data.attachment);
+            setAttachmentURL(await getObjectUrl(data.attachment));
+          }
+        } catch (error) {
+          // Navigate to 404 page, as noteId probably not present
+          navigate("/404");
         }
-      } catch (error) {
-        console.error(error);
-        setErrorMsg("Failed to load note. Redirecting...");
-        // Navigate to 404 page, as noteId probably not present
-        navigate("/404");
-      }
       });
     }
   }, [noteId]);

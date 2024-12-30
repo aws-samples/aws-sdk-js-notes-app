@@ -1,4 +1,4 @@
-import React, { useState , useTransition} from "react";
+import React, { useState, useTransition } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
 import { navigate } from "@reach/router";
@@ -15,17 +15,17 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
     startTransition(async () => {
       const deleteNoteURL = `${GATEWAY_URL}notes/${noteId}`;
 
-    try {
-      if (attachment) {
-        await deleteObject(attachment);
+      try {
+        if (attachment) {
+          await deleteObject(attachment);
+        }
+        await fetch(deleteNoteURL, {
+          method: "DELETE",
+        });
+        navigate("/");
+      } catch (error) {
+        setErrorMsg(`${error.toString()} - ${deleteNoteURL} - ${noteId}`);
       }
-      await fetch(deleteNoteURL, {
-        method: "DELETE",
-      });
-      navigate("/");
-    } catch (error) {
-      setErrorMsg(`${error.toString()} - ${deleteNoteURL} - ${noteId}`);
-    } 
     });
   };
 

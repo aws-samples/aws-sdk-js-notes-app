@@ -18,15 +18,15 @@ const ListNotes = (props: RouteComponentProps) => {
   useEffect(() => {
     const fetchNotes = () => {
       startTransition(async () => {
-      const fetchURL = `${GATEWAY_URL}notes`;
+        const fetchURL = `${GATEWAY_URL}notes`;
 
-      try {
-        const response = await fetch(fetchURL);
-        const data = await response.json();
-        setNotes(data);
-      } catch (error) {
-        setErrorMsg(`${error.toString()} - ${fetchURL}`);
-      } 
+        try {
+          const response = await fetch(fetchURL);
+          const data = await response.json();
+          setNotes(data);
+        } catch (error) {
+          setErrorMsg(`${error.toString()} - ${fetchURL}`);
+        }
       });
     };
     fetchNotes();

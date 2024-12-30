@@ -14,16 +14,16 @@ const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
       const { noteId, noteContent } = props;
       const updateNoteURL = `${GATEWAY_URL}notes/${noteId}`;
 
-    try {
-      await fetch(updateNoteURL, {
-        method: "PUT",
-        body: JSON.stringify({ content: noteContent }),
-      });
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-      setErrorMsg(`${error.toString()} - ${updateNoteURL} - ${noteContent}`);
-    } 
+      try {
+        await fetch(updateNoteURL, {
+          method: "PUT",
+          body: JSON.stringify({ content: noteContent }),
+        });
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+        setErrorMsg(`${error.toString()} - ${updateNoteURL} - ${noteContent}`);
+      }
     });
   };
 
