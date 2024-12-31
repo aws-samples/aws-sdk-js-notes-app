@@ -8,11 +8,11 @@ import { HomeButton, Loading, PageContainer } from "../components";
 
 const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
   const { noteId } = props;
+  const [isPending, startTransition] = useTransition();
   const [noteContent, setNoteContent] = useState("");
   const [attachment, setAttachment] = useState("");
   const [attachmentURL, setAttachmentURL] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [isPending, startTransition] = useTransition();
+
 
   useEffect(() => {
     if (noteId) {
@@ -41,7 +41,6 @@ const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
         <Loading />
       ) : (
         <form>
-          {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
           <Form.Group controlId="content">
             <Form.Label>Note Content</Form.Label>
             <Form.Control
