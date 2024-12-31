@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import { RouteComponentProps, navigate } from "@reach/router";
 import { Form, Card } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
@@ -8,37 +8,36 @@ import { HomeButton, Loading, PageContainer } from "../components";
 
 const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
   const { noteId } = props;
-  const [isLoading, setIsLoading] = useState(true);
+  const [isPending, startTransition] = useTransition();
   const [noteContent, setNoteContent] = useState("");
   const [attachment, setAttachment] = useState("");
   const [attachmentURL, setAttachmentURL] = useState("");
 
-  useEffect(() => {
-    const fetchNote = async (noteId: string) => {
-      setIsLoading(true);
-      const fetchURL = `${GATEWAY_URL}notes/${noteId}`;
 
-      try {
-        const response = await fetch(fetchURL);
-        const data = await response.json();
-        setNoteContent(data.content);
-        if (data.attachment) {
-          setAttachment(data.attachment);
-          setAttachmentURL(await getObjectUrl(data.attachment));
+  useEffect(() => {
+    if (noteId) {
+      startTransition(async () => {
+        const fetchURL = `${GATEWAY_URL}notes/${noteId}`;
+
+        try {
+          const response = await fetch(fetchURL);
+          const data = await response.json();
+          setNoteContent(data.content);
+          if (data.attachment) {
+            setAttachment(data.attachment);
+            setAttachmentURL(await getObjectUrl(data.attachment));
+          }
+        } catch (error) {
+          // Navigate to 404 page, as noteId probably not present
+          navigate("/404");
         }
-      } catch (error) {
-        // Navigate to 404 page, as noteId probably not present
-        navigate("/404");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchNote(noteId || "");
+      });
+    }
   }, [noteId]);
 
   return (
     <PageContainer header={<HomeButton />}>
-      {isLoading ? (
+      {isPending ? (
         <Loading />
       ) : (
         <form>
