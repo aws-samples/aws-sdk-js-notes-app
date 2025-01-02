@@ -26,8 +26,5 @@
   "lint-staged": {
     "*.{ts,js,md}": "prettier --write"
   },
-  "packageManager": "yarn@4.4.0",
-  "dependencies": {
-    "vite": "6.0.0"
-  }
+  "packageManager": "yarn@4.4.0"
 }
