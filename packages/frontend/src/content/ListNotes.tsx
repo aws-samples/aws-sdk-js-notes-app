@@ -1,5 +1,5 @@
 import React, { useState, useTransition, useEffect } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GATEWAY_URL } from "../config";
 import { Card, Alert, CardColumns, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";

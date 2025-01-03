@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter as  Router,Route ,Routes as ReactRoutes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes as ReactRoutes } from "react-router-dom";
 
 const ListNotes = lazy(() => import("./content/ListNotes"));
 const CreateNote = lazy(() => import("./content/CreateNote"));
@@ -12,7 +12,7 @@ const Routes = () => (
       <Router>
         <ReactRoutes>
           <Route path="/" element={<ListNotes />} />
-          <Route path="/note/new" element={<CreateNote />} />  
+          <Route path="/note/new" element={<CreateNote />} />
           <Route path="/notes/:noteId" element={<ShowNote />} />
           <Route path="*" element={<NotFound />} />
         </ReactRoutes>

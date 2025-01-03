@@ -14,7 +14,6 @@ const ShowNote = () => {
   const [attachment, setAttachment] = useState("");
   const [attachmentURL, setAttachmentURL] = useState("");
 
-
   useEffect(() => {
     if (noteId) {
       startTransition(async () => {
