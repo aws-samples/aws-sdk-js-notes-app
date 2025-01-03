@@ -1,5 +1,5 @@
 import React, { useState, useTransition, useEffect } from "react";
-import { Link, RouteComponentProps } from "@reach/router";
+import { Link } from "react-router-dom";
 import { GATEWAY_URL } from "../config";
 import { Card, Alert, CardColumns, Button } from "react-bootstrap";
 import { Loading, PageContainer } from "../components";
@@ -10,7 +10,7 @@ interface Note {
   attachment: boolean;
 }
 
-const ListNotes = (props: RouteComponentProps) => {
+const ListNotes = () => {
   const [isPending, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState("");
   const [notes, setNotes] = useState<Note[]>([]);

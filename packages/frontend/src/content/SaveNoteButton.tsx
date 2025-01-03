@@ -1,12 +1,13 @@
 import React, { useState, useTransition } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { ButtonSpinner } from "../components";
 
 const SaveNoteButton = (props: { noteId: string; noteContent: string }) => {
   const [isPending, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
   const handleSave = async (event: any) => {
     event.preventDefault();

@@ -1,6 +1,6 @@
 import React, { useState, FormEvent, useTransition } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { navigate, RouteComponentProps } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { GATEWAY_URL } from "../config";
 import { putObject } from "../libs";
 import { HomeButton, ButtonSpinner, PageContainer } from "../components";
@@ -9,7 +9,8 @@ import { PlayAudioButton } from "./PlayAudioButton";
 
 const MAX_FILE_SIZE = 2000000;
 
-const CreateNote = (props: RouteComponentProps) => {
+const CreateNote = () => {
+  const navigate = useNavigate();
   const [isPending, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState("");
   const [noteContent, setNoteContent] = useState("");

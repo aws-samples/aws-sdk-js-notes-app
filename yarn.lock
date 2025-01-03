@@ -131,10 +131,8 @@ __metadata:
     "@aws-sdk/s3-request-presigner": "npm:3.627.0"
     "@aws-sdk/util-create-request": "npm:3.622.0"
     "@aws-sdk/util-format-url": "npm:3.609.0"
-    "@reach/router": "npm:1.3.4"
     "@tsconfig/node20": "npm:^20.1.4"
     "@types/node": "npm:^18.11.18"
-    "@types/reach__router": "npm:1.3.6"
     "@types/react": "npm:^19.0.0"
     "@types/react-dom": "npm:^19.0.0"
     "@vitejs/plugin-react-refresh": "npm:1.3.6"
@@ -143,6 +141,7 @@ __metadata:
     react-bootstrap: "npm:1.4.0"
     react-bootstrap-icons: "npm:1.3.0"
     react-dom: "npm:19.0.0"
+    react-router-dom: "npm:7.1.1"
     typescript: "npm:~5.4.5"
     vite: "npm:6.0.7"
   languageName: unknown
@@ -1818,21 +1817,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/router@npm:1.3.4":
-  version: 1.3.4
-  resolution: "@reach/router@npm:1.3.4"
-  dependencies:
-    create-react-context: "npm:0.3.0"
-    invariant: "npm:^2.2.3"
-    prop-types: "npm:^15.6.1"
-    react-lifecycles-compat: "npm:^3.0.4"
-  peerDependencies:
-    react: 15.x || 16.x || 16.4.0-alpha.0911da3
-    react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
-  checksum: 10c0/083fcb658ae5cd0de2b7ebe56bbb8c1b4aa6ec035038d41916afcdd2f31ffd7ccdd6848f7ee8e53d562c31fc4c1b1953fd7007eb9d57daf65779f344ca5a5373
-  languageName: node
-  linkType: hard
-
 "@restart/context@npm:^2.1.4":
   version: 2.1.4
   resolution: "@restart/context@npm:2.1.4"
@@ -2628,17 +2612,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cookie@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@types/cookie@npm:0.6.0"
+  checksum: 10c0/5b326bd0188120fb32c0be086b141b1481fec9941b76ad537f9110e10d61ee2636beac145463319c71e4be67a17e85b81ca9e13ceb6e3bb63b93d16824d6c149
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:1.0.6":
   version: 1.0.6
   resolution: "@types/estree@npm:1.0.6"
   checksum: 10c0/cdfd751f6f9065442cd40957c07fd80361c962869aa853c1c2fd03e101af8b9389d8ff4955a43a6fcfa223dd387a089937f95be0f3eec21ca527039fd2d9859a
-  languageName: node
-  linkType: hard
-
-"@types/history@npm:*":
-  version: 4.7.11
-  resolution: "@types/history@npm:4.7.11"
-  checksum: 10c0/3facf37c2493d1f92b2e93a22cac7ea70b06351c2ab9aaceaa3c56aa6099fb63516f6c4ec1616deb5c56b4093c026a043ea2d3373e6c0644d55710364d02c934
   languageName: node
   linkType: hard
 
@@ -2672,16 +2656,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/reach__router@npm:1.3.6":
-  version: 1.3.6
-  resolution: "@types/reach__router@npm:1.3.6"
-  dependencies:
-    "@types/history": "npm:*"
-    "@types/react": "npm:*"
-  checksum: 10c0/518ea0ddbaca66fd8dd9297cd71aea9f1db5f1d326794b28db6aead6844139df78594dca4cb3c5b849877b885f6860f5ab44090fb5b73628a968537f55763dea
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:^19.0.0":
   version: 19.0.2
   resolution: "@types/react-dom@npm:19.0.2"
@@ -2700,7 +2674,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16.9.11, @types/react@npm:^19.0.0":
+"@types/react@npm:>=16.9.11, @types/react@npm:^19.0.0":
   version: 19.0.2
   resolution: "@types/react@npm:19.0.2"
   dependencies:
@@ -3086,6 +3060,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "cookie@npm:1.0.2"
+  checksum: 10c0/fd25fe79e8fbcfcaf6aa61cd081c55d144eeeba755206c058682257cb38c4bd6795c6620de3f064c740695bb65b7949ebb1db7a95e4636efb8357a335ad3f54b
+  languageName: node
+  linkType: hard
+
 "cosmiconfig@npm:^7.0.0":
   version: 7.1.0
   resolution: "cosmiconfig@npm:7.1.0"
@@ -3096,19 +3077,6 @@ __metadata:
     path-type: "npm:^4.0.0"
     yaml: "npm:^1.10.0"
   checksum: 10c0/b923ff6af581638128e5f074a5450ba12c0300b71302398ea38dbeabd33bbcaa0245ca9adbedfcf284a07da50f99ede5658c80bb3e39e2ce770a99d28a21ef03
-  languageName: node
-  linkType: hard
-
-"create-react-context@npm:0.3.0":
-  version: 0.3.0
-  resolution: "create-react-context@npm:0.3.0"
-  dependencies:
-    gud: "npm:^1.0.0"
-    warning: "npm:^4.0.3"
-  peerDependencies:
-    prop-types: ^15.0.0
-    react: ^0.14.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/3f9dfde23da59e3f748b5f1b06c7ff8cbf48095cf2d62212427195860f1ee4b2b0b475280c19592f7fffb9fd100fd739af687281d7c5c93806d519bf66f6dd86
   languageName: node
   linkType: hard
 
@@ -3623,13 +3591,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gud@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "gud@npm:1.0.0"
-  checksum: 10c0/a4db6edc18e2c4e3a22dc9e639e40a4e5650d53dae9cf384a96d5380dfa17ddda376cf6b7797a5c30d140d2532e5a69d167bdb70c2c151dd673253bac6b027f3
-  languageName: node
-  linkType: hard
-
 "has-flag@npm:^4.0.0":
   version: 4.0.0
   resolution: "has-flag@npm:4.0.0"
@@ -3732,7 +3693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.3, invariant@npm:^2.2.4":
+"invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -4491,7 +4452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -4607,6 +4568,36 @@ __metadata:
   version: 0.10.0
   resolution: "react-refresh@npm:0.10.0"
   checksum: 10c0/616e82bed3787bf4e55dcc1c9836f251b93523dd4b0ffb1c24c2dcf5d09f686fbf3cffc7d489cd7f12429f76ddf66eb431748fc07df56b18a888a7705cbc079e
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:7.1.1":
+  version: 7.1.1
+  resolution: "react-router-dom@npm:7.1.1"
+  dependencies:
+    react-router: "npm:7.1.1"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10c0/2dc5b231dd21aab21378c615b1e373149007d173e90db984e6f708b5ee4b28923b3cf88ce7d6f727be927829b37ba37c01436f9f7abeb84ba3d1bfc9ecd4bc72
+  languageName: node
+  linkType: hard
+
+"react-router@npm:7.1.1":
+  version: 7.1.1
+  resolution: "react-router@npm:7.1.1"
+  dependencies:
+    "@types/cookie": "npm:^0.6.0"
+    cookie: "npm:^1.0.1"
+    set-cookie-parser: "npm:^2.6.0"
+    turbo-stream: "npm:2.4.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10c0/39f4859670f286eb2eac29e5830c1f730405701fca0808e5db853ec05e54e55a848c764e10ffd14a7b9b3b2154a0d6449656d7f208b9b3e4b2af780e07bf57a8
   languageName: node
   linkType: hard
 
@@ -4823,6 +4814,13 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 10c0/88f33e148b210c153873cb08cfe1e281d518aaa9a666d4d148add6560db5cd3c582f3a08ccb91f38d5f379ead256da9931234ed122057f40bb5766e65e58adaf
+  languageName: node
+  linkType: hard
+
+"set-cookie-parser@npm:^2.6.0":
+  version: 2.7.1
+  resolution: "set-cookie-parser@npm:2.7.1"
+  checksum: 10c0/060c198c4c92547ac15988256f445eae523f57f2ceefeccf52d30d75dedf6bff22b9c26f756bd44e8e560d44ff4ab2130b178bd2e52ef5571bf7be3bd7632d9a
   languageName: node
   linkType: hard
 
@@ -5064,6 +5062,13 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
+  languageName: node
+  linkType: hard
+
+"turbo-stream@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-stream@npm:2.4.0"
+  checksum: 10c0/e68b2569f1f16e6e9633d090c6024b2ae9f0e97bfeacb572451ca3732e120ebbb546f3bc4afc717c46cb57b5aea6104e04ef497f9912eef6a7641e809518e98a
   languageName: node
   linkType: hard
 
