@@ -1,7 +1,7 @@
 import React, { useState, useTransition } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { deleteObject } from "../libs";
 import { ButtonSpinner } from "../components";
 
@@ -9,7 +9,7 @@ const DeleteNoteButton = (props: { noteId: string; attachment?: string }) => {
   const { noteId, attachment } = props;
   const [isDeleting, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState("");
-
+  const navigate = useNavigate();
   const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     startTransition(async () => {

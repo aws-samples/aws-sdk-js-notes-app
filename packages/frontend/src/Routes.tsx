@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Router } from "@reach/router";
+import { BrowserRouter as  Router,Route ,Routes as ReactRoutes} from "react-router-dom";
 
 const ListNotes = lazy(() => import("./content/ListNotes"));
 const CreateNote = lazy(() => import("./content/CreateNote"));
@@ -10,10 +10,12 @@ const Routes = () => (
   <div className="mt-md-4 d-flex flex-column justify-content-center">
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
-        <ListNotes path="/" />
-        <CreateNote path="/note/new" />
-        <ShowNote path="/notes/:noteId" />
-        <NotFound default />
+        <ReactRoutes>
+          <Route path="/" element={<ListNotes />} />
+          <Route path="/note/new" element={<CreateNote />} />  
+          <Route path="/notes/:noteId" element={<ShowNote />} />
+          <Route path="*" element={<NotFound />} />
+        </ReactRoutes>
       </Router>
     </Suspense>
   </div>

@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useTransition } from "react";
-import { RouteComponentProps, navigate } from "@reach/router";
+import { useParams, useNavigate } from "react-router-dom";
 import { Form, Card } from "react-bootstrap";
 import { GATEWAY_URL } from "../config";
 import { DeleteNoteButton, SaveNoteButton } from "./";
 import { getObjectUrl } from "../libs";
 import { HomeButton, Loading, PageContainer } from "../components";
 
-const ShowNote = (props: RouteComponentProps<{ noteId: string }>) => {
-  const { noteId } = props;
+const ShowNote = () => {
+  const { noteId } = useParams();
+  const navigate = useNavigate();
   const [isPending, startTransition] = useTransition();
   const [noteContent, setNoteContent] = useState("");
   const [attachment, setAttachment] = useState("");
