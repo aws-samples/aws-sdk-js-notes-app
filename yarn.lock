@@ -16,9 +16,9 @@ __metadata:
   linkType: hard
 
 "@aws-cdk/asset-awscli-v1@npm:^2.2.202":
-  version: 2.2.216
-  resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.216"
-  checksum: 10c0/2fbd72aa50093890ccf346533cb12ccd2ca1a25e2a7ea5a967bb0ba43bdb2e84c7dd7dcdbac1ef71fd228d6b1501f2f52d86ddc2b1f6d9439e7d7ca5ae2e6a78
+  version: 2.2.217
+  resolution: "@aws-cdk/asset-awscli-v1@npm:2.2.217"
+  checksum: 10c0/ea820318829558100303a1be22a3bd1b11dffa202214958176dc0ede18014fd039ec9b5b823d3228124c98fe287022faa86b2ede83043499ce2195d990e2bc06
   languageName: node
   linkType: hard
 
