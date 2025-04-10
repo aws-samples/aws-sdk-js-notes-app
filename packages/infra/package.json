@@ -17,7 +17,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "3.624.0",
     "@aws-sdk/lib-dynamodb": "3.624.0",
-    "aws-cdk-lib": "2.134.0",
+    "aws-cdk-lib": "2.189.0",
     "constructs": "10.3.0"
   }
 }
