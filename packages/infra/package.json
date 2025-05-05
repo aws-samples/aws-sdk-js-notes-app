@@ -11,13 +11,13 @@
     "@tsconfig/node20": "^20.1.4",
     "@types/aws-lambda": "^8.10.64",
     "@types/node": "^18.11.18",
-    "aws-cdk": "2.134.0",
+    "aws-cdk": "2.1013.0",
     "typescript": "~5.4.5"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "3.624.0",
     "@aws-sdk/lib-dynamodb": "3.624.0",
-    "aws-cdk-lib": "2.134.0",
-    "constructs": "10.3.0"
+    "aws-cdk-lib": "2.194.0",
+    "constructs": "10.4.2"
   }
 }
