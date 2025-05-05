@@ -22,5 +22,5 @@ jobs:
         run: yarn format
       - name: build
         run: |
-          yarn build:backend
+          yarn cdk synth
           yarn build:frontend
