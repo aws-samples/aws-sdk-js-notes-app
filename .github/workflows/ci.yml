@@ -23,4 +23,3 @@ jobs:
       - name: build
         run: |
           yarn cdk synth
-          yarn build:frontend
