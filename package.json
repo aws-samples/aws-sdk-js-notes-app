@@ -2,7 +2,6 @@
   "private": true,
   "workspaces": [
     "packages/infra",
-    "packages/backend",
     "packages/frontend"
   ],
   "scripts": {
