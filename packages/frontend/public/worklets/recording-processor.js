@@ -9,14 +9,17 @@ class RecordingProcessor extends AudioWorkletProcessor {
     this.numberOfChannels = 0;
 
     if (options && options.processorOptions) {
-      const { numberOfChannels, sampleRate, maxFrameCount } = options.processorOptions;
+      const { numberOfChannels, sampleRate, maxFrameCount } =
+        options.processorOptions;
 
       this.sampleRate = sampleRate;
       this.maxRecordingFrames = maxFrameCount;
       this.numberOfChannels = numberOfChannels;
     }
 
-    this._recordingBuffer = new Array(this.numberOfChannels).fill(new Float32Array(this.maxRecordingFrames));
+    this._recordingBuffer = new Array(this.numberOfChannels).fill(
+      new Float32Array(this.maxRecordingFrames)
+    );
 
     this.recordedFrames = 0;
     this.isRecording = false;
@@ -39,7 +42,8 @@ class RecordingProcessor extends AudioWorkletProcessor {
 
           // Copy data to recording buffer.
           if (this.isRecording) {
-            this._recordingBuffer[channel][sample + this.recordedFrames] = currentSample;
+            this._recordingBuffer[channel][sample + this.recordedFrames] =
+              currentSample;
           }
 
           // Pass data directly to output, unchanged.
