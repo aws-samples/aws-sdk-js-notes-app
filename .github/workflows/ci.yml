@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: corepack
+        run: npm i -g corepack
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "yarn"
+      - name: install
+        run: yarn
+      - name: format
+        run: yarn format
+      - name: build
+        run:
+            yarn build:backend
+            yarn build:frontend
